@@ -5,99 +5,111 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundapp">
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
+        <include layout="@layout/customappbar"></include>
+
+
 
         <LinearLayout
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="70dp"
+            android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/logo"
-                android:background="@drawable/logo"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginLeft="20dp"
-                />
-
-            <TextView
-                android:textColor="@color/black"
-                android:paddingLeft="60dp"
-                android:textSize="30dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="Gportal School" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginTop="50dp"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
             <Button
+                android:layout_margin="5dp"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:background="@drawable/custombutton"
                 android:id="@+id/RegisterTeacher"
                 android:text="Teacher"
-                android:layout_width="wrap_content"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"/>
 
             <Button
+                android:layout_margin="5dp"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:background="@drawable/custombutton"
                 android:layout_marginLeft="50dp"
                 android:text="Student"
-                android:layout_width="wrap_content"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"/>
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <TextView
-                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:id="@+id/viewcode"
+                android:textColor="@color/colorTertiary"
                 android:gravity="center"
                 android:text="View Code"
-                android:textSize="30dp"
+                android:textSize="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <ImageButton
-                android:background="@drawable/arrow"
-                android:layout_width="50dp"
-                android:layout_height="50dp"/>
+                android:layout_gravity="center"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/arrow" />
 
         </LinearLayout>
+
+        <ImageButton
+            android:layout_gravity="center"
+            android:background="@drawable/onloadimage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_gravity="center"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageButton
-                android:layout_gravity="center"
-                android:background="@drawable/logo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
             <TextView
-                android:layout_marginTop="50dp"
-                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:id="@+id/footertext"
+                android:layout_marginTop="30sp"
+                android:textColor="@color/colorPrimary"
                 android:textSize="30dp"
                 android:text="Register Your School"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:id="@+id/footertext2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Tap New Code to get a link you can send to people you want to see your grades wtih"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         </LinearLayout>
 

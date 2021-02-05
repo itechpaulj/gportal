@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,43 +13,54 @@
         android:background="@color/white"
         tools:context=".RegisterTeacher">
 
-
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
             <ImageButton
-                android:background="@drawable/arrowleft"
-                android:layout_width="50dp"
-                android:layout_height="50dp">
-            </ImageButton>
-
-            <TextView
-                android:textColor="@color/black"
-                android:textSize="25dp"
-                android:layout_marginLeft="20dp"
+                android:layout_margin="10dp"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Register"
-                android:layout_width="wrap_content"
+                android:background="@drawable/arrowleft"></ImageButton>
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </TextView>
+
+                <TextView
+                    android:layout_margin="10sp"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorSecondary"
+                    android:gravity="center"
+                    android:text="Register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
 
             <TextView
-                android:textColor="@color/black"
-                android:textSize="25dp"
-                android:layout_marginLeft="150dp"
-                android:layout_gravity="center"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="10dp"
+                android:textSize="20sp"
+                android:textColor="@color/colorTertiary"
+                android:gravity="center"
                 android:text="Login"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            </TextView>
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true" />
 
-        </LinearLayout>
+
+        </RelativeLayout>
+
+
+
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="50dp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -63,46 +75,43 @@
                 android:layout_gravity="center"
                 android:textAllCaps="false"
                 android:text="Upload Logo"
+                android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></Button>
 
-            <EditText
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:hint="Employee ID"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"></EditText>
 
-            <EditText
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:hint="School Code"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"></EditText>
+
+
 
             <EditText
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:layout_gravity="center"
                 android:hint="First Name"
-                android:layout_width="200dp"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
             <EditText
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:layout_gravity="center"
                 android:hint="Last Name"
-                android:layout_width="200dp"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
             <EditText
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:layout_gravity="center"
                 android:hint="Middle Name"
-                android:layout_width="200dp"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Employee ID"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"></EditText>
+
 
 
         </LinearLayout>
@@ -113,17 +122,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <RadioButton
+                android:textColor="@color/colorPrimary"
                 android:layout_marginRight="50dp"
                 android:layout_gravity="center"
                 android:text="Male"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></RadioButton>
             <RadioButton
+                android:textColor="@color/colorPrimary"
                 android:text="Female"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></RadioButton>
 
         </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="School Code"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"></EditText>
+        </LinearLayout>
+
 
 
         <Button

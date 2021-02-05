@@ -67,6 +67,22 @@
                 android:layout_height="wrap_content"></Button>
 
             <EditText
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Employee ID"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"></EditText>
+
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="School Code"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"></EditText>
+
+            <EditText
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:layout_gravity="center"
@@ -85,13 +101,6 @@
                 android:textColorHint="@color/black"
                 android:layout_gravity="center"
                 android:hint="Middle Name"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"></EditText>
-            <EditText
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:layout_gravity="center"
-                android:hint="Employee ID"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"></EditText>
 
@@ -115,13 +124,6 @@
                 android:layout_height="wrap_content"></RadioButton>
 
         </LinearLayout>
-        <EditText
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:layout_gravity="center"
-            android:hint="School Code"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"></EditText>
 
 
         <Button

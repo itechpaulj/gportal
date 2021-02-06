@@ -9,18 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GradePortalSchool">
-        <activity android:name=".RegisterTeacher2"></activity>
-        <activity android:name=".GradesAll" />
-        <activity android:name=".StudentRegister" />
-        <activity android:name=".RegisterTeacher" />
-        <activity android:name=".School" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".addsubject">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".addsection"></activity>
+        <activity android:name=".addprograms">
+        </activity>
+        <activity android:name=".addcollege" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

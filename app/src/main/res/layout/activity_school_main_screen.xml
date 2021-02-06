@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundapp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <include layout="@layout/customappbarwithprofile"></include>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="619dp"
+                android:layout_margin="20dp"
+                android:orientation="vertical">
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:outlineSpotShadowColor="@color/colorSecondary"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="15dp"
+                    app:cardUseCompatPadding="true">
+
+                    <TextView
+                        android:id="@+id/collegeTitleTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:text="COLLEGES"
+                        android:textColor="@color/colorSecondary"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/collegeCounterTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="260dp"
+                        android:layout_marginLeft="260dp"
+                        android:layout_marginTop="0dp"
+                        android:padding="5dp"
+                        android:text="10"
+                        android:textColor="@color/colorTertiary"
+                        android:textSize="30dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/collegeHintTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="40dp"
+                        android:text="number of college in your school"
+                        android:textColor="@color/white"
+                        android:textSize="10dp"
+                        android:textStyle="normal" />
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:outlineSpotShadowColor="@color/colorSecondary"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="15dp"
+                    app:cardUseCompatPadding="true">
+
+                    <TextView
+                        android:id="@+id/instructorTitleTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:text="TEACHERS"
+                        android:textColor="@color/colorSecondary"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/instructorCounterTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="260dp"
+                        android:layout_marginLeft="260dp"
+                        android:layout_marginTop="0dp"
+                        android:padding="5dp"
+                        android:text="10"
+                        android:textColor="@color/colorTertiary"
+                        android:textSize="30dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/instructorHintTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="40dp"
+                        android:text="number of teacher in your school"
+                        android:textColor="@color/white"
+                        android:textSize="10dp"
+                        android:textStyle="normal" />
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:outlineSpotShadowColor="@color/colorSecondary"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="15dp"
+                    app:cardUseCompatPadding="true">
+
+                    <TextView
+                        android:id="@+id/studentsTitleTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:text="STUDENTS"
+                        android:textColor="@color/colorSecondary"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/studentsCounterTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="260dp"
+                        android:layout_marginLeft="260dp"
+                        android:layout_marginTop="0dp"
+                        android:padding="5dp"
+                        android:text="10"
+                        android:textColor="@color/colorTertiary"
+                        android:textSize="30dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/studentsHintTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="40dp"
+                        android:text="number of student in your school"
+                        android:textColor="@color/white"
+                        android:textSize="10dp"
+                        android:textStyle="normal" />
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:outlineSpotShadowColor="@color/colorSecondary"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="15dp"
+                    app:cardUseCompatPadding="true">
+
+                    <TextView
+                        android:id="@+id/programTitleTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:text="PROGRAMS"
+                        android:textColor="@color/colorSecondary"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/programCounterTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="260dp"
+                        android:layout_marginLeft="260dp"
+                        android:layout_marginTop="0dp"
+                        android:padding="5dp"
+                        android:text="10"
+                        android:textColor="@color/colorTertiary"
+                        android:textSize="30dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/programHintTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="40dp"
+                        android:text="number of program offered"
+                        android:textColor="@color/white"
+                        android:textSize="10dp"
+                        android:textStyle="normal" />
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:outlineSpotShadowColor="@color/colorSecondary"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="15dp"
+                    app:cardUseCompatPadding="true">
+
+                    <TextView
+                        android:id="@+id/subjectsTitleTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:text="SUBJECTS"
+                        android:textColor="@color/colorSecondary"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/subjectsCounterTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="260dp"
+                        android:layout_marginLeft="260dp"
+                        android:layout_marginTop="0dp"
+                        android:padding="5dp"
+                        android:text="10"
+                        android:textColor="@color/colorTertiary"
+                        android:textSize="30dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/subjectsHintTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="40dp"
+                        android:text="number of subject in overall"
+                        android:textColor="@color/white"
+                        android:textSize="10dp"
+                        android:textStyle="normal" />
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:outlineSpotShadowColor="@color/colorSecondary"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="15dp"
+                    app:cardUseCompatPadding="true">
+
+                    <TextView
+                        android:id="@+id/sectionTitleTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:text="SECTIONS"
+                        android:textColor="@color/colorSecondary"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/sectionCounterTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="260dp"
+                        android:layout_marginLeft="260dp"
+                        android:layout_marginTop="0dp"
+                        android:padding="5dp"
+                        android:text="10"
+                        android:textColor="@color/colorTertiary"
+                        android:textSize="30dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/sectionHintTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="40dp"
+                        android:text="number of section in overall"
+                        android:textColor="@color/white"
+                        android:textSize="10dp"
+                        android:textStyle="normal" />
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:outlineSpotShadowColor="@color/colorSecondary"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="15dp"
+                    app:cardUseCompatPadding="true">
+
+                    <TextView
+                        android:id="@+id/ayTitleTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:text="Academic Year"
+                        android:textColor="@color/colorSecondary"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/ayCounterTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="260dp"
+                        android:layout_marginLeft="260dp"
+                        android:layout_marginTop="0dp"
+                        android:padding="5dp"
+                        android:text="10"
+                        android:textColor="@color/colorTertiary"
+                        android:textSize="30dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/ayHintTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="40dp"
+                        android:text="number of academic year added"
+                        android:textColor="@color/white"
+                        android:textSize="10dp"
+                        android:textStyle="normal" />
+
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+
+
+    </LinearLayout>
+
+
+</ScrollView>
+

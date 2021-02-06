@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".addsubject">
-    <include layout="@layout/toolbar4"/>
+
+    <include layout="@layout/toolbar4" />
 
     <LinearLayout
         android:gravity="center"

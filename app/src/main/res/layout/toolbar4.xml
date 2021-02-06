@@ -24,7 +24,7 @@
             android:textColor="@color/colorTertiary"
             android:layout_centerVertical="true"
             android:textSize="20sp"
-            android:text="Add Subject"/>
+            android:text="Name of Operation"/>
 
         <ImageView
             android:id="@+id/right_icon"

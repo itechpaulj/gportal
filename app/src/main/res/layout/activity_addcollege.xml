@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".addcollege">
-    <include layout="@layout/toolbar"/>
+    <include layout="@layout/toolbar4"/>
 
     <LinearLayout
         android:gravity="center"

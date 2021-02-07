@@ -6,9 +6,6 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -43,13 +40,6 @@ public class MainActivity extends AppCompatActivity {
         gportal.setTypeface(typeface);
         schoolbtn.setTypeface(typeface);
 
-        schoolbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent regschool = new Intent(MainActivity.this,School.class);
-                startActivity(regschool);
-            }
-        });
 
         viewcode.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,22 +49,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        StudentRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent studentReg = new Intent(MainActivity.this,StudentRegister.class);
-                startActivity(studentReg);
-            }
-        });
 
 
-        RegisterTeacher.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent teacherReg = new Intent(MainActivity.this,RegisterTeacher.class);
-                startActivity(teacherReg);
-            }
-        });
 
 
 

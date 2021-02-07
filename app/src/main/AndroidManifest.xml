@@ -21,6 +21,16 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        <activity android:name=".Login2"></activity>
+        <activity android:name=".Login" />
+        <activity android:name=".GradesAll2" />
+        <activity android:name=".StudentRegister2" />
+        <activity android:name=".RegisterTeacher2" />
+        <activity android:name=".GradesAll" />
+        <activity android:name=".StudentRegister" />
+        <activity android:name=".School" />
+        <activity android:name=".MainActivity">
+        </activity>
     </application>
 
 </manifest>

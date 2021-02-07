@@ -28,7 +28,7 @@ public class ViewCollege extends AppCompatActivity {
         collegesRecView = findViewById(R.id.collegesRecView);
 
         collegesRecView.setAdapter(adapter);
-        collegesRecView.setLayoutManager(new GridLayoutManager(this, 2));
+        collegesRecView.setLayoutManager(new LinearLayoutManager(this));
 
         //to add data in arraylist
         ArrayList<College> colleges = new ArrayList<>();

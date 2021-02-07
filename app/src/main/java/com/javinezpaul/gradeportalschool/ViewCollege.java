@@ -11,17 +11,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-public class School extends AppCompatActivity {
-
-    TextView Loginbtn;
-
-<<<<<<< Updated upstream
-=======
 import java.util.ArrayList;
 
 public class ViewCollege extends AppCompatActivity {
->>>>>>> Stashed changes
 
     //Declaration of components
     private RecyclerView collegesRecView;
@@ -30,20 +22,6 @@ public class ViewCollege extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-<<<<<<< Updated upstream
-        setContentView(R.layout.activity_school);
-
-
-       Loginbtn = findViewById(R.id.Loginbtn);
-
-        Loginbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent loginschool = new Intent(School.this,Login2.class);
-                startActivity(loginschool);
-            }
-        });
-=======
         setContentView(R.layout.activity_view_college);
 
         adapter = new CollegeRecViewAdapter(this);
@@ -67,6 +45,5 @@ public class ViewCollege extends AppCompatActivity {
 
     private void initViews() {
 
->>>>>>> Stashed changes
     }
 }

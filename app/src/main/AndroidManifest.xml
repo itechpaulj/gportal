@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.javinezpaul.gradeportalschool">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,38 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GradePortalSchool">
-<<<<<<< Updated upstream
-        <activity android:name=".Login2"></activity>
-        <activity android:name=".Login" />
-        <activity android:name=".GradesAll2" />
-        <activity android:name=".StudentRegister2" />
-        <activity android:name=".RegisterTeacher2" />
-        <activity android:name=".GradesAll" />
-        <activity android:name=".StudentRegister" />
-        <activity android:name=".RegisterTeacher" />
-        <activity android:name=".School" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".addsubject">
+        </activity>
+        <activity android:name=".addsection"></activity>
+        <activity android:name=".addprograms">
+        </activity>
+        <activity android:name=".addcollege" />
+        <activity android:name=".MainActivity" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-=======
-        <activity android:name=".ViewCollege"></activity>
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        <activity android:name=".addsubject"></activity>
-        <activity android:name=".addsection" />
-        <activity android:name=".addprograms">
-
-        </activity>
-        <activity android:name=".addcollege" />
-
->>>>>>> Stashed changes
     </application>
 
 </manifest>

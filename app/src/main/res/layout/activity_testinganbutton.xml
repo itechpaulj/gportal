@@ -43,4 +43,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"></Button>
 
+    <Button
+        android:textColor="@color/white"
+        android:id="@+id/viewPrograms"
+        android:text="View Programs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
+
 </LinearLayout>

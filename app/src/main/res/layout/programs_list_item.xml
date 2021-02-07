@@ -7,6 +7,7 @@
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp"
     android:layout_marginBottom="5dp"
+    android:layout_marginTop="0dp"
     android:outlineAmbientShadowColor="@color/colorPrimary"
     app:cardCornerRadius="10dp"
     app:cardElevation="5dp">
@@ -17,7 +18,7 @@
 
 
         <TextView
-            android:id="@+id/collegeCode"
+            android:id="@+id/progCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -25,21 +26,21 @@
             android:layout_marginRight="10dp"
             android:padding="5dp"
             android:shadowRadius="@android:integer/config_longAnimTime"
-            android:text="IIT"
+            android:text="BSED"
             android:textColor="@color/colorPrimary"
             android:textSize="30sp"
             android:textStyle="bold" />
 
 
         <TextView
-            android:id="@+id/collegeDesc"
+            android:id="@+id/progDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_margin="10dp"
-            android:layout_toRightOf="@+id/collegeCode"
-            android:text="Industrial and Information Technology"
-            android:textSize="15sp" />
+            android:layout_toRightOf="@+id/progCode"
+            android:text="2020-2021\nBS in Secondary Education\nMajor in English"
+            android:textSize="13sp" />
 
     </RelativeLayout>
 

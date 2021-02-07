@@ -10,7 +10,7 @@ import android.widget.Button;
 
 public class Testinganbutton extends AppCompatActivity {
 
-    Button patungko,pagumaoc,viewCollege, studRegister, schoolMainScreen;
+    Button patungko,pagumaoc,viewCollege, studRegister, schoolMainScreen, viewPrograms;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +23,7 @@ public class Testinganbutton extends AppCompatActivity {
         viewCollege = findViewById(R.id.viewCollege);
         studRegister = findViewById(R.id.studRegister);
         schoolMainScreen = findViewById(R.id.schoolMainScreen);
+        viewPrograms = findViewById(R.id.viewPrograms);
 
         patungko.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +63,14 @@ public class Testinganbutton extends AppCompatActivity {
             public void onClick(View v) {
                 Intent schoolMainScreen = new Intent(Testinganbutton.this , SchoolMainScreen.class);
                 startActivity(schoolMainScreen);
+            }
+        });
+
+        viewPrograms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewPrograms = new Intent(Testinganbutton.this , ViewPrograms.class);
+                startActivity(viewPrograms);
             }
         });
     }

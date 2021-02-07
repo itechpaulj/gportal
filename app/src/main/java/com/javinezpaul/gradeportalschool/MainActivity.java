@@ -42,13 +42,7 @@ public class MainActivity extends AppCompatActivity {
         schoolbtn.setTypeface(typeface);
 
 
-        viewcode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent viewgrades = new Intent(MainActivity.this,GradesAll.class);
-                startActivity(viewgrades);
-            }
-        });
+
 
         gportal.setOnClickListener(new View.OnClickListener() {
             @Override

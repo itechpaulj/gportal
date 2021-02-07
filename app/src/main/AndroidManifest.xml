@@ -19,6 +19,23 @@
         </activity>
         <activity android:name=".addsection" />
         <activity android:name=".addcollege" />
+        <activity android:name=".addprograms" />
+        <activity android:name=".addsubject" />
+        <activity android:name=".GradesAll" />
+        <activity android:name=".GradesAll2" />
+        <activity android:name=".Login" />
+        <activity android:name=".RegisterTeacher" />
+        <activity android:name=".RegisterTeacher2" />
+        <activity android:name=".School" />
+        <activity android:name=".SchoolMainScreen" />
+        <activity android:name=".StudentRegister" />
+        <activity android:name=".StudentRegister2" />
+        <activity android:name=".TeacherDrawer" />
+        <activity android:name=".TeacherMainScreen" />
+        <activity android:name=".TeacherSubject" />
+        <activity android:name=".TeacherSubjects" />
+        <activity android:name=".ViewCollege" />
+
     </application>
 
 </manifest>

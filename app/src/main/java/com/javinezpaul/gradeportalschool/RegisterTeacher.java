@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class RegisterTeacher extends AppCompatActivity {
 
-    Button regBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,13 +17,6 @@ public class RegisterTeacher extends AppCompatActivity {
         setContentView(R.layout.activity_register_teacher);
 
 
-        regBtn = findViewById(R.id.regBtn);
-        regBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent regteach = new Intent(RegisterTeacher.this , RegisterTeacher2.class);
-                startActivity(regteach);
-            }
-        });
+
     }
 }

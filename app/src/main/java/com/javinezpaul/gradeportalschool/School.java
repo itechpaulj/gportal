@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class School extends AppCompatActivity {
 
-    TextView Loginbtn;
+
 
 
     @Override
@@ -18,15 +18,7 @@ public class School extends AppCompatActivity {
         setContentView(R.layout.activity_school);
 
 
-        Loginbtn = findViewById(R.id.Loginbtn);
 
-        Loginbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent loginschool = new Intent(School.this, Login2.class);
-                startActivity(loginschool);
-            }
-        });
 
     }
 }

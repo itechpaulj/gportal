@@ -24,7 +24,7 @@ public class Testinganbutton extends AppCompatActivity {
         patungko.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent patungko = new Intent(Testinganbutton.this , Login.class);
+                Intent patungko = new Intent(Testinganbutton.this , GradesAll.class);
                 startActivity(patungko);
             }
         });
@@ -33,7 +33,7 @@ public class Testinganbutton extends AppCompatActivity {
         pagumaoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent pagumaoc = new Intent(Testinganbutton.this , Login2.class);
+                Intent pagumaoc = new Intent(Testinganbutton.this , School.class);
                 startActivity(pagumaoc);
             }
         });

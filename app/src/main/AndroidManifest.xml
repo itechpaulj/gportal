@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GradePortalSchool">
-        <activity android:name=".RegisterTeacher2"></activity>
+        <activity android:name=".Login2"></activity>
+        <activity android:name=".Login" />
+        <activity android:name=".GradesAll2" />
+        <activity android:name=".StudentRegister2" />
+        <activity android:name=".RegisterTeacher2" />
         <activity android:name=".GradesAll" />
         <activity android:name=".StudentRegister" />
         <activity android:name=".RegisterTeacher" />

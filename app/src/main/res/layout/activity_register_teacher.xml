@@ -18,6 +18,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
+
                 android:layout_margin="10dp"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
@@ -42,15 +43,18 @@
 
 
             <TextView
-                android:layout_alignParentEnd="true"
-                android:layout_margin="10dp"
-                android:textSize="20sp"
-                android:textColor="@color/colorTertiary"
-                android:gravity="center"
-                android:text="Login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true" />
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="Login"
+                android:textColor="@color/colorTertiary"
+                android:textSize="15sp" />
 
 
         </RelativeLayout>
@@ -60,57 +64,74 @@
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <ImageView
                 android:layout_gravity="center"
-                android:background="@drawable/logo"
-                android:layout_width="150dp"
-                android:layout_height="150dp"></ImageView>
+                android:background="@drawable/profile"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"></ImageView>
 
             <Button
                 android:layout_gravity="center"
                 android:textAllCaps="false"
-                android:text="Upload Logo"
+                android:text="Upload Photo"
                 android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></Button>
 
-
-
-
-
             <EditText
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:layout_gravity="center"
+                android:background="@drawable/cardrectangle"
                 android:hint="First Name"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"></EditText>
-            <EditText
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
+                android:layout_marginTop="20dp"
+                android:textSize="15dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
                 android:layout_gravity="center"
+                android:layout_width="300dp"
+                android:layout_height="40dp"></EditText>
+
+            <EditText
                 android:hint="Last Name"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"></EditText>
-            <EditText
+                android:layout_marginTop="20dp"
+                android:background="@drawable/inputcorner"
+                android:textSize="15dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"
+                android:textColorHint="@color/colorSecondary"
                 android:layout_gravity="center"
+                android:layout_width="300dp"
+                android:layout_height="40dp"></EditText>
+
+
+
+            <EditText
                 android:hint="Middle Name"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"></EditText>
-            <EditText
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:hint="Employee ID"
+
+                android:layout_marginTop="20dp"
+                android:background="@drawable/inputcorner"
+                android:textSize="15dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"></EditText>
+                android:textColorHint="@color/colorSecondary"
+                android:layout_gravity="center"
+                android:layout_width="300dp"
+                android:layout_height="40dp"></EditText>
+
+            <EditText
+                android:hint="Employee ID"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/inputcorner"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/colorSecondary"
+                android:layout_gravity="center"
+                android:layout_width="300dp"
+                android:layout_height="40dp"></EditText>
+
+
+
 
 
 
@@ -122,44 +143,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <RadioButton
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/colorSecondary"
                 android:layout_marginRight="50dp"
                 android:layout_gravity="center"
                 android:text="Male"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></RadioButton>
             <RadioButton
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/colorSecondary"
                 android:text="Female"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></RadioButton>
 
         </LinearLayout>
-        <LinearLayout
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <EditText
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:hint="School Code"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"></EditText>
-        </LinearLayout>
 
 
 
         <Button
+            android:textColor="@color/white"
+            android:background="@drawable/custombutton"
             android:id="@+id/regBtn"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
-            android:layout_gravity="right"
-            android:textAllCaps="false"
-            android:text="Next"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Button>
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            android:text="Next"
+            android:textAllCaps="false"></Button>
 
 
 

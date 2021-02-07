@@ -9,18 +9,29 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class RegisterTeacher2 extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    Spinner spinner1,spinner2,spinner3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_teacher2);
 
-        Spinner spinnersample = findViewById(R.id.spinnersample);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.SpinnerValue,android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnersample.setAdapter(adapter);
-        spinnersample.setOnItemSelectedListener(this);
+        spinner1 = findViewById(R.id.spinnersample);
+
+
+        String[]  value = {"College","College","College"};
+        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(value));
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,R.layout.style_spinner,arrayList);
+        spinner1.setAdapter(arrayAdapter);
+
+
+
+
     }
 
     @Override

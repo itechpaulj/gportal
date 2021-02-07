@@ -35,6 +35,7 @@
                 android:layout_height="wrap_content"/>
 
             <Button
+                android:id="@+id/StudentRegister"
                 android:layout_margin="5dp"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
@@ -53,14 +54,15 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:layout_gravity="center"
+                android:layout_margin="10dp"
                 android:id="@+id/viewcode"
-                android:textColor="@color/colorTertiary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:gravity="center"
                 android:text="View Code"
-                android:textSize="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:textColor="@color/colorTertiary"
+                android:textSize="20dp" />
 
             <ImageButton
                 android:layout_gravity="center"
@@ -71,6 +73,7 @@
         </LinearLayout>
 
         <ImageButton
+            android:layout_marginTop="10dp"
             android:layout_gravity="center"
             android:background="@drawable/onloadimage"
             android:layout_width="wrap_content"

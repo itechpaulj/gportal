@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".RegisterTeacher2">
+    tools:context=".StudentRegister2">
 
 
 
@@ -77,6 +77,25 @@
                 android:layout_height="50dp">
             </Spinner>
 
+            <Spinner
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center"
+                android:background="@drawable/style_spinner"
+                android:gravity="center"
+                android:id="@+id/spinnersample2"
+                android:layout_width="300dp"
+                android:layout_height="50dp">
+            </Spinner>
+            <Spinner
+
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center"
+                android:background="@drawable/style_spinner"
+                android:gravity="center"
+                android:id="@+id/spinnersample3"
+                android:layout_width="300dp"
+                android:layout_height="50dp">
+            </Spinner>
 
             <Button
                 android:layout_marginRight="20dp"

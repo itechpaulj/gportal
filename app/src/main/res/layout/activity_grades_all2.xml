@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".GradesAll">
+    android:background="#f2f2f2"
+    tools:context=".GradesAll2">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,6 +14,7 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -43,7 +44,6 @@
 
 
             <TextView
-                android:id="@+id/viewallgrade"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -53,17 +53,19 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:text="All"
+                android:text="Comment"
                 android:textColor="@color/colorTertiary"
                 android:textSize="15sp" />
 
 
         </RelativeLayout>
         <LinearLayout
+            android:background="@drawable/backgroundapp"
+            android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:gravity="center"
             android:orientation="vertical"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <ImageView
@@ -80,72 +82,72 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
             </TextView>
+            <TextView
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:text="Program"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
         </LinearLayout>
 
         <LinearLayout
-            android:gravity="center"
+           android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
                 android:textStyle="bold"
+                android:padding="10dp"
                 android:textColor="@color/colorPrimary"
-                android:layout_margin="5dp"
-                android:text="Section"
-                android:textSize="20dp"
+                android:text="2021"
+                android:textSize="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
             </TextView>
-            <TextView
-                android:layout_margin="5dp"
-                android:background="@color/colorSecondary"
-            android:layout_width="2dp"
-            android:layout_height="match_parent"></TextView>
             <TextView
                 android:textStyle="bold"
+                android:padding="10dp"
                 android:textColor="@color/colorPrimary"
-                android:layout_margin="5dp"
-                android:text="Academic Year"
-                android:textSize="20dp"
+                android:text="2022"
+                android:textSize="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
             </TextView>
-            <TextView
-                android:layout_margin="5dp"
-                android:background="@color/colorSecondary"
-                android:layout_width="2dp"
-                android:layout_height="match_parent"></TextView>
-            <TextView
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"
-                android:layout_margin="5dp"
-                android:text="Program"
-                android:textSize="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            </TextView>
-
 
         </LinearLayout>
+        <TextView
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:layout_margin="5dp"
+            android:text="First Sem"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
 
         <LinearLayout
-            android:layout_marginTop="50dp"
-            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:background="@drawable/backgroundapp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:gravity="center">
 
             <LinearLayout
-                android:layout_width="150dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
                     android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:text="Subjects"
-                    android:textColor="@color/colorPrimary"
                     android:textSize="15dp"></TextView>
 
                 <TextView
@@ -184,18 +186,19 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="150dp"
+
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="right"
                 android:orientation="vertical">
 
                 <TextView
                     android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:text="Grades"
-                    android:textColor="@color/colorPrimary"
                     android:textSize="15dp"></TextView>
 
                 <TextView
@@ -235,19 +238,18 @@
 
         </LinearLayout>
 
-        <TextView
-            android:layout_marginTop="10dp"
-            android:background="@color/colorSecondary"
-            android:layout_width="match_parent"
-            android:layout_height="2dp">
-        </TextView>
+
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:background="@drawable/backgroundapp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center">
 
             <LinearLayout
+
                 android:layout_marginLeft="50dp"
                 android:gravity="right"
                 android:layout_width="200dp"
@@ -290,19 +292,23 @@
                     android:text="Subject Earned:"
                     android:textSize="15dp"></TextView>
 
+
+
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="left"
                 android:orientation="vertical">
 
                 <TextView
+                    android:textColor="@color/colorPrimary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:text="1.0"
-                    android:textColor="@color/colorPrimary"
                     android:textSize="15dp"></TextView>
 
                 <TextView
@@ -328,14 +334,46 @@
                     android:layout_margin="5dp"
                     android:text="1.90"
                     android:textSize="15dp"></TextView>
-
-
 
             </LinearLayout>
 
 
         </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <TextView
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:layout_margin="5dp"
+                android:text="2021"
+                android:textSize="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+            <TextView
+
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:layout_margin="5dp"
+                android:text="2022"
+                android:textSize="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+        </LinearLayout>
+        <TextView
+            android:layout_gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:text="First Sem"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
 
 
 

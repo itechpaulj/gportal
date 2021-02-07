@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class GradesAll extends AppCompatActivity {
+class GradesAll extends AppCompatActivity {
     TextView viewallgrade;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

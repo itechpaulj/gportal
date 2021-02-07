@@ -14,16 +14,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <include layout="@layout/customappbar"></include>
-        <Button
-            android:layout_margin="5dp"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:background="@drawable/custombutton"
-            android:id="@+id/testingbutton"
-            android:text="dito kayo mag testing"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"/>
-
 
 
         <LinearLayout

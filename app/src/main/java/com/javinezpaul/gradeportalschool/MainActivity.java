@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.lang.reflect.Type;
 
 public class MainActivity extends AppCompatActivity {
-    Button RegisterTeacher,StudentRegister,testingbutton;
+    Button RegisterTeacher,StudentRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         TextView footertext2 =(TextView)findViewById(R.id.footertext2);
         TextView gportal = (TextView)findViewById(R.id.gportal);
         TextView schoolbtn = (TextView)findViewById(R.id.schoolbtn);
-        testingbutton = findViewById(R.id.testingbutton);
+
 
         footertext.setTypeface(typeface);
         footertext2.setTypeface(typeface);
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        testingbutton.setOnClickListener(new View.OnClickListener() {
+        gportal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent testing = new Intent(MainActivity.this,Testinganbutton.class);

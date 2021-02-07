@@ -9,6 +9,15 @@
     android:orientation="horizontal">
 
     <Button
+        android:textColor="@color/white"
+        android:id="@+id/patungko"
+        android:text="pa tungko"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
+
+    <Button
+        android:textColor="@color/white"
+        android:id="@+id/pagumaoc"
         android:text="pa tungko"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"></Button>

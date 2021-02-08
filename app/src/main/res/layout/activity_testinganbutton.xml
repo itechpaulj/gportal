@@ -79,4 +79,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"></Button>
 
+    <Button
+        android:textColor="@color/white"
+        android:id="@+id/addcollege"
+        android:text="Add College"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
+
+    <Button
+        android:textColor="@color/white"
+        android:id="@+id/addprograms"
+        android:text="Add Programs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
+
+     <Button
+        android:textColor="@color/white"
+        android:id="@+id/addsection"
+        android:text="Add Section"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
+
+     <Button
+        android:textColor="@color/white"
+        android:id="@+id/addsubject"
+        android:text="Add Subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
+
+
+
 </LinearLayout>

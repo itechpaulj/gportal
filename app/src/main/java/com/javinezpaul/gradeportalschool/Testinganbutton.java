@@ -16,7 +16,9 @@ public class Testinganbutton extends AppCompatActivity {
             studRegister, schoolMainScreen,
             viewPrograms, viewSections,
             viewSubjects, viewAy,
-			addSchool;
+			addSchool, addcollege,
+            addprograms, addsection,
+            addsubject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,10 @@ public class Testinganbutton extends AppCompatActivity {
         viewSections = findViewById(R.id.viewSections);
         viewSubjects = findViewById(R.id.viewSubjects);
         viewAy = findViewById(R.id.viewAcadYear);
+        addcollege = findViewById(R.id.addcollege);
+        addprograms = findViewById(R.id.addprograms);
+        addsection = findViewById(R.id.addsection);
+        addsubject = findViewById(R.id.addsubject);
 
 
 
@@ -125,6 +131,41 @@ public class Testinganbutton extends AppCompatActivity {
 
             }
         });
+
+		addcollege.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addcollege = new Intent(Testinganbutton.this , addcollege.class);
+                startActivity(addcollege);
+
+            }
+        });
+        addprograms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addprograms = new Intent(Testinganbutton.this , addprograms.class);
+                startActivity(addprograms);
+
+            }
+        });
+		addsection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addsection = new Intent(Testinganbutton.this , addsection.class);
+                startActivity(addsection);
+
+            }
+        });
+
+        addsubject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addsubject = new Intent(Testinganbutton.this , addsubject.class);
+                startActivity(addsubject);
+
+            }
+        });
+
 
         
     }

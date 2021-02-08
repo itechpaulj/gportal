@@ -54,7 +54,7 @@ import java.util.ArrayList;
  *      inside onCreateViewHolder(), create an instance of ViewHolder and return that
  *          write, View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.colleges_list_item, parent, false);
  *                  return new ViewHolder(view);
- *       declare, private static final String  TAG = "CollegeRecViewAdapter"
+ *       declare, private static final String  TAG = "CollegeRecViewAdapter" inside CollegeRecViewAdapter
  *      inside onBindViewHolder(), write, Log.d(TAG, "onBindViewHolder: Called "); to check that ViewHolder has been called.
  *          after Log.d, set the value for collegeCode, collegeDesc by settext to layout
  *              write, holder.code.setText(colleges.get(position).getCode());

@@ -14,12 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class SectionRecViewAdapter extends RecyclerView.Adapter<SectionRecViewAdapter.ViewHolder> {
+public class SectionRecViewAdapter extends RecyclerView.Adapter<SectionRecViewAdapter.ViewHolder>{
+    private static final String  TAG = "SectionRecViewAdapter";
 
-    private static final String TAG = "SectionRecViewAdapter";
-
-     private ArrayList<Section> sections = new ArrayList<>();
-     private Context mContext;
+    ArrayList<Section> sections=new ArrayList<>();
+    private Context mContext;
 
     public SectionRecViewAdapter(Context mContext) {
         this.mContext = mContext;
@@ -28,17 +27,15 @@ public class SectionRecViewAdapter extends RecyclerView.Adapter<SectionRecViewAd
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.programs_list_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.sections_list_item, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: Called ");
-
         holder.code.setText(sections.get(position).getCode());
-        holder.details.setText(sections.get(position).getProgramid() + " Please select progrcode by progid" );
-
+        holder.desc.setText(sections.get(position).getProgramid());
         /** Glide
          * To show image from internet to ImageView
          * Glide.with(mContext)
@@ -62,21 +59,22 @@ public class SectionRecViewAdapter extends RecyclerView.Adapter<SectionRecViewAd
         return sections.size();
     }
 
-    public void setPrograms(ArrayList<Section> sections) {
+    public void setSections(ArrayList<Section> sections) {
         this.sections = sections;
         notifyDataSetChanged();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         private CardView parent;
-        private TextView code, details;
+        private TextView code, desc;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            parent = itemView.findViewById(R.id.parent);
+            parent=itemView.findViewById(R.id.parent);
             code = itemView.findViewById(R.id.secCode);
-            details = itemView.findViewById(R.id.secDetails);
+            desc = itemView.findViewById(R.id.secDetails);
+
         }
     }
 }

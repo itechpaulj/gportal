@@ -18,7 +18,7 @@ public class ViewSections extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_sections);
 
-        sectionsRecView = findViewById(R.id.programsRecView);
+        sectionsRecView = findViewById(R.id.sectionsRecView);
         adapter = new SectionRecViewAdapter(this);
 
         sectionsRecView.setAdapter(adapter);
@@ -30,6 +30,6 @@ public class ViewSections extends AppCompatActivity {
         sections.add(new Section("3", "BA2A", "2"));
         sections.add(new Section("4", "BSED4A", "3"));
 
-        adapter.setPrograms(sections);
+        adapter.setSections(sections);
     }
 }

@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Base64;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,6 +34,8 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class School extends AppCompatActivity {
 
@@ -94,43 +97,63 @@ make Toast for debugging result if success
         hasRegisterSchool.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 hasProcessRegisterSchool();
             }
 
             private void hasProcessRegisterSchool() {
-                RequestQueue requestQueue = Volley.newRequestQueue(School.this);
-                String localUrl = "http://jeepcard.net/gportal/addSchool.php";
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, localUrl, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Toast.makeText(getApplicationContext(), "success", Toast.LENGTH_LONG).show();
+                String regExpression = "^[\\\\w\\\\.-]+@([\\\\w\\\\-]+\\\\.)+[A-Z]{2,4}$";
+                String post_input_school_name = (String) hasinputSchoolName.getText().toString();
+                String post_input_school_address = (String) hasinputAddress.getText().toString();
+                String post_input_school_email = (String) hasinputEmail.getText().toString();
+                String post_input_school_password = (String) hasinputPassword.getText().toString();
+                if(post_input_school_name.isEmpty()){
+                    Toast.makeText(getApplicationContext(),"Please Input School Name",Toast.LENGTH_LONG).show();
+                }
+                else if(post_input_school_address.isEmpty()){
+                    Toast.makeText(getApplicationContext(),"Please Input Address",Toast.LENGTH_LONG).show();
+                }
+                else if(!Patterns.EMAIL_ADDRESS.matcher(post_input_school_email).matches() && !post_input_school_email.isEmpty()){
+                    Toast.makeText(getApplicationContext(),"Please Input Email",Toast.LENGTH_LONG).show();
+                }
+                else if(post_input_school_password.isEmpty()){
+                    Toast.makeText(getApplicationContext(),"Please Input Your Password",Toast.LENGTH_LONG).show();
+                }
+                else{
+                    RequestQueue requestQueue = Volley.newRequestQueue(School.this);
+                    String localUrl = "http://jeepcard.net/gportal/addSchool.php";
 
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(),"Please fill in the form",Toast.LENGTH_LONG).show();
-                    }
-                }){
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String,String> params = new HashMap<>();
-                        //note $_POST Request params.put($_POST,string)
-                        String imageData = imageToString(bitmap);
-                        String post_input_school_name = (String) hasinputSchoolName.getText().toString();
-                        String post_input_school_address = (String) hasinputAddress.getText().toString();
-                        String post_input_school_email = (String) hasinputEmail.getText().toString();
-                        String post_input_school_password = (String) hasinputPassword.getText().toString();
-                        params.put("schoolname",post_input_school_name);
-                        params.put("schooladdress",post_input_school_address);
-                        params.put("schoolemail",post_input_school_email);
-                        params.put("schoolpassword",post_input_school_password);
-                        params.put("image",imageData);
-                        return params;
-                    }
-                };
-                requestQueue.add(stringRequest);
-            }
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, localUrl, new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            Toast.makeText(getApplicationContext(), "success", Toast.LENGTH_LONG).show();
+
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(getApplicationContext(),"Please Complete Registration Form",Toast.LENGTH_LONG).show();
+                        }
+                    }){
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String,String> params = new HashMap<>();
+                            //note $_POST Request params.put($_POST,string)
+                            String imageData = imageToString(bitmap);
+
+                            params.put("schoolname",post_input_school_name);
+                            params.put("schooladdress",post_input_school_address);
+                            params.put("schoolemail",post_input_school_email);
+                            params.put("schoolpassword",post_input_school_password);
+                            params.put("image",imageData);
+                            return params;
+
+                        }
+                    };
+                    requestQueue.add(stringRequest);
+                }
+
+            }//hasProcessRegisterSchool
         });
         //{end}Register Button setOnclick
 

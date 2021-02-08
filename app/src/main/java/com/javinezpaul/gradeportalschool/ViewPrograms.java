@@ -4,14 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.net.LinkAddress;
 import android.os.Bundle;
 
 import java.util.ArrayList;
 
 public class ViewPrograms extends AppCompatActivity {
 
-    private RecyclerView progaramsRecView;
+    private RecyclerView programsRecView;
     private ProgramRecViewAdapter adapter;
 
     @Override
@@ -19,11 +18,11 @@ public class ViewPrograms extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_programs);
 
-        progaramsRecView = findViewById(R.id.programsRecView);
+        programsRecView = findViewById(R.id.programsRecView);
         adapter = new ProgramRecViewAdapter(this);
 
-        progaramsRecView.setAdapter(adapter);
-        progaramsRecView.setLayoutManager(new LinearLayoutManager(this));
+        programsRecView.setAdapter(adapter);
+        programsRecView.setLayoutManager(new LinearLayoutManager(this));
 
         ArrayList<Program> programs = new ArrayList<>();
         programs.add(new Program(1, "BSED", "BS in Secondary Education", "Major in English", "1", "2020", "2021"));

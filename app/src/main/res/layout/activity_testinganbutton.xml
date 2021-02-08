@@ -57,6 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"></Button>
 
+
     <Button
         android:textColor="@color/white"
         android:id="@+id/viewSubjects"
@@ -70,4 +71,12 @@
         android:text="View AY"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:textColor="@color/white"
+        android:id="@+id/addSchool"
+        android:text="Add School"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
+
 </LinearLayout>

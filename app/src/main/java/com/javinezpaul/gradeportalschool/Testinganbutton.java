@@ -10,14 +10,19 @@ import android.widget.Button;
 
 public class Testinganbutton extends AppCompatActivity {
 
-    Button patungko,pagumaoc,viewCollege, studRegister, schoolMainScreen, viewPrograms, viewSections;
+    Button patungko,pagumaoc,viewCollege, studRegister, schoolMainScreen, viewPrograms, viewSections,addSchool;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_testinganbutton);
 
-
-
+        /*
+        id ni paul javinez
+         */
+        addSchool = (Button) findViewById(R.id.addSchool);
+        /*
+        id ni paul javinez
+         */
         patungko = findViewById(R.id.patungko);
         pagumaoc = findViewById(R.id.pagumaoc);
         viewCollege = findViewById(R.id.viewCollege);
@@ -25,6 +30,8 @@ public class Testinganbutton extends AppCompatActivity {
         schoolMainScreen = findViewById(R.id.schoolMainScreen);
         viewPrograms = findViewById(R.id.viewPrograms);
         viewSections = findViewById(R.id.viewSections);
+
+
 
         patungko.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +87,14 @@ public class Testinganbutton extends AppCompatActivity {
             public void onClick(View v) {
                 Intent viewSections = new Intent(Testinganbutton.this , ViewSections.class);
                 startActivity(viewSections);
+            }
+        });
+
+        addSchool.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addSchool = new Intent(Testinganbutton.this , School.class);
+                startActivity(addSchool);
             }
         });
     }

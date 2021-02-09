@@ -52,7 +52,7 @@
                         android:layout_marginLeft="260dp"
                         android:layout_marginTop="0dp"
                         android:padding="5dp"
-                        android:text="10"
+                        android:text="0"
                         android:textColor="@color/colorTertiary"
                         android:textSize="30dp"
                         android:textStyle="bold" />
@@ -97,7 +97,7 @@
                         android:layout_marginLeft="260dp"
                         android:layout_marginTop="0dp"
                         android:padding="5dp"
-                        android:text="10"
+                        android:text="0"
                         android:textColor="@color/colorTertiary"
                         android:textSize="30dp"
                         android:textStyle="bold" />
@@ -142,7 +142,7 @@
                         android:layout_marginLeft="260dp"
                         android:layout_marginTop="0dp"
                         android:padding="5dp"
-                        android:text="10"
+                        android:text="0"
                         android:textColor="@color/colorTertiary"
                         android:textSize="30dp"
                         android:textStyle="bold" />
@@ -187,7 +187,7 @@
                         android:layout_marginLeft="260dp"
                         android:layout_marginTop="0dp"
                         android:padding="5dp"
-                        android:text="10"
+                        android:text="0"
                         android:textColor="@color/colorTertiary"
                         android:textSize="30dp"
                         android:textStyle="bold" />
@@ -232,7 +232,7 @@
                         android:layout_marginLeft="260dp"
                         android:layout_marginTop="0dp"
                         android:padding="5dp"
-                        android:text="10"
+                        android:text="0"
                         android:textColor="@color/colorTertiary"
                         android:textSize="30dp"
                         android:textStyle="bold" />
@@ -277,7 +277,7 @@
                         android:layout_marginLeft="260dp"
                         android:layout_marginTop="0dp"
                         android:padding="5dp"
-                        android:text="10"
+                        android:text="0"
                         android:textColor="@color/colorTertiary"
                         android:textSize="30dp"
                         android:textStyle="bold" />
@@ -322,7 +322,7 @@
                         android:layout_marginLeft="260dp"
                         android:layout_marginTop="0dp"
                         android:padding="5dp"
-                        android:text="10"
+                        android:text="0"
                         android:textColor="@color/colorTertiary"
                         android:textSize="30dp"
                         android:textStyle="bold" />

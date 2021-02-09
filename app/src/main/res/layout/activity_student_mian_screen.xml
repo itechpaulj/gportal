@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StudentMianScreen"
+    android:background="@color/white"
+    android:orientation="horizontal">
+
+    <LinearLayout
+
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include layout="@layout/customappbarwithprofile"/>
+
+        <LinearLayout
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <Button
+                android:layout_margin="10dp"
+                android:id="@+id/joinbtn"
+                android:layout_gravity="center"
+                android:textAllCaps="false"
+                android:textSize="15dp"
+                android:textColor="@color/white"
+                android:text="Join with a code"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"></Button>
+
+            <Button
+                android:gravity="center"
+                android:layout_margin="10dp"
+                android:id="@+id/Selectgrade"
+                android:layout_gravity="center"
+                android:textAllCaps="false"
+                android:textSize="15dp"
+                android:textColor="@color/white"
+                android:text="Select"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"></Button>
+
+        </LinearLayout>
+
+
+
+
+        <TableLayout
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:gravity="center"
+                android:background="@color/colorSecondary">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:text="Grades"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:padding="10sp"
+                    android:layout_gravity="center_horizontal"
+                    ></TextView>
+
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="150dp"
+                    android:text="Subjects"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:padding="10sp"
+
+                    ></TextView>
+
+            </TableRow>
+
+            <TableRow
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:text="Math"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorPrimary"
+                    android:padding="10sp"
+                    android:layout_gravity="center_horizontal"
+                    ></TextView>
+
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="150dp"
+                    android:text="1.0"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorPrimary"
+                    android:padding="10sp"
+
+                    ></TextView>
+
+            </TableRow>
+            <TableRow
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:text="Math"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorPrimary"
+                    android:padding="10sp"
+                    android:layout_gravity="center_horizontal"
+                    ></TextView>
+
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="150dp"
+                    android:text="1.0"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorPrimary"
+                    android:padding="10sp"
+
+                    ></TextView>
+
+            </TableRow>
+            <TableRow
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:text="Math"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorPrimary"
+                    android:padding="10sp"
+                    android:layout_gravity="center_horizontal"
+                    ></TextView>
+
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="150dp"
+                    android:text="1.0"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorPrimary"
+                    android:padding="10sp"
+
+                    ></TextView>
+
+            </TableRow>
+            <TableRow
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:text="Math"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorPrimary"
+                    android:padding="10sp"
+                    android:layout_gravity="center_horizontal"
+                    ></TextView>
+
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="150dp"
+                    android:text="1.0"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorPrimary"
+                    android:padding="10sp"
+
+                    ></TextView>
+
+            </TableRow>
+
+
+        </TableLayout>
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_marginLeft="50dp"
+                android:gravity="right"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="GWA:"
+                    android:textSize="15dp"></TextView>
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="Units Enrolled:"
+                    android:textSize="15dp"></TextView>
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="Units Earned:"
+                    android:textSize="15dp"></TextView>
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="Subject Earned:"
+                    android:textSize="15dp"></TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="1.0"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15dp"></TextView>
+
+                <TextView
+                    android:textColor="@color/colorPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="1.90"
+                    android:textSize="15dp"></TextView>
+
+                <TextView
+                    android:textColor="@color/colorPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="1.90"
+                    android:textSize="15dp"></TextView>
+
+                <TextView
+                    android:textColor="@color/colorPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="1.90"
+                    android:textSize="15dp"></TextView>
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</ScrollView>

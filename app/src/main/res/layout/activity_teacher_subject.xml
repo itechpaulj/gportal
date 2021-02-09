@@ -1,114 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp"
+    <include layout="@layout/toolbarnikong"/>
 
-        tools:context=".TeacherSubject">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_gravity="center"
-                android:layout_width="35sp"
-                android:layout_height="40sp"
-                android:background="@drawable/ic_menu_24"/>
-
-            <TextView
-                android:textSize="25sp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20sp"
-                android:text="Subject"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <ImageView
-                android:layout_gravity="center"
-                android:layout_marginLeft="80sp"
-                android:background="@drawable/ic_menu_book_24"
-                android:layout_width="35sp"
-                android:layout_height="40sp"/>
-            <ImageView
-                android:layout_gravity="center"
-                android:layout_marginLeft="100sp"
-                android:background="@drawable/ic_vert_24"
-                android:layout_width="35sp"
-                android:layout_height="40sp"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="30sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:textSize="30sp"
-                android:text="Students"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
         <LinearLayout
             android:gravity="center"
-            android:layout_marginTop="30sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:text="Allan, Adan 1.25"
-                android:textSize="25sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <ImageView
-                android:layout_gravity="center"
-                android:layout_marginLeft="25sp"
-                android:background="@drawable/ic_vert_24"
-                android:layout_width="35sp"
-                android:layout_height="40sp"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp">
         </LinearLayout>
-        <LinearLayout
-            android:gravity="center"
-            android:layout_marginTop="30sp"
+
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_margin="40dp">
+            <!-- Table Heading -->
 
-            <TextView
-                android:text="Decano,Rye  1.25"
-                android:textSize="25sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <ImageView
-                android:layout_gravity="center"
-                android:layout_marginLeft="25sp"
-                android:background="@drawable/ic_vert_24"
-                android:layout_width="35sp"
-                android:layout_height="40sp"/>
+            <TableRow
+                android:background="@color/colorSecondary">
 
-        </LinearLayout>
-        <LinearLayout
-            android:gravity="center"
-            android:layout_marginTop="30sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+               <TextView
 
-            <TextView
-                android:text="Francisco, Steve 1.50 "
-                android:textSize="25sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <ImageView
-                android:layout_gravity="center"
-                android:layout_marginLeft="25sp"
-                android:background="@drawable/ic_vert_24"
-                android:layout_width="35sp"
-                android:layout_height="40sp"/>
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Student"
+                    android:textColor="@android:color/white"
+                    android:padding="10sp"
+                    android:textSize="16sp"
+                    android:layout_weight="2"
+                    android:layout_gravity="left"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:gravity="right"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Grades"
+                    android:textColor="@color/colorTertiary"
+                    android:padding="10sp"
+                    android:textSize="16sp"
+                    android:layout_weight="2"
+                    android:layout_gravity="left"
+                    android:textStyle="bold"/>
 
-        </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+
+            </TableRow>
+
+            <!--table data -->
+            <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Angelico Loren Gomez"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:padding="10sp"
+                    android:gravity="left"
+                    android:layout_weight="4"
+                    ></TextView>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="1.50"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:padding="10sp"
+                    android:gravity="right"
+                    android:layout_weight="4"
+                    ></TextView>
+
+            </TableRow>
+
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Rye Angelica Decano"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:padding="10sp"
+                    android:gravity="left"
+                    android:layout_weight="4"
+                    ></TextView>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="1.00"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:padding="10sp"
+                    android:gravity="right"
+                    android:layout_weight="4"
+                    ></TextView>
+
+            </TableRow>
+            <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Allan Adan"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:padding="10sp"
+                    android:gravity="left"
+                    android:layout_weight="4"
+                    ></TextView>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="1.00"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:padding="10sp"
+                    android:gravity="right"
+                    android:layout_weight="4"
+                    ></TextView>
+
+            </TableRow>
+            <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="John Steven Francisco"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:padding="10sp"
+                    android:gravity="left"
+                    android:layout_weight="4"
+                    ></TextView>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="1.50"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:padding="10sp"
+                    android:gravity="right"
+                    android:layout_weight="4"
+                    ></TextView>
+
+            </TableRow>
+            <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Paul Javinez"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:padding="10sp"
+                    android:gravity="left"
+                    android:layout_weight="4"
+                    ></TextView>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="1.50"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:padding="10sp"
+                    android:gravity="right"
+                    android:layout_weight="4"
+                    ></TextView>
+
+            </TableRow>
+        </TableLayout>
+
+</LinearLayout>

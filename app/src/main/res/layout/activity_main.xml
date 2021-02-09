@@ -1,118 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundapp">
+    android:background="@color/white">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <include layout="@layout/customappbar"></include>
 
 
-
         <LinearLayout
-            android:gravity="center"
-            android:layout_marginTop="70dp"
-            android:layout_gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center">
 
             <Button
-                android:layout_margin="5dp"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:background="@drawable/custombutton"
                 android:id="@+id/RegisterTeacher"
-                android:text="Teacher"
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"/>
-
-            <Button
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:background="@drawable/custombutton"
+                android:text="Teacher"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:background="@drawable/custombutton"
+                android:textSize="17sp" />
+
+            <Button
+                android:id="@+id/StudentRegister"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:layout_marginLeft="50dp"
+                android:background="@drawable/custombutton"
                 android:text="Student"
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"/>
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp">
 
             <TextView
-                android:layout_gravity="center"
                 android:id="@+id/viewcode"
-                android:textColor="@color/colorTertiary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="0dp"
                 android:gravity="center"
                 android:text="View Code"
-                android:textSize="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:textColor="@color/colorTertiary"
+                android:textSize="20dp" />
 
             <ImageButton
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
                 android:background="@drawable/arrow" />
 
         </LinearLayout>
 
-        <ImageButton
-            android:layout_gravity="center"
-            android:background="@drawable/onloadimage"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/onloadimage"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_marginTop="0dp">
 
             <TextView
-                android:layout_gravity="center"
                 android:id="@+id/footertext"
-                android:layout_marginTop="30sp"
-                android:textColor="@color/colorPrimary"
-                android:textSize="30dp"
-                android:text="Register Your School"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="0dp"
+                android:text="Register Your School"
+                android:textColor="@color/colorPrimary"
+                android:textSize="30dp" />
 
             <TextView
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:id="@+id/footertext2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
                 android:gravity="center"
                 android:text="Tap New Code to get a link you can send to people you want to see your grades wtih"
                 android:textColor="@color/cardview_dark_background"
                 android:textSize="15sp" />
 
         </LinearLayout>
+
         <LinearLayout
-            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp">
 
         </LinearLayout>
-
 
 
     </LinearLayout>

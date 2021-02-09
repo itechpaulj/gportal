@@ -30,10 +30,6 @@ public class addprograms extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapterAy = ArrayAdapter.createFromResource(this, R.array.Ay, android.R.layout.simple_spinner_item);
         adapterAy.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Spinner2.setAdapter(adapterAy);
-
-
     }
-
-
 
 }

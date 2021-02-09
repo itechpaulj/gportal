@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradebg"
+    tools:context=".GradesAll2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+
+                android:layout_margin="10dp"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/arrowleft"></ImageButton>
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_margin="10sp"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorSecondary"
+                    android:gravity="center"
+                    android:text="Grades"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="Comment"
+                android:textColor="@color/colorTertiary"
+                android:textSize="15sp" />
+
+
+        </RelativeLayout>
+        <LinearLayout
+            android:background="@drawable/profilebg"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:background="@drawable/profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </ImageView>
+            <TextView
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:text="Juan Dela Cruz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+            <TextView
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:text="Program"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+           android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:textColor="@color/colorPrimary"
+                android:text="2021"
+                android:textSize="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+            <TextView
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:textColor="@color/colorPrimary"
+                android:text="2022"
+                android:textSize="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+        </LinearLayout>
+        <TextView
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:layout_margin="5dp"
+            android:text="First Sem"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:background="@drawable/profilebg"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TableLayout
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#f2f2f2">
+
+                <TableRow
+                    android:gravity="center"
+                    android:background="@color/colorSecondary">
+
+                    <TextView
+                        android:layout_width="150dp"
+                        android:text="Grades"
+                        android:textSize="15sp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:padding="10sp"
+                        android:layout_gravity="center_horizontal"
+                        ></TextView>
+
+                    <TextView
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="150dp"
+                        android:text="Subjects"
+                        android:textSize="15sp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:padding="10sp"
+
+                        ></TextView>
+
+                </TableRow>
+
+                <TableRow
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="150dp"
+                        android:text="Math"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimary"
+                        android:padding="10sp"
+                        android:layout_gravity="center_horizontal"
+                        ></TextView>
+
+                    <TextView
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="150dp"
+                        android:text="1.0"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimary"
+                        android:padding="10sp"
+
+                        ></TextView>
+
+                </TableRow>
+                <TableRow
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="150dp"
+                        android:text="Math"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimary"
+                        android:padding="10sp"
+                        android:layout_gravity="center_horizontal"
+                        ></TextView>
+
+                    <TextView
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="150dp"
+                        android:text="1.0"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimary"
+                        android:padding="10sp"
+
+                        ></TextView>
+
+                </TableRow>
+                <TableRow
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="150dp"
+                        android:text="Math"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimary"
+                        android:padding="10sp"
+                        android:layout_gravity="center_horizontal"
+                        ></TextView>
+
+                    <TextView
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="150dp"
+                        android:text="1.0"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimary"
+                        android:padding="10sp"
+
+                        ></TextView>
+
+                </TableRow>
+                <TableRow
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="150dp"
+                        android:text="Math"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimary"
+                        android:padding="10sp"
+                        android:layout_gravity="center_horizontal"
+                        ></TextView>
+
+                    <TextView
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="150dp"
+                        android:text="1.0"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimary"
+                        android:padding="10sp"
+
+                        ></TextView>
+
+                </TableRow>
+
+
+            </TableLayout>
+
+
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:background="@drawable/profilebg"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <LinearLayout
+
+                android:layout_marginLeft="50dp"
+                android:gravity="right"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="GWA:"
+                    android:textSize="15dp"></TextView>
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="Total Subjets"
+                    android:textSize="15dp"></TextView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:orientation="vertical">
+
+                <TextView
+                    android:textColor="@color/colorPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="1.90"
+                    android:textSize="15dp"></TextView>
+
+                <TextView
+                    android:textColor="@color/colorPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="1.90"
+                    android:textSize="15dp"></TextView>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:layout_margin="5dp"
+                android:text="2021"
+                android:textSize="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+            <TextView
+
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:layout_margin="5dp"
+                android:text="2022"
+                android:textSize="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+        </LinearLayout>
+        <TextView
+            android:layout_gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:text="First Sem"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+
+
+    </LinearLayout>
+</ScrollView>
+

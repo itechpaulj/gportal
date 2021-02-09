@@ -37,7 +37,7 @@
             android:layout_marginRight="58dp"
             android:textColor="@color/colorTertiary"
             android:textStyle="bold"
-            android:textSize="20dp">
+            android:textSize="20dp"/>
 
 
     </RelativeLayout>

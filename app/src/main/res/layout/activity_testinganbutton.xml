@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Testinganbutton"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <Button
+        android:textColor="@color/white"
+        android:id="@+id/patungko"
+        android:text="pa tungko"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
+
+    <Button
+        android:textColor="@color/white"
+        android:id="@+id/pagumaoc"
+        android:text="pa tungko"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
+
+    <Button
+        android:textColor="@color/white"
+        android:id="@+id/viewCollege"
+        android:text="View College"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
+
+    <Button
+        android:textColor="@color/white"
+        android:id="@+id/studRegister"
+        android:text="Student Register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
+
+    <Button
+        android:textColor="@color/white"
+        android:id="@+id/schoolMainScreen"
+        android:text="School Main Screen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
+
+    <Button
+        android:textColor="@color/white"
+        android:id="@+id/viewPrograms"
+        android:text="View Programs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
+
+    <Button
+        android:textColor="@color/white"
+        android:id="@+id/viewSections"
+        android:text="View Sections"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
+
+
+    <Button
+        android:textColor="@color/white"
+        android:id="@+id/viewSubjects"
+        android:text="View Subjects"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
+
+    <Button
+        android:textColor="@color/white"
+        android:id="@+id/viewAcadYear"
+        android:text="View AY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:textColor="@color/white"
+        android:id="@+id/addSchool"
+        android:text="Add School"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
+
+    <Button
+        android:textColor="@color/white"
+        android:id="@+id/addcollege"
+        android:text="Add College"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
+
+    <Button
+        android:textColor="@color/white"
+        android:id="@+id/addprograms"
+        android:text="Add Programs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
+
+     <Button
+        android:textColor="@color/white"
+        android:id="@+id/addsection"
+        android:text="Add Section"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
+
+     <Button
+        android:textColor="@color/white"
+        android:id="@+id/addsubject"
+        android:text="Add Subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
+
+
+
+</LinearLayout>

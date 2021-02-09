@@ -10,8 +10,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class addprograms extends AppCompatActivity {
-    Spinner Spinner1,Spinner2;
+    Spinner spinnerAYProg,spinnerColProg;
 
 
     @Override
@@ -19,17 +23,20 @@ public class addprograms extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addprograms);
 
-        Spinner1 =(Spinner)findViewById(R.id.Spinner1);
-        Spinner2 =(Spinner)findViewById(R.id.Spinner2);
+        spinnerAYProg =(Spinner)findViewById(R.id.spinnerAYProg);
+        spinnerColProg=(Spinner)findViewById(R.id.spinnerColProg);
+
+        String[] ay = {"Academic Year","Academic Year","Academic Year"};
+        ArrayList<String> Ay = new ArrayList<>(Arrays.asList(ay));
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,R.layout.style_spinner,Ay);
+        spinnerAYProg.setAdapter(arrayAdapter);
+
+        String[] co = {"Academic Year","Academic Year","Academic Year"};
+        ArrayList<String> Co = new ArrayList<>(Arrays.asList(co));
+        ArrayAdapter<String> arrayAdapters = new ArrayAdapter<>(this,R.layout.style_spinner,Co);
+        spinnerColProg.setAdapter(arrayAdapters);
 
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.college, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Spinner1.setAdapter(adapter);
-
-        ArrayAdapter<CharSequence> adapterAy = ArrayAdapter.createFromResource(this, R.array.Ay, android.R.layout.simple_spinner_item);
-        adapterAy.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Spinner2.setAdapter(adapterAy);
     }
 
 }

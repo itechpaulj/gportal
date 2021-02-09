@@ -134,115 +134,145 @@
             android:layout_height="wrap_content"
             android:gravity="center">
 
-            <LinearLayout
-                android:layout_width="150dp"
+            <TableLayout
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:background="#f2f2f2">
 
-                <TextView
-                    android:textStyle="bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:text="Subjects"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="15dp"></TextView>
+                <TableRow
+                    android:gravity="center"
+                    android:background="@color/colorSecondary">
 
-                <TextView
-                    android:textColor="@color/colorPrimary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:text="Math"
-                    android:textSize="15dp"></TextView>
+                    <TextView
+                        android:layout_width="150dp"
+                        android:text="Grades"
+                        android:textSize="15sp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:padding="10sp"
+                        android:layout_gravity="center_horizontal"
+                        ></TextView>
 
-                <TextView
-                    android:textColor="@color/colorPrimary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:text="Science"
-                    android:textSize="15dp"></TextView>
+                    <TextView
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="150dp"
+                        android:text="Subjects"
+                        android:textSize="15sp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:padding="10sp"
 
-                <TextView
-                    android:textColor="@color/colorPrimary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:text="BreakTime"
-                    android:textSize="15dp"></TextView>
+                        ></TextView>
 
-                <TextView
-                    android:textColor="@color/colorPrimary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:text="English"
-                    android:textSize="15dp"></TextView>
+                </TableRow>
+
+                <TableRow
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="150dp"
+                        android:text="Math"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimary"
+                        android:padding="10sp"
+                        android:layout_gravity="center_horizontal"
+                        ></TextView>
+
+                    <TextView
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="150dp"
+                        android:text="1.0"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimary"
+                        android:padding="10sp"
+
+                        ></TextView>
+
+                </TableRow>
+                <TableRow
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="150dp"
+                        android:text="Math"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimary"
+                        android:padding="10sp"
+                        android:layout_gravity="center_horizontal"
+                        ></TextView>
+
+                    <TextView
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="150dp"
+                        android:text="1.0"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimary"
+                        android:padding="10sp"
+
+                        ></TextView>
+
+                </TableRow>
+                <TableRow
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="150dp"
+                        android:text="Math"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimary"
+                        android:padding="10sp"
+                        android:layout_gravity="center_horizontal"
+                        ></TextView>
+
+                    <TextView
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="150dp"
+                        android:text="1.0"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimary"
+                        android:padding="10sp"
+
+                        ></TextView>
+
+                </TableRow>
+                <TableRow
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="150dp"
+                        android:text="Math"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimary"
+                        android:padding="10sp"
+                        android:layout_gravity="center_horizontal"
+                        ></TextView>
+
+                    <TextView
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="150dp"
+                        android:text="1.0"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimary"
+                        android:padding="10sp"
+
+                        ></TextView>
+
+                </TableRow>
 
 
-            </LinearLayout>
+            </TableLayout>
 
-            <LinearLayout
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:orientation="vertical">
 
-                <TextView
-                    android:textStyle="bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:text="Grades"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="15dp"></TextView>
 
-                <TextView
-                    android:textColor="@color/colorPrimary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:text="1.90"
-                    android:textSize="15dp"></TextView>
 
-                <TextView
-                    android:textColor="@color/colorPrimary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:text="1.90"
-                    android:textSize="15dp"></TextView>
-
-                <TextView
-                    android:textColor="@color/colorPrimary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:text="1.90"
-                    android:textSize="15dp"></TextView>
-
-                <TextView
-                    android:textColor="@color/colorPrimary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:text="1.90"
-                    android:textSize="15dp"></TextView>
-
-            </LinearLayout>
 
 
         </LinearLayout>
 
-        <TextView
-            android:layout_marginTop="10dp"
-            android:background="@color/colorSecondary"
-            android:layout_width="match_parent"
-            android:layout_height="2dp">
-        </TextView>
 
         <LinearLayout
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center">

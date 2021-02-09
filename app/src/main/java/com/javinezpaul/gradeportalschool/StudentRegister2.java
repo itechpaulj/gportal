@@ -26,7 +26,7 @@ public class StudentRegister2 extends AppCompatActivity {
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,R.layout.style_spinner,arrayList);
         spinner1.setAdapter(arrayAdapter);
 
-        String[]  value2 = {"Programs","Programs","Programs"};
+        String[]  value2 = {"Program","Program","Program"};
         ArrayList<String> arrayList2 = new ArrayList<>(Arrays.asList(value2));
         ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<>(this,R.layout.style_spinner,arrayList2);
         spinner2.setAdapter(arrayAdapter2);

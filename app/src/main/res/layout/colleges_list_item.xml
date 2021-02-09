@@ -17,28 +17,27 @@
 
 
         <TextView
-            android:id="@+id/collegeCode"
-            android:layout_width="wrap_content"
+            android:id="@+id/subjectCode"
+            android:layout_width="90dp"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:padding="5dp"
             android:shadowRadius="@android:integer/config_longAnimTime"
-            android:text="IIT"
+            android:text="GATE"
             android:textColor="@color/colorPrimary"
             android:textSize="30sp"
             android:textStyle="bold" />
 
 
         <TextView
-            android:id="@+id/collegeDesc"
+            android:id="@+id/subjectDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_margin="10dp"
-            android:layout_toRightOf="@+id/collegeCode"
-            android:text="Industrial and Information Technology"
+            android:layout_toRightOf="@+id/subjectCode"
+            android:text="General Academic Tertiary Education"
             android:textSize="15sp" />
 
     </RelativeLayout>

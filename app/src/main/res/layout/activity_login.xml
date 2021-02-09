@@ -45,7 +45,7 @@
 
                 android:hint="ID Number"
                 android:layout_marginTop="50dp"
-                android:background="@drawable/inputcorner"
+                android:background="@drawable/backgroundapp"
                 android:textSize="15dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/cardview_dark_background"
@@ -63,7 +63,7 @@
                         android:layout_marginLeft="30dp"
                         android:id="@+id/Password"
                         android:hint="Password"
-                        android:background="@drawable/inputcorner"
+                        android:background="@drawable/backgroundapp"
                         android:textSize="15dp"
                         android:textColor="@color/black"
                         android:textColorHint="@color/cardview_dark_background"

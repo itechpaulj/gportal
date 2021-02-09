@@ -6,25 +6,30 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class addsubject extends AppCompatActivity {
-    Spinner spinner4,spinner5;
+    Spinner spinnerProgram,spinnerAcademicYear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addsubject);
 
-        spinner4 =(Spinner)findViewById(R.id.spinner4);
-        spinner5 =(Spinner)findViewById(R.id.spinner5);
+        spinnerProgram =findViewById(R.id.spinnerProgram);
+        spinnerAcademicYear =findViewById(R.id.spinnerAcademicYear);
 
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.programs, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner4.setAdapter(adapter);
+        String[] program = {"Program","Program","Program"};
+        ArrayList<String> Program = new ArrayList<>(Arrays.asList(program));
+        ArrayAdapter<String> arrayAdapterpro = new ArrayAdapter<>(this,R.layout.style_spinner,Program);
+        spinnerProgram.setAdapter(arrayAdapterpro);
 
-        ArrayAdapter<CharSequence> adapterAy = ArrayAdapter.createFromResource(this, R.array.Ay, android.R.layout.simple_spinner_item);
-        adapterAy.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner5.setAdapter(adapterAy);
+        String[] academic = {"Academic Year","Academic Year","Academic Year"};
+        ArrayList<String> Academic = new ArrayList<>(Arrays.asList(academic));
+        ArrayAdapter<String> arrayAdapteryear = new ArrayAdapter<>(this,R.layout.style_spinner,Academic);
+        spinnerAcademicYear.setAdapter(arrayAdapteryear);
 
     }
 }

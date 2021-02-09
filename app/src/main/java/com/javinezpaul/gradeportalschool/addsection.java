@@ -9,29 +9,24 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class addsection extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+import java.util.ArrayList;
+import java.util.Arrays;
 
+public class addsection extends AppCompatActivity{
+Spinner spinnerSection;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addsection);
-        Spinner spinner = findViewById(R.id.section);
+        Spinner spinnerSection = findViewById(R.id.spinnerSection);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.programs, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
-    }
+        String[] sec = {"Section Code","Section Code","Section Code"};
+        ArrayList<String> Sec = new ArrayList<>(Arrays.asList(sec));
+        ArrayAdapter<String> arrayAdaptersec = new ArrayAdapter<>(this,R.layout.style_spinner,Sec);
+        spinnerSection.setAdapter(arrayAdaptersec);
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String text = parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(),text, Toast.LENGTH_LONG).show();
 
-    }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
 
     }
 }

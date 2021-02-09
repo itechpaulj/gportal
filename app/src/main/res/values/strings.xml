@@ -38,4 +38,36 @@
         <item>2024-2025</item>
         <item>2026-2027</item>
     </string-array>
+    
+    <string-array name="sem">
+        <item>sem</item>
+        <item>1st sem</item>
+        <item>2nd sem</item>
+    </string-array>
+
+    <string-array name="yr">
+        <item>year</item>
+        <item>1st Year</item>
+        <item>2nd Year</item>
+        <item>3rd Year</item>
+        <item>4th Year</item>
+    </string-array>
+
+    <string-array name="year">
+        <item>year</item>
+        <item>2016</item>
+        <item>2017</item>
+        <item>2018</item>
+        <item>2019</item>
+        <item>2020</item>
+        <item>2021</item>
+        <item>2022</item>
+        <item>2023</item>
+    </string-array>
+    <string-array name="lvl">
+        <item>Level</item>
+        <item></item>
+        <item>asdas</item>
+        <item>dasda</item>
+    </string-array>
 </resources>

@@ -126,7 +126,7 @@ make Toast for debugging result if success
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, localUrl, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-                            Toast.makeText(getApplicationContext(), "success", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
 
                         }
                     }, new Response.ErrorListener() {

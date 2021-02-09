@@ -12,15 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-
 import java.util.ArrayList;
 
 /**
  * Creating a RecyclerViewAdapter Pseudo Code by Dan Astillero
  * 1. Create an activity containing RecyclerView with id = collegesRecView, use RelativeLayout as Layout (for now) with an  id = parent
  * 2. At activityClass,  declare private RecyclerView  collegesRecView;
- *      at activityClass' onCreate method, write contacts = findViewById(R.id.collegesRecView);
+ *      at activityClass' onCreate method, write collegesRecView = findViewById(R.id.collegesRecView);
  * 3. Create a layout at res>>new resource layout>> Filename: colleges_list_item; Root Element: RelativeLayout
  * 4. At colleges_list_item.xml, design how item will be displayed.
  * 5. Create a model named College by package>>new class>>File name: College
@@ -54,16 +52,26 @@ import java.util.ArrayList;
  *      inside onCreateViewHolder(), create an instance of ViewHolder and return that
  *          write, View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.colleges_list_item, parent, false);
  *                  return new ViewHolder(view);
- *       declare, private static final String  TAG = "CollegeRecViewAdapter"
+ *       declare, private static final String  TAG = "CollegeRecViewAdapter" inside CollegeRecViewAdapter
  *      inside onBindViewHolder(), write, Log.d(TAG, "onBindViewHolder: Called "); to check that ViewHolder has been called.
  *          after Log.d, set the value for collegeCode, collegeDesc by settext to layout
  *              write, holder.code.setText(colleges.get(position).getCode());
  *                     holder.desc.setText(colleges.get(position).getDesc());
+ *              then  Set OnclickListener to parent(cardView)
  * 8. Initialize and Set as adapter to collegesRecView in activityClass,which is ViewColllege.
  *      To initialize, inside ViewCollege class, write, private CollegeRecViewAdapter adapter.
  *                      inside onCreate method, write,  adapter = new CollegeRecViewAdapter(this);
  *      To set adapter to RecyclerView, inside onCreate method, write, collegesRecView.setAdapter(adapter);
  *      To set Layout Manager, inside onCreate method, write, collegesRecView.setLayoutManager(new GridLayoutManager(this, 2);
+ *
+ *      //to add data in arraylist
+ *         ArrayList<College> colleges = new ArrayList<>();
+ *         colleges.add(new College("1","IIT","Industrial and Information Technology"));
+ *         colleges.add(new College("2", "BA", "Business Administration"));
+ *         colleges.add(new College("3","GATE", "General Academic Tertiary Education"));
+ *         colleges.add(new College("4", "COE", "College of Engineering"));
+ *
+ *         adapter.setColleges(colleges);
  */
 
 public class CollegeRecViewAdapter extends RecyclerView.Adapter<CollegeRecViewAdapter.ViewHolder> {
@@ -131,8 +139,8 @@ public class CollegeRecViewAdapter extends RecyclerView.Adapter<CollegeRecViewAd
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             parent = itemView.findViewById(R.id.parent);
-            code = itemView.findViewById(R.id.collegeCode);
-            desc = itemView.findViewById(R.id.collegeDesc);
+            code = itemView.findViewById(R.id.subjectCode);
+            desc = itemView.findViewById(R.id.subjectDesc);
         }
     }
 }

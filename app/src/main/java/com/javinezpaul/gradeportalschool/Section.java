@@ -1,14 +1,12 @@
 package com.javinezpaul.gradeportalschool;
 
-public class Subject {
-    private String id, code, title, programid, ayid;
+public class Section {
+    private String id, code, programid;
 
-    public Subject(String id, String code, String title, String programid, String ayid) {
+    public Section(String id, String code, String programid) {
         this.id = id;
         this.code = code;
-        this.title = title;
         this.programid = programid;
-        this.ayid = ayid;
     }
 
     public String getId() {
@@ -27,14 +25,6 @@ public class Subject {
         this.code = code;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getProgramid() {
         return programid;
     }
@@ -43,22 +33,12 @@ public class Subject {
         this.programid = programid;
     }
 
-    public String getAyid() {
-        return ayid;
-    }
-
-    public void setAyid(String ayid) {
-        this.ayid = ayid;
-    }
-
     @Override
     public String toString() {
-        return "Subject{" +
+        return "Section{" +
                 "id='" + id + '\'' +
                 ", code='" + code + '\'' +
-                ", title='" + title + '\'' +
                 ", programid='" + programid + '\'' +
-                ", ayid='" + ayid + '\'' +
                 '}';
     }
 }

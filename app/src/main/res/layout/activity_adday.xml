@@ -4,51 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/white"
-    android:orientation="vertical">
+    tools:context=".adday">
+    <include layout="@layout/toolbaradday"></include>
 
-    <include layout="@layout/toolbaraddsubject" />
 
+        <LinearLayout
+            android:layout_marginTop="70dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </LinearLayout>
     <LinearLayout
         android:gravity="center"
-        android:layout_marginTop="130dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:hint="Subject Code"
-            android:layout_marginTop="0dp"
-            android:background="@drawable/backgroundapp"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/cardview_dark_background"
-            android:layout_gravity="center"
-            android:layout_width="300dp"
-            android:layout_height="40dp"></EditText>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:gravity="center"
-        android:layout_marginTop="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:hint="Subject Title"
-            android:layout_marginTop="0dp"
-            android:background="@drawable/backgroundapp"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/cardview_dark_background"
-            android:layout_gravity="center"
-            android:layout_width="300dp"
-            android:layout_height="40dp"></EditText>
-
-    </LinearLayout>
-    <LinearLayout
-        android:gravity="center"
-        android:layout_marginTop="15dp"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Spinner
@@ -56,15 +26,46 @@
             android:layout_marginTop="0dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:id="@+id/spinnerProgram"
+            android:id="@+id/spinnerSem"
             android:layout_width="300dp"
             android:layout_height="50dp">
         </Spinner>
     </LinearLayout>
 
     <LinearLayout
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <Spinner
+        android:background="@drawable/style_spinner"
+        android:layout_marginTop="0dp"
+        android:layout_gravity="center"
         android:gravity="center"
-        android:layout_marginTop="15dp"
+        android:id="@+id/spinnerYear1"
+        android:layout_width="300dp"
+        android:layout_height="50dp">
+    </Spinner>
+    </LinearLayout>
+
+    <LinearLayout
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <Spinner
+        android:background="@drawable/style_spinner"
+        android:layout_marginTop="0dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:id="@+id/spinnerYear2"
+        android:layout_width="300dp"
+        android:layout_height="50dp">
+    </Spinner>
+</LinearLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Spinner
@@ -72,12 +73,11 @@
             android:layout_marginTop="0dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:id="@+id/spinnerAcademicYear"
+            android:id="@+id/spinnerLevel"
             android:layout_width="300dp"
             android:layout_height="50dp">
         </Spinner>
     </LinearLayout>
-
     <LinearLayout
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"

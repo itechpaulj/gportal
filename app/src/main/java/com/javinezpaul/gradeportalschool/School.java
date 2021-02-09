@@ -132,7 +132,7 @@ make Toast for debugging result if success
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(getApplicationContext(),"Please Complete Registration Form",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),"Please Complete the Registration form",Toast.LENGTH_LONG).show();
                         }
                     }){
                         @Override
@@ -189,6 +189,7 @@ make Toast for debugging result if success
                 InputStream inputStream = getContentResolver().openInputStream(filepath);
                 bitmap = BitmapFactory.decodeStream(inputStream);
                 imageview.setImageBitmap(bitmap);
+
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }

@@ -64,7 +64,7 @@
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -124,6 +124,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
             <EditText
+                android:id="@+id/schoolcode"
                 android:hint="School Code"
                 android:background="@drawable/inputcorner"
                 android:textSize="15dp"
@@ -133,7 +134,14 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
 
-
+            <Spinner
+                android:background="@drawable/style_spinner"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/spinnercollegename"
+                android:layout_width="300dp"
+                android:layout_height="50dp">
+            </Spinner>
 
 
 
@@ -165,7 +173,7 @@
         <Button
             android:textColor="@color/white"
             android:background="@drawable/custombutton"
-            android:id="@+id/regBtn"
+            android:id="@+id/nextBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -173,6 +181,7 @@
             android:layout_marginRight="20dp"
             android:text="Next"
             android:textAllCaps="false"></Button>
+
 
 
 

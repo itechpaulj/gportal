@@ -18,7 +18,7 @@ public class Testinganbutton extends AppCompatActivity {
             viewSubjects, viewAy,
 			addSchool, addcollege,
             addprograms, addsection,
-            addsubject;
+            addsubject,addTeacher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,7 @@ public class Testinganbutton extends AppCompatActivity {
         id ni paul javinez
          */
         addSchool = (Button) findViewById(R.id.addSchool);
+        addTeacher = findViewById(R.id.addTeacher);
         /*
         id ni paul javinez
          */
@@ -166,7 +167,12 @@ public class Testinganbutton extends AppCompatActivity {
             }
         });
 
-
-        
+        addTeacher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addTeacher = new Intent(Testinganbutton.this , RegisterTeacher.class);
+                startActivity(addTeacher);
+            }
+        });
     }
 }

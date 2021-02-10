@@ -42,14 +42,6 @@ public class SchoolMainScreen extends AppCompatActivity {
         ayCounterTextView=findViewById(R.id.ayCounterTextView);
 
         getFunctionValley();
-
-        collegeCounterTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getFunctionValley();
-            }
-        });
-
     }
 
     private void getFunctionValley() {
@@ -59,27 +51,36 @@ public class SchoolMainScreen extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
 //                collegeCounterTextView.setText("Response Get: "+response);
-//                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                r=response;
+                JSONObject jsonResult = null;
                 try {
-                    JSONArray JA= new JSONArray(response);
-                    collegeCounterTextView.setText(JA.getJSONObject(0).get("numofcolleges").toString());
-                    instructorCounterTextView.setText(JA.getJSONObject(1).get("numofteachers").toString());
-                    studentsCounterTextView.setText(JA.getJSONObject(2).get("numofstudents").toString());
-                    programCounterTextView.setText(JA.getJSONObject(3).get("numofprograms").toString());
-                    subjectsCounterTextView.setText(JA.getJSONObject(4).get("numofsubjects").toString());
-                    sectionCounterTextView.setText(JA.getJSONObject(5).get("numofsections").toString());
-                    ayCounterTextView.setText(JA.getJSONObject(6).get("numofay").toString());
+                    jsonResult = new JSONObject(response);
+                    int success = jsonResult.getInt("success");
+                    if(success==1){
+                        JSONArray datas = jsonResult.getJSONArray("data");
+                        for(int i=0;i<datas.length();i++){
+                            JSONObject data = datas.getJSONObject(i);
+//                            $numofcolleges, $numofteachers, $numofstudents, $numofprograms, $numofsubjects, $numofsections, $numofay);
+                            collegeCounterTextView.setText(data.getString("numofcolleges"));
+                            instructorCounterTextView.setText(data.getString("$numofteachers"));
+                            studentsCounterTextView.setText(data.getString("$numofstudents"));
+                            programCounterTextView.setText(data.getString("$numofprograms"));
+                            subjectsCounterTextView.setText(data.getString("$numofsubjects"));
+                            sectionCounterTextView.setText(data.getString("$numofsections"));
+                            ayCounterTextView.setText(data.getString("$numofay"));
 
+                        }
+                    }
                 } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
+                        e.printStackTrace();
+                    }
             } //onResponse
         }, new Response.ErrorListener(){
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), "Reconnecting", Toast.LENGTH_LONG).show();
-                getFunctionValley();
+//                collegeCounterTextView.setText("Response Get: Failed");
+                Toast.makeText(getApplicationContext(), r + error.toString(), Toast.LENGTH_LONG).show();
             }
         });//Stringrequest
         queueu.add(stringRequest);

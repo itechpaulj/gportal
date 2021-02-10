@@ -39,7 +39,8 @@
             android:layout_margin="10dp"
             android:layout_toRightOf="@+id/ayCode"
             android:text="1st Year\n1st SEM"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:textColor="@color/black"/>
 
     </RelativeLayout>
 

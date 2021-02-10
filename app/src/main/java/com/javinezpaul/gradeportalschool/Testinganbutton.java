@@ -14,11 +14,10 @@ public class Testinganbutton extends AppCompatActivity {
     Button patungko,
             pagumaoc, viewCollege,
             studRegister, schoolMainScreen,
-            viewPrograms, viewSections,
-            viewSubjects, viewAy,
 			addSchool, addcollege,
             addprograms, addsection,
-            addsubject,addTeacher;
+            addsubject,addTeacher,
+            addstudent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,18 +29,14 @@ public class Testinganbutton extends AppCompatActivity {
          */
         addSchool = (Button) findViewById(R.id.addSchool);
         addTeacher = findViewById(R.id.addTeacher);
+        addstudent = findViewById(R.id.addstudent);
         /*
         id ni paul javinez
          */
         patungko = findViewById(R.id.patungko);
         pagumaoc = findViewById(R.id.pagumaoc);
-        viewCollege = findViewById(R.id.viewCollege);
         studRegister = findViewById(R.id.studRegister);
         schoolMainScreen = findViewById(R.id.schoolMainScreen);
-        viewPrograms = findViewById(R.id.viewPrograms);
-        viewSections = findViewById(R.id.viewSections);
-        viewSubjects = findViewById(R.id.viewSubjects);
-        viewAy = findViewById(R.id.viewAcadYear);
         addcollege = findViewById(R.id.addcollege);
         addprograms = findViewById(R.id.addprograms);
         addsection = findViewById(R.id.addsection);
@@ -66,13 +61,6 @@ public class Testinganbutton extends AppCompatActivity {
             }
         });
 
-        viewCollege.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent viewCollege = new Intent(Testinganbutton.this , ViewCollege.class);
-                startActivity(viewCollege);
-            }
-        });
 
         studRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,29 +78,7 @@ public class Testinganbutton extends AppCompatActivity {
             }
         });
 
-        viewPrograms.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent viewPrograms = new Intent(Testinganbutton.this , ViewPrograms.class);
-                startActivity(viewPrograms);
-            }
-        });
 
-        viewSections.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent viewSections = new Intent(Testinganbutton.this , ViewSections.class);
-                startActivity(viewSections);
-            }
-        });
-
-        viewSubjects.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent viewSubjects = new Intent(Testinganbutton.this , ViewSubjects.class);
-                startActivity(viewSubjects);
-            }
-        });
 		
 		addSchool.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,15 +89,6 @@ public class Testinganbutton extends AppCompatActivity {
             }
         });
 
-				
-		viewAy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent viewAy = new Intent(Testinganbutton.this , ViewAy.class);
-                startActivity(viewAy);
-
-            }
-        });
 
 		addcollege.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,6 +129,14 @@ public class Testinganbutton extends AppCompatActivity {
             public void onClick(View v) {
                 Intent addTeacher = new Intent(Testinganbutton.this , RegisterTeacher.class);
                 startActivity(addTeacher);
+            }
+        });
+
+        addstudent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addstudent = new Intent(Testinganbutton.this , StudentRegister.class);
+                startActivity(addstudent);
             }
         });
     }

@@ -59,7 +59,6 @@
                 android:textColor="@color/colorTertiary"
                 android:textSize="15sp" />
 
-
         </RelativeLayout>
 
         <LinearLayout
@@ -68,14 +67,36 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-
-            <ImageView
+            <EditText
+                android:id="@+id/schoolcode"
+                android:hint="School Code"
+                android:background="@drawable/inputcorner"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/cardview_dark_background"
                 android:layout_gravity="center"
-                android:background="@drawable/profile"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"></ImageView>
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"></EditText>
+
 
             <Button
+                android:id="@+id/btnschoolcode"
+                android:layout_gravity="center"
+                android:textAllCaps="false"
+                android:text="CLICK"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"></Button>
+            <ImageView
+                android:id="@+id/imageStudent"
+                android:layout_gravity="center"
+                android:background="@drawable/default_border_image"
+                android:layout_width="200dp"
+                android:layout_height="200dp"></ImageView>
+
+            <Button
+                android:id="@+id/btnUploadStudent"
                 android:layout_gravity="center"
                 android:textAllCaps="false"
                 android:text="Upload Photo"
@@ -85,7 +106,7 @@
 
 
             <EditText
-
+                android:id="@+id/fname"
                 android:hint="First Name"
                 android:background="@drawable/inputcorner"
                 android:textSize="15dp"
@@ -96,6 +117,7 @@
                 android:layout_height="wrap_content"></EditText>
 
             <EditText
+                android:id="@+id/lname"
                 android:hint="Last Name"
                 android:background="@drawable/inputcorner"
                 android:textSize="15dp"
@@ -105,6 +127,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
             <EditText
+                android:id="@+id/mname"
                 android:hint="Middle Name"
                 android:background="@drawable/inputcorner"
                 android:textSize="15dp"
@@ -114,6 +137,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
             <EditText
+                android:id="@+id/schoolid"
                 android:hint="School ID"
                 android:background="@drawable/inputcorner"
                 android:textSize="15dp"
@@ -123,7 +147,8 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
             <EditText
-                android:hint="School Code"
+                android:id="@+id/password"
+                android:hint="Password"
                 android:background="@drawable/inputcorner"
                 android:textSize="15dp"
                 android:textColor="@color/black"
@@ -131,6 +156,35 @@
                 android:layout_gravity="center"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
+            <Spinner
+                android:background="@drawable/style_spinner"
+                android:layout_marginTop="50dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/collegecode"
+                android:layout_width="300dp"
+                android:layout_height="50dp">
+            </Spinner>
+
+            <Spinner
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center"
+                android:background="@drawable/style_spinner"
+                android:gravity="center"
+                android:id="@+id/programcode"
+                android:layout_width="300dp"
+                android:layout_height="50dp">
+            </Spinner>
+            <Spinner
+
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center"
+                android:background="@drawable/style_spinner"
+                android:gravity="center"
+                android:id="@+id/sectioncode"
+                android:layout_width="300dp"
+                android:layout_height="50dp">
+            </Spinner>
 
 
 

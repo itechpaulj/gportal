@@ -83,7 +83,8 @@ public class RegisterTeacher extends AppCompatActivity {
         radioGroup = (RadioGroup) findViewById(R.id.gender);
         min_gender = (LinearLayout) findViewById(R.id.min_gender);
 
-
+        //school code
+        btnschoolcode = (Button) findViewById(R.id.btnschoolcode);
 
 
         uploadBtn.setOnClickListener(new View.OnClickListener() {
@@ -99,11 +100,13 @@ public class RegisterTeacher extends AppCompatActivity {
             }
         });
 
+
+
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //{post_input_fname} {post_input_lname} {post_input_mname} {post_input_empid} {post_input_spinner} {post_input_schoolcode} {post_input_address} {post_input_password}
-
+               // Toast.makeText(getApplicationContext(),"Please Enter First Name",Toast.LENGTH_LONG).show();
                 String post_input_fname,post_input_lname,post_input_mname,
                         post_input_empid, post_input_spinner,post_input_schoolcode,post_input_address,post_input_password;
                 post_input_fname = (String) fnameteacher.getText().toString().trim();
@@ -115,46 +118,81 @@ public class RegisterTeacher extends AppCompatActivity {
                 post_input_address = (String) address.getText().toString().trim();
                 post_input_password = (String) password.getText().toString().trim();
 
-                int radioId = radioGroup.getCheckedRadioButtonId();
-                radioButton = findViewById(radioId);
-                String gender = (String)  ""+radioButton.getText();
-                //setCollegeName.setText(post_input_spinner);
-                RequestQueue requestQueue = Volley.newRequestQueue(RegisterTeacher.this);
-                String url = "http://jeepcard.net/gportal/addTeacher.php";
+                if(post_input_fname.isEmpty()){
+                    Toast.makeText(getApplicationContext(),"Please Enter First Name",Toast.LENGTH_LONG).show();
+                }
+                else if(post_input_lname.isEmpty()){
+                    Toast.makeText(getApplicationContext(),"Please Enter Last Name",Toast.LENGTH_LONG).show();
+                }
+                else if(post_input_mname.isEmpty()){
+                    Toast.makeText(getApplicationContext(),"Please Enter Middle Name",Toast.LENGTH_LONG).show();
+                }
+                else if(post_input_address.isEmpty()){
+                    Toast.makeText(getApplicationContext(),"Please Enter Your Address",Toast.LENGTH_LONG).show();
+                }
+                else if(post_input_empid.isEmpty()){
+                    Toast.makeText(getApplicationContext(),"Please Enter Employee ID",Toast.LENGTH_LONG).show();
+                }
+                else if(post_input_spinner.isEmpty()){
+                    Toast.makeText(getApplicationContext(),"Please Select College Code",Toast.LENGTH_LONG).show();
+                }
+                else if(post_input_password.isEmpty()){
+                    Toast.makeText(getApplicationContext(),"Please Enter Your Password",Toast.LENGTH_LONG).show();
+                }
+                else{
+                    if(radioGroup.getCheckedRadioButtonId() != -1){
+                            int radioId = radioGroup.getCheckedRadioButtonId();
+                            radioButton = findViewById(radioId);
+                            String gender = (String)  ""+radioButton.getText();
+                        RequestQueue requestQueue = Volley.newRequestQueue(RegisterTeacher.this);
+                        String url = "http://jeepcard.net/gportal/addTeacher.php";
 
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+                        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Toast.makeText(getApplicationContext(),"Please Fill in the Form",Toast.LENGTH_LONG).show();
+                            }
+                        }){
+                            @Override
+                            protected Map<String, String> getParams() throws AuthFailureError {
+                                Map<String,String> params = new HashMap<>();
+
+                            String imageData = imageToString(bitmap);
+                            params.put("fname",post_input_fname);
+                            params.put("lname",post_input_lname);
+                            params.put("mname",post_input_mname);
+                            params.put("gender",gender);
+                            params.put("address",post_input_address);
+                            params.put("schoolcode",post_input_schoolcode);
+                            params.put("empTeacher",post_input_empid);
+                            params.put("password",post_input_password);
+                            params.put("spinner",post_input_spinner);
+                            params.put("image",imageData);
+                                return params;
+                            }
+                        };
+                        requestQueue.add(stringRequest);
+
+
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Choose Your Gender", Toast.LENGTH_SHORT).show();
                     }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(),"Please Fill in the Form",Toast.LENGTH_LONG).show();
-                    }
-                }){
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String,String> params = new HashMap<>();
-                        String imageData = imageToString(bitmap);
-                        params.put("fname",post_input_fname);
-                        params.put("lname",post_input_lname);
-                        params.put("mname",post_input_mname);
-                        params.put("gender",gender);
-                        params.put("address",post_input_address);
-                        params.put("schoolcode",post_input_schoolcode);
-                        params.put("empTeacher",post_input_empid);
-                        params.put("password",post_input_password);
-                        params.put("spinner",post_input_spinner);
-                        params.put("image",imageData);
-                        return params;
-                    }
-                };
-                requestQueue.add(stringRequest);
+
+                }
+
+
+
+
+
+
             }
         });
-        //school code
-        btnschoolcode = (Button) findViewById(R.id.btnschoolcode);
+
         btnschoolcode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -190,6 +228,7 @@ public class RegisterTeacher extends AppCompatActivity {
                  * Executed the code
                  *
                  * */
+
             }
 
             private void hasSppinerShowData() {
@@ -217,35 +256,24 @@ public class RegisterTeacher extends AppCompatActivity {
                            password.setVisibility(View.GONE);
                        }
 
+
                             try {
-                                Toast.makeText(getApplicationContext(),"Verified!",Toast.LENGTH_LONG).show();
+                               // Toast.makeText(getApplicationContext(),"Verified!",Toast.LENGTH_LONG).show();
                                 jsonResult = new JSONObject(response);
                                 int success = jsonResult.getInt("success");
-                                spinnerList.add("[College Name]");
+                                spinnerList.add("[College Code]");
                                 if(success==1){
                                     JSONArray datas = jsonResult.getJSONArray("data");
                                     for(int i=0;i<datas.length();i++){
                                         JSONObject data = datas.getJSONObject(i);
                                         //int id = data.getInt("id");
-                                        String collegename = data.getString("collegename");
+                                        String collegename = data.getString("collegecode");
                                         String line = collegename;
-
                                         spinnerList.add(line);
                                         adapter1 = new ArrayAdapter<>(RegisterTeacher.this, android.R.layout.simple_spinner_item,spinnerList);
                                         adapter1.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
                                         spinnercollegename.setAdapter(adapter1);
-                                        spinnercollegename.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                                            @Override
-                                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                                                //Toast.makeText(RegisterTeacher.this,""+spinnercollegename.getSelectedItem(),Toast.LENGTH_LONG).show();
 
-                                            }
-
-                                            @Override
-                                            public void onNothingSelected(AdapterView<?> parent) {
-
-                                            }
-                                        });
                                     }
 
 
@@ -255,6 +283,7 @@ public class RegisterTeacher extends AppCompatActivity {
                                 }
 
                             }catch (JSONException e) {
+
                                 e.printStackTrace();
                             }
 
@@ -265,6 +294,7 @@ public class RegisterTeacher extends AppCompatActivity {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+
                         Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
                     }
                 }){

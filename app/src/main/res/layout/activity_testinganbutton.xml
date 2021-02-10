@@ -115,6 +115,12 @@
         android:text="Add Teacher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"></Button>
+    <Button
+        android:textColor="@color/white"
+        android:id="@+id/addstudent"
+        android:text="Add Student"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
 
 </LinearLayout>
 </ScrollView>

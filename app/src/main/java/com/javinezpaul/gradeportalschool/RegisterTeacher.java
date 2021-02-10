@@ -218,7 +218,7 @@ public class RegisterTeacher extends AppCompatActivity {
                        }
 
                             try {
-                                Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(),"Verified!",Toast.LENGTH_LONG).show();
                                 jsonResult = new JSONObject(response);
                                 int success = jsonResult.getInt("success");
                                 spinnerList.add("[College Name]");

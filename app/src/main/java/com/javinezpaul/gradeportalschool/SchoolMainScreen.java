@@ -102,9 +102,9 @@ public class SchoolMainScreen extends AppCompatActivity{
         cardviewTeachers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Not yet available", Toast.LENGTH_LONG).show();
-//                Intent cardviewTeachers = new Intent(SchoolMainScreen.this , ViewStudents.class);
-//                startActivity(cardviewTeachers);
+//                Toast.makeText(getApplicationContext(), "Not yet available", Toast.LENGTH_LONG).show();
+                Intent cardviewTeachers = new Intent(SchoolMainScreen.this , ViewTeachers.class);
+                startActivity(cardviewTeachers);
             }
         });
 

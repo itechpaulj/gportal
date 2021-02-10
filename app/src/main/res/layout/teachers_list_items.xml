@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginBottom="5dp"
+    android:outlineAmbientShadowColor="@color/colorPrimary"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/imageTeacher"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/ic_baseline_account_circle_24"
+            android:layout_margin="10dp"
+            android:layout_centerVertical="true"/>
+
+
+        <TextView
+            android:id="@+id/teacherDesc"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:layout_toRightOf="@+id/imageTeacher"
+            android:text="Juan Dela Cruz\nIIT"
+            android:textSize="15sp" />
+
+        <ImageButton
+            android:id="@+id/teacherMoreButton"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_baseline_more_vert_24"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/teacherDesc"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

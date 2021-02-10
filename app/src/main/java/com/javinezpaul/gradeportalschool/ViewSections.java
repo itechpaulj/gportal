@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -13,10 +14,15 @@ public class ViewSections extends AppCompatActivity {
     private RecyclerView sectionsRecView;
     private SectionRecViewAdapter adapter;
 
+    TextView toolbarName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_sections);
+
+        toolbarName=findViewById(R.id.toolbarName);
+        toolbarName.setText("Sections");
 
         sectionsRecView = findViewById(R.id.sectionsRecView);
         adapter = new SectionRecViewAdapter(this);

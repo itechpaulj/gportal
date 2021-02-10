@@ -6,6 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layout_constraintCircleRadius="0dp"
     android:background="@drawable/backgroundapp">
 
 
@@ -27,6 +28,7 @@
 
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardviewColleges"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:outlineSpotShadowColor="@color/colorSecondary"
@@ -72,6 +74,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardviewTeachers"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:outlineSpotShadowColor="@color/colorSecondary"
@@ -117,6 +120,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardviewStudents"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:outlineSpotShadowColor="@color/colorSecondary"
@@ -162,6 +166,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardviewPrograms"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:outlineSpotShadowColor="@color/colorSecondary"
@@ -207,6 +212,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardviewSubjects"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:outlineSpotShadowColor="@color/colorSecondary"
@@ -252,6 +258,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardviewSections"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:outlineSpotShadowColor="@color/colorSecondary"
@@ -297,6 +304,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardviewAy"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:outlineSpotShadowColor="@color/colorSecondary"

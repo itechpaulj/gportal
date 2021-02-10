@@ -1,10 +1,14 @@
 package com.javinezpaul.gradeportalschool;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,14 +23,19 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class SchoolMainScreen extends AppCompatActivity {
+public class SchoolMainScreen extends AppCompatActivity{
 
     TextView collegeCounterTextView, instructorCounterTextView,
               studentsCounterTextView, programCounterTextView,
             subjectsCounterTextView, sectionCounterTextView,
             ayCounterTextView;
-    private String r="";
 
+    CardView cardviewColleges, cardviewTeachers,
+            cardviewStudents, cardviewPrograms,
+            cardviewSubjects, cardviewSections,
+            cardviewAy;
+
+    private String schoolcode="66527c19b9";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,20 +50,81 @@ public class SchoolMainScreen extends AppCompatActivity {
         sectionCounterTextView=findViewById(R.id.sectionCounterTextView);
         ayCounterTextView=findViewById(R.id.ayCounterTextView);
 
-        getFunctionValley();
+        cardviewColleges=findViewById(R.id.cardviewColleges);
+        cardviewTeachers=findViewById(R.id.cardviewTeachers);
+        cardviewStudents=findViewById(R.id.cardviewStudents);
+        cardviewPrograms=findViewById(R.id.cardviewPrograms);
+        cardviewSubjects=findViewById(R.id.cardviewSubjects);
+        cardviewSections=findViewById(R.id.cardviewSections);
+        cardviewAy=findViewById(R.id.cardviewAy);
 
-        collegeCounterTextView.setOnClickListener(new View.OnClickListener() {
+        cardviewAy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFunctionValley();
+                Intent cardviewAy = new Intent(SchoolMainScreen.this , ViewAy.class);
+                startActivity(cardviewAy);
             }
         });
 
+        cardviewSections.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cardviewSections = new Intent(SchoolMainScreen.this , ViewSections.class);
+                startActivity(cardviewSections);
+            }
+        });
+
+        cardviewSubjects.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cardviewSubjects = new Intent(SchoolMainScreen.this , ViewSubjects.class);
+                startActivity(cardviewSubjects);
+            }
+        });
+
+        cardviewPrograms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cardviewPrograms = new Intent(SchoolMainScreen.this , ViewPrograms.class);
+                startActivity(cardviewPrograms);
+            }
+        });
+
+        cardviewStudents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Not yet available", Toast.LENGTH_LONG).show();
+//                Intent cardviewStudents = new Intent(SchoolMainScreen.this , ViewStudents.class);
+//                startActivity(cardviewStudents);
+            }
+        });
+
+        cardviewTeachers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Not yet available", Toast.LENGTH_LONG).show();
+//                Intent cardviewTeachers = new Intent(SchoolMainScreen.this , ViewStudents.class);
+//                startActivity(cardviewTeachers);
+            }
+        });
+
+        cardviewColleges.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cardviewColleges = new Intent(SchoolMainScreen.this , ViewCollege.class);
+                startActivity(cardviewColleges);
+            }
+        });
+
+        getFunctionValley();
+
     }
+
+
 
     private void getFunctionValley() {
         RequestQueue queueu = Volley.newRequestQueue(this);
-        String url = "http://jeepcard.net/gportal/schoolmainscreen.php?schoolcode=66527c19b9";
+        String url = "http://jeepcard.net/gportal/schoolmainscreen.php?schoolcode="+schoolcode;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -84,4 +154,5 @@ public class SchoolMainScreen extends AppCompatActivity {
         });//Stringrequest
         queueu.add(stringRequest);
     }
+
 }

@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -13,10 +14,15 @@ public class ViewPrograms extends AppCompatActivity {
     private RecyclerView programsRecView;
     private ProgramRecViewAdapter adapter;
 
+    TextView toolbarName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_programs);
+
+        toolbarName=findViewById(R.id.toolbarName);
+        toolbarName.setText("Programs");
 
         programsRecView = findViewById(R.id.programsRecView);
         adapter = new ProgramRecViewAdapter(this);

@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -12,11 +13,15 @@ public class ViewAy extends AppCompatActivity {
 
     private RecyclerView ayRecView;
     private AyRecViewAdapter adapter;
+    TextView toolbarName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_ay);
+
+        toolbarName=findViewById(R.id.toolbarName);
+        toolbarName.setText("Academic Year");
 
         ayRecView = findViewById(R.id.ayRecView);
         adapter = new AyRecViewAdapter(this);

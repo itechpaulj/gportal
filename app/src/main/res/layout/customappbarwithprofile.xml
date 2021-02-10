@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white">
+    android:background="@android:color/transparent">
 
 
     <LinearLayout
@@ -12,8 +12,8 @@
 
         <ImageView
             android:id="@+id/left_icon"
-            android:layout_width="35dp"
-            android:layout_height="40dp"
+            android:layout_width="30dp"
+            android:layout_height="35dp"
             android:layout_gravity="left"
             android:layout_marginStart="-200dp"
             android:layout_marginLeft="20dp"
@@ -37,8 +37,8 @@
             android:textStyle="bold" />
 
         <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_marginStart="180dp"
             android:layout_marginLeft="200dp"
             android:layout_marginEnd="-200dp"
@@ -49,8 +49,8 @@
 
         <ImageButton
             android:id="@+id/drawerbtn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_marginStart="210dp"
             android:layout_marginLeft="210dp"
             android:layout_marginEnd="-210dp"

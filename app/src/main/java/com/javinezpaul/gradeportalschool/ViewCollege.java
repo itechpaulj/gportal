@@ -18,11 +18,15 @@ public class ViewCollege extends AppCompatActivity {
     //Declaration of components
     private RecyclerView collegesRecView;
     private CollegeRecViewAdapter adapter;
+    TextView toolbarName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_college);
+
+        toolbarName=findViewById(R.id.toolbarName);
+        toolbarName.setText("Colleges");
 
         adapter = new CollegeRecViewAdapter(this);
         collegesRecView = findViewById(R.id.collegesRecView);

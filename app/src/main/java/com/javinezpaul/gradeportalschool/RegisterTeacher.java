@@ -294,7 +294,19 @@ public class RegisterTeacher extends AppCompatActivity {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        schoolcode.setVisibility(View.VISIBLE);
+                        btnschoolcode.setVisibility(View.VISIBLE);
+                        uploadBtn.setVisibility(View.GONE);
+                        imageTeacher.setVisibility(View.GONE);
+                        fnameteacher.setVisibility(View.GONE);
+                        lnameteacher.setVisibility(View.GONE);
+                        mnameteacher.setVisibility(View.GONE);
+                        empteacher.setVisibility(View.GONE);
+                        spinnercollegename.setVisibility(View.GONE);
+                        nextBtn.setVisibility(View.GONE);
+                        min_gender.setVisibility(View.GONE);
+                        address.setVisibility(View.GONE);
+                        password.setVisibility(View.GONE);
                         Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
                     }
                 }){

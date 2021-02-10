@@ -40,7 +40,8 @@
             android:layout_margin="10dp"
             android:layout_toRightOf="@+id/secCode"
             android:text="BSED"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
 
     </RelativeLayout>
 

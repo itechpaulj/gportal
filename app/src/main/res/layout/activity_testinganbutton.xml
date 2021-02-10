@@ -25,12 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"></Button>
 
-    <Button
-        android:textColor="@color/white"
-        android:id="@+id/viewCollege"
-        android:text="View College"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></Button>
+
 
     <Button
         android:textColor="@color/white"
@@ -46,34 +41,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"></Button>
 
-    <Button
-        android:textColor="@color/white"
-        android:id="@+id/viewPrograms"
-        android:text="View Programs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></Button>
-
-    <Button
-        android:textColor="@color/white"
-        android:id="@+id/viewSections"
-        android:text="View Sections"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></Button>
-
-
-    <Button
-        android:textColor="@color/white"
-        android:id="@+id/viewSubjects"
-        android:text="View Subjects"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></Button>
-
-    <Button
-        android:textColor="@color/white"
-        android:id="@+id/viewAcadYear"
-        android:text="View AY"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
     <Button
         android:textColor="@color/white"

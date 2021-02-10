@@ -38,7 +38,8 @@
             android:layout_margin="10dp"
             android:layout_toRightOf="@+id/subjectCode"
             android:text="General Academic Tertiary Education"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:textColor="@color/black"/>
 
     </RelativeLayout>
 

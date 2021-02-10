@@ -27,13 +27,14 @@
 
         <TextView
             android:id="@+id/teacherDesc"
-            android:layout_width="240dp"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_margin="10dp"
             android:layout_toRightOf="@+id/imageTeacher"
             android:text="Juan Dela Cruz\nIIT"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:textColor="@color/black"/>
 
         <ImageButton
             android:id="@+id/teacherMoreButton"

@@ -40,7 +40,8 @@
             android:layout_margin="10dp"
             android:layout_toRightOf="@+id/progCode"
             android:text="2020-2021\nBS in Secondary Education\nMajor in English"
-            android:textSize="13sp" />
+            android:textSize="13sp"
+            android:textColor="@color/black"/>
 
     </RelativeLayout>
 

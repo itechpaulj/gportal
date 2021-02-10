@@ -39,10 +39,10 @@ public class TeacherRecViewadapter extends RecyclerView.Adapter<TeacherRecViewad
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: Called ");
 
-        holder.teacherDesc.setText(teachers.get(position).getLname() + " , " +
+        holder.teacherDesc.setText(teachers.get(position).getId() + "\n" +
+                                    teachers.get(position).getLname() + " , " +
                                     teachers.get(position).getFname() + "  " +
                                     teachers.get(position).getMname() + "\n" +
-                                    teachers.get(position).getId() + "\n" +
                                     teachers.get(position).getCollegeid());
          //Glide
          ///To show image from internet to ImageView

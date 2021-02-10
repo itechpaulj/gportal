@@ -32,10 +32,18 @@ public class ViewTeachers extends AppCompatActivity {
 
 //        to add data in arraylist
         ArrayList<Teacher> teachers = new ArrayList<>();
+        teachers.add(new Teacher("17-899098", "Dela Cruz", "Juan", "Filipino", "1(collegecode)", "https://static.s123-cdn-static.com/uploads/24865/400_5c9b11b3ab476.jpg"));
+        teachers.add(new Teacher("17-123456", "Astillero", "Yes", "No", "IIT", "https://static.s123-cdn-static.com/uploads/24865/400_5c9b11b3ab476.jpg"));
+        teachers.add(new Teacher("17-234567", "Adan", "Right", "Maybe", "GATE", "https://i.ytimg.com/vi/Z4zkIi11Psw/hqdefault.jpg"));
+        teachers.add(new Teacher("17-345678", "Barcela", "Left", "Top", "IIT", "https://static.s123-cdn-static.com/uploads/24865/400_5c9b11b3ab476.jpg"));
         teachers.add(new Teacher("17-899098", "Dela Cruz", "Juan", "Filipino", "1", "https://static.s123-cdn-static.com/uploads/24865/400_5c9b11b3ab476.jpg"));
-        teachers.add(new Teacher("17-123456", "Astillero", "Yes", "No", "2", "https://static.s123-cdn-static.com/uploads/24865/400_5c9b11b3ab476.jpg"));
-        teachers.add(new Teacher("17-234567", "Adan", "Right", "Maybe", "3", "https://i.ytimg.com/vi/Z4zkIi11Psw/hqdefault.jpg"));
-        teachers.add(new Teacher("17-345678", "Barcela", "Left", "Top", "1", "https://static.s123-cdn-static.com/uploads/24865/400_5c9b11b3ab476.jpg"));
+        teachers.add(new Teacher("17-123456", "Astillero", "Yes", "No", "BSBA", "https://static.s123-cdn-static.com/uploads/24865/400_5c9b11b3ab476.jpg"));
+        teachers.add(new Teacher("17-234567", "Adan", "Right", "Maybe", "IIT", "https://i.ytimg.com/vi/Z4zkIi11Psw/hqdefault.jpg"));
+        teachers.add(new Teacher("17-345678", "Barcela", "Left", "Top", "IIT", "https://static.s123-cdn-static.com/uploads/24865/400_5c9b11b3ab476.jpg"));
+        teachers.add(new Teacher("17-899098", "Dela Cruz", "Juan", "Filipino", "1", "https://static.s123-cdn-static.com/uploads/24865/400_5c9b11b3ab476.jpg"));
+        teachers.add(new Teacher("17-123456", "Astillero", "Yes", "No", "IIT", "https://static.s123-cdn-static.com/uploads/24865/400_5c9b11b3ab476.jpg"));
+        teachers.add(new Teacher("17-234567", "Adan", "Right", "Maybe", "IIT", "https://i.ytimg.com/vi/Z4zkIi11Psw/hqdefault.jpg"));
+        teachers.add(new Teacher("17-345678", "Barcela", "Left", "Top", "IIT", "https://static.s123-cdn-static.com/uploads/24865/400_5c9b11b3ab476.jpg"));
 
         adapter.setTeachers(teachers);
     }

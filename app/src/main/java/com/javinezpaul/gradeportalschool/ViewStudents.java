@@ -6,6 +6,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.util.ArrayList;
 
@@ -15,6 +26,9 @@ public class ViewStudents extends AppCompatActivity {
     private RecyclerView studentsRecView;
     private StudentRecViewAdapter adapter;
     TextView toolbarName;
+    private String schoolcode;
+
+    ArrayList<Student> students = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,24 +38,63 @@ public class ViewStudents extends AppCompatActivity {
         toolbarName=findViewById(R.id.toolbarName);
         toolbarName.setText("Students");
 
-        adapter = new StudentRecViewAdapter(this);
-        studentsRecView = findViewById(R.id.studentsRecView);
+        SchoolMainScreen mainClass = new SchoolMainScreen();
+        schoolcode=mainClass.schoolcode;
+        Toast.makeText(getApplicationContext(), "Schoolcode: " + schoolcode + " is from SchoolMainScreen", Toast.LENGTH_LONG).show();
 
-        studentsRecView.setAdapter(adapter);
-        studentsRecView.setLayoutManager(new LinearLayoutManager(this));
+        getFunctionValley();
+    }
 
-//        to add data in arraylist
-        ArrayList<Student> students = new ArrayList<>();
-        students.add(new Student("17-500101","Adan", "Allan", "Astillero", "1(collegecode)", "1(programcode)", "1(sectioncode)", "123456(viewcode)", "https://static.s123-cdn-static.com/uploads/24865/400_5c9b11b3ab476.jpg"));
-        students.add(new Student("17-500101","Adan", "Allan", "Astillero", "IIT", "BSIT", "IT1A", "123456", "https://static.s123-cdn-static.com/uploads/24865/400_5c9b11b3ab476.jpg"));
-        students.add(new Student("17-500101","Adan", "Allan", "Astillero", "IIT", "BSIT", "IT1A", "123456", "https://static.s123-cdn-static.com/uploads/24865/400_5c9b11b3ab476.jpg"));
-        students.add(new Student("17-500101","Adan", "Allan", "Astillero", "IIT", "BSIT", "IT1A", "123456", "https://static.s123-cdn-static.com/uploads/24865/400_5c9b11b3ab476.jpg"));
-        students.add(new Student("17-500101","Adan", "Allan", "Astillero", "IIT", "BSIT", "IT1A", "123456", "https://static.s123-cdn-static.com/uploads/24865/400_5c9b11b3ab476.jpg"));
-        students.add(new Student("17-500101","Adan", "Allan", "Astillero", "IIT", "BSIT", "IT1A", "123456", "https://static.s123-cdn-static.com/uploads/24865/400_5c9b11b3ab476.jpg"));
-        students.add(new Student("17-500101","Adan", "Allan", "Astillero", "IIT", "BSIT", "IT1A", "123456", "https://static.s123-cdn-static.com/uploads/24865/400_5c9b11b3ab476.jpg"));
-        students.add(new Student("17-500101","Adan", "Allan", "Astillero", "IIT", "BSIT", "IT1A", "123456", "https://static.s123-cdn-static.com/uploads/24865/400_5c9b11b3ab476.jpg"));
-        students.add(new Student("17-500101","Adan", "Allan", "Astillero", "IIT", "BSIT", "IT1A", "123456", "https://static.s123-cdn-static.com/uploads/24865/400_5c9b11b3ab476.jpg"));
+    private void getFunctionValley() {
+        RequestQueue queueu = Volley.newRequestQueue(this);
+        String url = "http://jeepcard.net/gportal/students.php?schoolcode="+schoolcode;
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+//                collegeCounterTextView.setText("Response Get: "+response);
+//                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                adapter = new StudentRecViewAdapter(ViewStudents.this);
+                studentsRecView = findViewById(R.id.studentsRecView);
 
-        adapter.setStudents(students);
+                studentsRecView.setAdapter(adapter);
+                studentsRecView.setLayoutManager(new LinearLayoutManager(ViewStudents.this));
+                try {
+                    JSONArray JA= new JSONArray(response);
+                    for(int i=0;i<JA.length();i++) {
+                        //receive JSON response to variables
+                        String userid=JA.getJSONObject(i).get("userid").toString();
+                        String cardid=JA.getJSONObject(i).get("cardid").toString();
+                        String lname=JA.getJSONObject(i).get("lname").toString();
+                        String fname=JA.getJSONObject(i).get("fname").toString();
+                        String mname=JA.getJSONObject(i).get("mname").toString();
+                        String gender=JA.getJSONObject(i).get("gender").toString();
+                        String viewcode=JA.getJSONObject(i).get("viewcode").toString();
+                        String collegeid=JA.getJSONObject(i).get("collegeid").toString();
+                        String collegecode=JA.getJSONObject(i).get("collegecode").toString();
+                        String sectionid=JA.getJSONObject(i).get("sectionid").toString();
+                        String sectioncode=JA.getJSONObject(i).get("sectioncode").toString();
+                        String programid=JA.getJSONObject(i).get("programid").toString();
+                        String programcode=JA.getJSONObject(i).get("programcode").toString();
+                        String photo=JA.getJSONObject(i).get("photo").toString();
+
+
+                        //to add data in arraylist
+                        students.add(new Student(cardid,lname, fname, mname, collegecode, programcode, sectioncode, viewcode, photo));
+                    }
+                    adapter.setStudents(students);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            } //onResponse
+        }, new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError error) {
+//                Toast.makeText(getApplicationContext(), "Reconnecting", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Resolving error", Toast.LENGTH_LONG).show();
+                getFunctionValley();
+            }
+        });//Stringrequest
+        queueu.add(stringRequest);
     }
 }

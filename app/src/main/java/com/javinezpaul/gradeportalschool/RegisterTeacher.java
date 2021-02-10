@@ -273,9 +273,7 @@ public class RegisterTeacher extends AppCompatActivity {
                                         adapter1 = new ArrayAdapter<>(RegisterTeacher.this, android.R.layout.simple_spinner_item,spinnerList);
                                         adapter1.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
                                         spinnercollegename.setAdapter(adapter1);
-
                                     }
-
 
                                 }
                                 else{

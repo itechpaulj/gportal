@@ -37,8 +37,8 @@ public class SubjectRecViewAdapter extends RecyclerView.Adapter<SubjectRecViewAd
         Log.d(TAG, "onBindViewHolder: Called ");
 
         holder.code.setText(subjects.get(position).getCode());
-        holder.desc.setText(subjects.get(position).getProgramid() + "(Program)\n" +
-                subjects.get(position).getAyid() + " (AY)\n" +
+        holder.desc.setText(subjects.get(position).getProgramid() + "\n" +
+                subjects.get(position).getAyid() +"\n"+
                 subjects.get(position).getTitle()
         );
 

@@ -1,7 +1,7 @@
 package com.javinezpaul.gradeportalschool;
 
 public class Program {
-    private int id;
+    private String id;
     private String code;
     private String name;
     private String major;
@@ -9,7 +9,7 @@ public class Program {
     private String year1;
     private String year2;
 
-    public Program(int id, String code, String name, String major, String collegeid, String year1, String year2) {
+    public Program(String id, String code, String name, String major, String collegeid, String year1, String year2) {
         this.id = id;
         this.code = code;
         this.name = name;
@@ -19,11 +19,11 @@ public class Program {
         this.year2 = year2;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

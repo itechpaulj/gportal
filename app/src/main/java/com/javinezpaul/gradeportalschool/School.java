@@ -127,7 +127,6 @@ make Toast for debugging result if success
                         @Override
                         public void onResponse(String response) {
                             Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
-
                         }
                     }, new Response.ErrorListener() {
                         @Override
@@ -169,7 +168,6 @@ make Toast for debugging result if success
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setType("image/*");
                 startActivityForResult(Intent.createChooser(intent,"Select Image"),CODE_GALLERY_REQUEST);
-
             }
             else{
                 Toast.makeText(getApplicationContext(),"You do not have permission",Toast.LENGTH_LONG).show();

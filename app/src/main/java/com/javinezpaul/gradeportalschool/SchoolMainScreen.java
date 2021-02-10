@@ -35,7 +35,8 @@ public class SchoolMainScreen extends AppCompatActivity{
             cardviewSubjects, cardviewSections,
             cardviewAy;
 
-    private String schoolcode="66527c19b9";
+    public String schoolcode="66527c19b9";
+//    public String schoolcode="c86d491fad";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +113,7 @@ public class SchoolMainScreen extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 Intent cardviewColleges = new Intent(SchoolMainScreen.this , ViewCollege.class);
+//                cardviewColleges.putExtra("schoolcode", schoolcode);
                 startActivity(cardviewColleges);
             }
         });

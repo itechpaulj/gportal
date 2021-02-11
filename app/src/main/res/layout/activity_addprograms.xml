@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"></TextView>
         <EditText
 
-            android:textSize="15dp"
+            android:textSize="11dp"
             android:id="@+id/subjectcode"
             android:background="@drawable/inputcorner"
             android:textColor="@color/colorPrimary"
@@ -85,7 +85,7 @@
         <EditText
             android:id="@+id/programname"
             android:background="@drawable/inputcorner"
-            android:textSize="15dp"
+            android:textSize="11dp"
             android:textColor="@color/colorPrimary"
             android:textColorHint="@color/black"
             android:layout_gravity="center"
@@ -109,7 +109,7 @@
         <EditText
             android:id="@+id/major"
             android:background="@drawable/inputcorner"
-            android:textSize="15dp"
+            android:textSize="11dp"
             android:textColor="@color/colorPrimary"
             android:textColorHint="@color/black"
             android:layout_gravity="center"

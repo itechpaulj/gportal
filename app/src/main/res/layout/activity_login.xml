@@ -42,36 +42,33 @@
 
 
             <EditText
-                android:padding="10dp"
-                android:elevation="2dp"
+
                 android:hint="ID Number"
                 android:layout_marginTop="50dp"
-                android:background="@drawable/logininput"
+                android:background="@drawable/backgroundapp"
                 android:textSize="15dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/cardview_dark_background"
                 android:layout_gravity="center"
                 android:layout_width="300dp"
-                android:layout_height="50dp"></EditText>
+                android:layout_height="40dp"></EditText>
 
                 <LinearLayout
                     android:layout_marginTop="20dp"
                     android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp">
+                    android:layout_height="wrap_content">
                     <EditText
-                        android:padding="10dp"
-                        android:elevation="2dp"
                         android:inputType="textPassword"
                         android:layout_marginLeft="30dp"
                         android:id="@+id/Password"
                         android:hint="Password"
-                        android:background="@drawable/logininput"
+                        android:background="@drawable/backgroundapp"
                         android:textSize="15dp"
                         android:textColor="@color/black"
                         android:textColorHint="@color/cardview_dark_background"
                         android:layout_width="300dp"
-                        android:layout_height="50dp"
+                        android:layout_height="40dp"
                         ></EditText>
 
                     <ImageView

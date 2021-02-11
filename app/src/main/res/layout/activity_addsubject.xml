@@ -54,7 +54,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></TextView>
         <EditText
-            android:textSize="15dp"
+
+            android:textSize="11dp"
             android:id="@+id/subjectcode"
             android:background="@drawable/inputcorner"
             android:textColor="@color/colorPrimary"
@@ -80,7 +81,7 @@
             android:layout_height="wrap_content"></TextView>
         <EditText
 
-            android:textSize="15dp"
+            android:textSize="11dp"
             android:id="@+id/subjecttitle"
             android:background="@drawable/inputcorner"
             android:textColor="@color/colorPrimary"

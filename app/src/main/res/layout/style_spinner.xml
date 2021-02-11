@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:padding="5dp"
     android:textSize="15sp"
-    android:textColor="@color/colorPrimary"
-    android:background="@color/white"
+    android:textStyle="bold"
+    android:textColor="@color/colorSecondary"
     android:layout_height="match_parent">
 </TextView>

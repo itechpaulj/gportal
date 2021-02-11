@@ -61,7 +61,7 @@
         <EditText
             android:id="@+id/collegecode"
             android:background="@drawable/inputcorner"
-            android:textSize="11dp"
+            android:textSize="15dp"
             android:textColor="@color/colorPrimary"
             android:textColorHint="@color/black"
             android:layout_gravity="center"
@@ -85,7 +85,7 @@
         <EditText
             android:id="@+id/collegename"
             android:background="@drawable/inputcorner"
-            android:textSize="11dp"
+            android:textSize="15dp"
             android:textColor="@color/colorPrimary"
             android:textColorHint="@color/black"
             android:layout_gravity="center"

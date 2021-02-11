@@ -15,6 +15,7 @@ import java.lang.reflect.Type;
 public class MainActivity extends AppCompatActivity {
     Button RegisterTeacher,StudentRegister;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,13 +42,34 @@ public class MainActivity extends AppCompatActivity {
         gportal.setTypeface(typeface);
         schoolbtn.setTypeface(typeface);
 
+        viewcode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent joinwithcode = new Intent(MainActivity.this,StudentJoinCode.class);
+                startActivity(joinwithcode);
+            }
+        });
+        RegisterTeacher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent registerteacher = new Intent(MainActivity.this,RegisterTeacher.class);
+                startActivity(registerteacher);
+            }
+        });
 
+        StudentRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent studentregister = new Intent(MainActivity.this,StudentRegister.class);
+                startActivity(studentregister);
+            }
+        });
 
 
         gportal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent testing = new Intent(MainActivity.this,Testinganbutton.class);
+                Intent testing = new Intent(MainActivity.this,Login.class);
                 startActivity(testing);
             }
         });

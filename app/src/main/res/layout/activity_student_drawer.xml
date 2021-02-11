@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".StudentDrawer"
-    android:background="@color/white"
+    android:background="@drawable/gradebg"
     android:orientation="horizontal">
 
     <LinearLayout
@@ -19,12 +19,11 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-
                 android:layout_margin="10dp"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/arrowleft"></ImageButton>
+                android:background="@drawable/arrowleftwhite"></ImageButton>
 
             <LinearLayout
                 android:gravity="center"
@@ -33,8 +32,8 @@
 
                 <TextView
                     android:layout_margin="10sp"
-                    android:textSize="20sp"
-                    android:textColor="@color/colorSecondary"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
                     android:gravity="center"
                     android:text="Grades Portal"
                     android:layout_width="wrap_content"
@@ -47,18 +46,21 @@
         </RelativeLayout>
 
         <TextView
-            android:padding="20dp"
-            android:textSize="25dp"
-            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="45dp"
+            android:textSize="20dp"
+            android:textColor="@color/white"
             android:text="Grades"
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></TextView>
 
         <TableLayout
-            android:layout_marginTop="50dp"
+            android:elevation="2dp"
+            android:background="@drawable/cardrectangle"
+            android:layout_marginTop="10dp"
             android:layout_gravity="center"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content">
 
             <TableRow
@@ -78,15 +80,15 @@
             </TableRow>
 
             <TableRow
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:padding="20dp"
+                    android:padding="15dp"
                     android:textSize="20dp"
                     android:textColor="@color/colorPrimary"
                     android:text="2021-2022"
-                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></TextView>
 
@@ -101,7 +103,6 @@
                         android:textSize="20dp"
                         android:textColor="@color/colorPrimary"
                         android:text="Subjects"
-                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"></TextView>
 
@@ -110,7 +111,6 @@
                         android:textSize="20dp"
                         android:textColor="@color/colorPrimary"
                         android:text="Sections"
-                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"></TextView>
 
@@ -120,6 +120,7 @@
             </TableRow>
 
             <TableRow
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
@@ -128,7 +129,6 @@
                     android:textSize="20dp"
                     android:textColor="@color/colorPrimary"
                     android:text="2021-2022"
-                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></TextView>
 
@@ -143,7 +143,6 @@
                         android:textSize="20dp"
                         android:textColor="@color/colorPrimary"
                         android:text="Subjects"
-                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"></TextView>
 
@@ -152,7 +151,6 @@
                         android:textSize="20dp"
                         android:textColor="@color/colorPrimary"
                         android:text="Sections"
-                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"></TextView>
 
@@ -162,6 +160,7 @@
             </TableRow>
 
             <TableRow
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
@@ -170,7 +169,6 @@
                     android:textSize="20dp"
                     android:textColor="@color/colorPrimary"
                     android:text="2021-2022"
-                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></TextView>
 
@@ -185,7 +183,6 @@
                         android:textSize="20dp"
                         android:textColor="@color/colorPrimary"
                         android:text="Subjects"
-                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"></TextView>
 
@@ -194,7 +191,6 @@
                         android:textSize="20dp"
                         android:textColor="@color/colorPrimary"
                         android:text="Sections"
-                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"></TextView>
 
@@ -205,9 +201,13 @@
 
         </TableLayout>
 
+
         <LinearLayout
-            android:layout_marginTop="50dp"
-            android:orientation="vertical"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:background="@drawable/cardrectangle"
+            android:layout_marginTop="300dp"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -216,7 +216,7 @@
                 android:padding="20dp"
                 android:drawableLeft="@drawable/settingsicon"
                 android:textColor="@color/colorTertiary"
-                android:textSize="30dp"
+                android:textSize="20dp"
                 android:text="Settings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></TextView>
@@ -227,7 +227,7 @@
                 android:padding="20dp"
                 android:drawableLeft="@drawable/helpicon"
                 android:textColor="@color/colorTertiary"
-                android:textSize="30dp"
+                android:textSize="20dp"
                 android:text="Help"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></TextView>
@@ -237,12 +237,8 @@
 
 
 
-
-
-
-
-
-
     </LinearLayout>
+
+
 
 </ScrollView>

@@ -91,7 +91,7 @@
             <ImageView
                 android:id="@+id/imageStudent"
                 android:layout_gravity="center"
-                android:background="@drawable/default_border_image"
+                android:background="@color/white"
                 android:layout_width="200dp"
                 android:layout_height="200dp"></ImageView>
 
@@ -106,6 +106,7 @@
 
 
             <EditText
+                android:layout_marginTop="20dp"
                 android:id="@+id/fname"
                 android:hint="First Name"
                 android:background="@drawable/inputcorner"
@@ -114,7 +115,7 @@
                 android:textColorHint="@color/cardview_dark_background"
                 android:layout_gravity="center"
                 android:layout_width="300dp"
-                android:layout_height="wrap_content"></EditText>
+                android:layout_height="50dp"></EditText>
 
             <EditText
                 android:id="@+id/lname"
@@ -125,7 +126,7 @@
                 android:textColorHint="@color/cardview_dark_background"
                 android:layout_gravity="center"
                 android:layout_width="300dp"
-                android:layout_height="wrap_content"></EditText>
+                android:layout_height="50dp"></EditText>
             <EditText
                 android:id="@+id/mname"
                 android:hint="Middle Name"
@@ -135,7 +136,7 @@
                 android:textColorHint="@color/cardview_dark_background"
                 android:layout_gravity="center"
                 android:layout_width="300dp"
-                android:layout_height="wrap_content"></EditText>
+                android:layout_height="50dp"></EditText>
             <EditText
                 android:id="@+id/schoolid"
                 android:hint="School ID"
@@ -145,7 +146,7 @@
                 android:textColorHint="@color/cardview_dark_background"
                 android:layout_gravity="center"
                 android:layout_width="300dp"
-                android:layout_height="wrap_content"></EditText>
+                android:layout_height="50dp"></EditText>
             <EditText
                 android:id="@+id/password"
                 android:hint="Password"
@@ -155,7 +156,7 @@
                 android:textColorHint="@color/cardview_dark_background"
                 android:layout_gravity="center"
                 android:layout_width="300dp"
-                android:layout_height="wrap_content"></EditText>
+                android:layout_height="50dp"></EditText>
             <Spinner
                 android:background="@drawable/style_spinner"
                 android:layout_marginTop="50dp"

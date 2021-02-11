@@ -67,19 +67,11 @@
     </LinearLayout>
 
     <LinearLayout
-<<<<<<< HEAD
 
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-=======
-
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
->>>>>>> parent of 8f96b34 (Revert "teacher Main screen (Not finalized), teacher drawer (Not finalize), teacher subject,teacher subjects, newcode")
         <TableLayout
             android:layout_marginTop="0dp"
             android:layout_gravity="center"
@@ -115,7 +107,7 @@
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></TextView>
-<<<<<<< HEAD
+
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -141,8 +133,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"></TextView>
 
-=======
-
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
@@ -166,8 +156,6 @@
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"></TextView>
-
->>>>>>> parent of 8f96b34 (Revert "teacher Main screen (Not finalized), teacher drawer (Not finalize), teacher subject,teacher subjects, newcode")
                     <TextView
                         android:padding="5dp"
                         android:textSize="20dp"
@@ -178,6 +166,39 @@
                         android:layout_height="wrap_content"></TextView>
                 </LinearLayout>
 
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:padding="5dp"
+                        android:textSize="20dp"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Subject"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></TextView>
+
+                    <TextView
+                        android:padding="5dp"
+                        android:textSize="20dp"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Section"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></TextView>
+
+                    <TextView
+                        android:padding="5dp"
+                        android:textSize="20dp"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Code"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></TextView>
+                </LinearLayout>
 
             </TableRow>
 
@@ -243,7 +264,6 @@
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></TextView>
-<<<<<<< HEAD
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -298,7 +318,6 @@
             android:gravity="center"
             android:text="Logout" />
     </LinearLayout>
-=======
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -338,6 +357,43 @@
             </TableRow>
 
         </TableLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:padding="5dp"
+                        android:textSize="20dp"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Subject"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></TextView>
+
+                    <TextView
+                        android:padding="5dp"
+                        android:textSize="20dp"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Section"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></TextView>
+                    <TextView
+                        android:padding="5dp"
+                        android:textSize="20dp"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Code"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></TextView>
+
+                </LinearLayout>
+
+
+            </TableRow>
+
+        </TableLayout>
 </LinearLayout>
->>>>>>> parent of 8f96b34 (Revert "teacher Main screen (Not finalized), teacher drawer (Not finalize), teacher subject,teacher subjects, newcode")
 </LinearLayout>

@@ -53,55 +53,115 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Spinner
-            android:background="@drawable/style_spinner"
-            android:layout_marginTop="50dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:id="@+id/spinnerAy"
-            android:layout_width="300dp"
-            android:layout_height="50dp">
-        </Spinner>
 
-        <Spinner
-            android:layout_marginTop="15dp"
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:background="@drawable/style_spinner"
-            android:gravity="center"
-            android:id="@+id/spinnerCollege"
+            android:elevation="2dp"
             android:layout_width="300dp"
-            android:layout_height="50dp">
-        </Spinner>
-        <Spinner
+            android:layout_height="40dp">
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <Spinner
+                    android:layout_marginTop="0dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:id="@+id/spinnerAy"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </Spinner>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-            android:layout_marginTop="15dp"
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:background="@drawable/style_spinner"
-            android:gravity="center"
-            android:id="@+id/spinnerProgram"
+            android:elevation="2dp"
             android:layout_width="300dp"
-            android:layout_height="50dp">
-        </Spinner>
-        <Spinner
+            android:layout_height="40dp">
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <Spinner
+                    android:layout_marginTop="0dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:id="@+id/spinnerCollege"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </Spinner>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-            android:layout_marginTop="15dp"
-            android:layout_gravity="center"
-            android:background="@drawable/style_spinner"
-            android:gravity="center"
-            android:id="@+id/spinnerSection"
-            android:layout_width="300dp"
-            android:layout_height="50dp">
-        </Spinner>
-        <Spinner
 
-            android:layout_marginTop="15dp"
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:background="@drawable/style_spinner"
-            android:gravity="center"
-            android:id="@+id/spinnerSubjects"
+            android:elevation="2dp"
             android:layout_width="300dp"
-            android:layout_height="50dp">
-        </Spinner>
+            android:layout_height="40dp">
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <Spinner
+                    android:layout_marginTop="0dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:id="@+id/spinnerProgram"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </Spinner>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:elevation="2dp"
+            android:layout_width="300dp"
+            android:layout_height="40dp">
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <Spinner
+                    android:layout_marginTop="0dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:id="@+id/spinnerSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </Spinner>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:elevation="2dp"
+            android:layout_width="300dp"
+            android:layout_height="40dp">
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <Spinner
+                    android:layout_marginTop="0dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:id="@+id/spinnerSubjects"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </Spinner>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
+
 
 </LinearLayout>

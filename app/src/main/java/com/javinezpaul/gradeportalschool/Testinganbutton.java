@@ -58,7 +58,7 @@ public class Testinganbutton extends AppCompatActivity {
         pagumaoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent pagumaoc = new Intent(Testinganbutton.this , RegisterTeacher2.class);
+                Intent pagumaoc = new Intent(Testinganbutton.this , RegisterTeacher.class);
                 startActivity(pagumaoc);
 
             }

@@ -17,7 +17,8 @@ public class Testinganbutton extends AppCompatActivity {
 			addSchool, addcollege,
             addprograms, addsection,
             addsubject,addTeacher,
-            addstudent,hasloggedin;
+            addstudent,hasloggedin
+            ,loggedin2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,8 @@ public class Testinganbutton extends AppCompatActivity {
         addTeacher = findViewById(R.id.addTeacher);
         addstudent = findViewById(R.id.addstudent);
         hasloggedin = findViewById(R.id.hasloggedin);
+        loggedin2 = findViewById(R.id.loggedin2);
+
         /*
         id ni paul javinez
          */
@@ -54,7 +57,7 @@ public class Testinganbutton extends AppCompatActivity {
             }
         });
 
-        
+
 
 
         studRegister.setOnClickListener(new View.OnClickListener() {
@@ -145,6 +148,14 @@ public class Testinganbutton extends AppCompatActivity {
             public void onClick(View v) {
                 Intent hasloggedin = new Intent(Testinganbutton.this , Login.class);
                 startActivity(hasloggedin);
+                finish();
+            }
+        });
+        loggedin2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent loggedin2 = new Intent(Testinganbutton.this , Login2.class);
+                startActivity(loggedin2);
                 finish();
             }
         });

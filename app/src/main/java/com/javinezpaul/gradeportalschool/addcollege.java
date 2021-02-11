@@ -73,7 +73,7 @@ public class addcollege extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
 //                collegeCounterTextView.setText("Response Get: "+response);
-                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
                 AlertDialog alertDialog = new AlertDialog.Builder(addcollege.this).create();
                 alertDialog.setTitle("Message");
                 alertDialog.setMessage(response);//Message to be shown

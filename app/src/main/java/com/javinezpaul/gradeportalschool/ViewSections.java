@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +30,8 @@ public class ViewSections extends AppCompatActivity {
     private String schoolcode;
 
     TextView toolbarName;
+    TextView toolbarAddButton;
+    ImageView left_icon;
 
     ArrayList<Section> sections = new ArrayList<>();
 
@@ -40,7 +45,25 @@ public class ViewSections extends AppCompatActivity {
 
         SchoolMainScreen mainClass = new SchoolMainScreen();
         schoolcode=mainClass.schoolcode;
-        Toast.makeText(getApplicationContext(), "Schoolcode: " + schoolcode + " is from SchoolMainScreen", Toast.LENGTH_LONG).show();
+//        Toast.makeText(getApplicationContext(), "Schoolcode: " + schoolcode + " is from SchoolMainScreen", Toast.LENGTH_LONG).show();
+
+        toolbarAddButton=findViewById(R.id.toolbarAddButton);
+        left_icon=findViewById(R.id.left_icon);
+
+        toolbarAddButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toolbarAddButton = new Intent(ViewSections.this , addsection.class);
+                startActivity(toolbarAddButton);
+            }
+        });
+
+        left_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         getFunctionValley();
     }

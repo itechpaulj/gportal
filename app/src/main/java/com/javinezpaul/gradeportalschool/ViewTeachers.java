@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,8 +27,10 @@ public class ViewTeachers extends AppCompatActivity {
     //Declaration of components
     private RecyclerView teachersRecView;
     private TeacherRecViewadapter adapter;
-    TextView toolbarName;
+
     private String schoolcode;
+    TextView toolbarName;
+    ImageView left_icon;
 
     ArrayList<Teacher> teachers = new ArrayList<>();
 
@@ -40,7 +44,15 @@ public class ViewTeachers extends AppCompatActivity {
 
         SchoolMainScreen mainClass = new SchoolMainScreen();
         schoolcode=mainClass.schoolcode;
-        Toast.makeText(getApplicationContext(), "Schoolcode: " + schoolcode + " is from SchoolMainScreen", Toast.LENGTH_LONG).show();
+//        Toast.makeText(getApplicationContext(), "Schoolcode: " + schoolcode + " is from SchoolMainScreen", Toast.LENGTH_LONG).show();
+
+        left_icon=findViewById(R.id.left_icon);
+        left_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         getFunctionValley();
 

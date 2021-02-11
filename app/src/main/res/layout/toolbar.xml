@@ -15,7 +15,8 @@
             android:id="@+id/left_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"/>
+            android:layout_centerVertical="true"
+            android:clickable="true"/>
         <TextView
             android:id="@+id/toolbarName"
             android:layout_marginLeft="35dp"
@@ -28,6 +29,7 @@
 
 
         <TextView
+            android:id="@+id/toolbarAddButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add"

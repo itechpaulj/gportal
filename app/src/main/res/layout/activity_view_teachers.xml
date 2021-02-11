@@ -7,15 +7,15 @@
     android:background="@drawable/backgroundapp">
 
     <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
+        android:id="@+id/toolbar4"
+        layout="@layout/toolbar4" />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/teachersRecView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar"
+        android:layout_below="@+id/toolbar4"
         android:layout_marginTop="10dp" />
 
 

@@ -17,7 +17,7 @@ public class TeacherMainScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_main_screen);
-        teacheruser = (TextView) findViewById(R.id.teacheruser);
+//        teacheruser = (TextView) findViewById(R.id.teacheruser);
         logout = (Button) findViewById(R.id.logout);
 
         SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);

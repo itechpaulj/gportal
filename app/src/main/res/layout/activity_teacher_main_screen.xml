@@ -7,393 +7,393 @@
     android:orientation="vertical"
     android:background="@drawable/backgroundapp">
 
-    <LinearLayout
-        android:padding="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center">
-        <ImageView
-            android:id="@+id/left_icon"
-            android:layout_width="35dp"
-            android:layout_height="40dp"
-            android:layout_gravity="left"
-            android:layout_marginStart="-200dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginEnd="-20dp"
-            android:layout_marginRight="-20dp"
-            android:background="@drawable/ic_baseline_menu_24"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp" />
-        <TextView
-            android:id="@+id/gportal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginLeft="100dp"
-            android:layout_marginEnd="-100dp"
-            android:layout_marginRight="-100dp"
-            android:text="Gportal"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-        <ImageButton
-            android:id="@+id/drawerbtn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="210dp"
-            android:layout_marginLeft="210dp"
-            android:layout_marginEnd="-210dp"
-            android:layout_marginRight="-210dp"
-            android:background="@drawable/ic_baseline_more_vert_24"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp" />
-    </LinearLayout>
+<!--    <LinearLayout-->
+<!--        android:padding="16dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center">-->
+<!--        <ImageView-->
+<!--            android:id="@+id/left_icon"-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_gravity="left"-->
+<!--            android:layout_marginStart="-200dp"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginEnd="-20dp"-->
+<!--            android:layout_marginRight="-20dp"-->
+<!--            android:background="@drawable/ic_baseline_menu_24"-->
+<!--            android:paddingLeft="20dp"-->
+<!--            android:paddingRight="20dp" />-->
+<!--        <TextView-->
+<!--            android:id="@+id/gportal"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="100dp"-->
+<!--            android:layout_marginLeft="100dp"-->
+<!--            android:layout_marginEnd="-100dp"-->
+<!--            android:layout_marginRight="-100dp"-->
+<!--            android:text="Gportal"-->
+<!--            android:textColor="@color/colorPrimary"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textStyle="bold" />-->
+<!--        <ImageButton-->
+<!--            android:id="@+id/drawerbtn"-->
+<!--            android:layout_width="30dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginStart="210dp"-->
+<!--            android:layout_marginLeft="210dp"-->
+<!--            android:layout_marginEnd="-210dp"-->
+<!--            android:layout_marginRight="-210dp"-->
+<!--            android:background="@drawable/ic_baseline_more_vert_24"-->
+<!--            android:paddingLeft="20dp"-->
+<!--            android:paddingRight="20dp" />-->
+<!--    </LinearLayout>-->
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+<!--    <LinearLayout-->
+<!--        android:orientation="vertical"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content">-->
 
-        <Button
-            android:id="@+id/hasUploadSchoolLogo"
-            android:textColor="@color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="New Code"
-            android:textAllCaps="false"></Button>
-    </LinearLayout>
+<!--        <Button-->
+<!--            android:id="@+id/hasUploadSchoolLogo"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:text="New Code"-->
+<!--            android:textAllCaps="false"></Button>-->
+<!--    </LinearLayout>-->
 
-    <LinearLayout
+<!--    <LinearLayout-->
 
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<!--        android:orientation="vertical"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
 
-        <TableLayout
-            android:layout_marginTop="0dp"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+<!--        <TableLayout-->
+<!--            android:layout_marginTop="0dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
 
-            <TableRow
+<!--            <TableRow-->
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content">-->
 
-                <TextView
-                    android:gravity="center"
-                    android:padding="20dp"
-                    android:textSize="20dp"
-                    android:textColor="@color/colorPrimary"
-                    android:text="AY"
-                    android:textStyle="bold"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"></TextView>
+<!--                <TextView-->
+<!--                    android:gravity="center"-->
+<!--                    android:padding="20dp"-->
+<!--                    android:textSize="20dp"-->
+<!--                    android:textColor="@color/colorPrimary"-->
+<!--                    android:text="AY"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"></TextView>-->
 
-            </TableRow>
+<!--            </TableRow>-->
 
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+<!--            <TableRow-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content">-->
 
-                <TextView
-                    android:padding="20dp"
-                    android:textSize="20dp"
-                    android:textColor="@color/colorPrimary"
-                    android:text="2021-2022"
-                    android:textStyle="bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></TextView>
-
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+<!--                <TextView-->
+<!--                    android:padding="20dp"-->
+<!--                    android:textSize="20dp"-->
+<!--                    android:textColor="@color/colorPrimary"-->
+<!--                    android:text="2021-2022"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"></TextView>-->
 
 
-                    <TextView
-                        android:padding="5dp"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorPrimary"
-                        android:text="Subject"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
-
-                    <TextView
-                        android:padding="5dp"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorPrimary"
-                        android:text="Section"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+<!--                <LinearLayout-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"/>-->
 
 
-                    <TextView
-                        android:padding="5dp"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorPrimary"
-                        android:text="Subject"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
+<!--                    <TextView-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textColor="@color/colorPrimary"-->
+<!--                        android:text="Subject"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"></TextView>-->
 
-                    <TextView
-                        android:padding="5dp"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorPrimary"
-                        android:text="Section"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
-                    <TextView
-                        android:padding="5dp"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorPrimary"
-                        android:text="Code"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
-                </LinearLayout>
+<!--                    <TextView-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textColor="@color/colorPrimary"-->
+<!--                        android:text="Section"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"></TextView>-->
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+<!--                <LinearLayout-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content">-->
 
 
-                    <TextView
-                        android:padding="5dp"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorPrimary"
-                        android:text="Subject"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
+<!--                    <TextView-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textColor="@color/colorPrimary"-->
+<!--                        android:text="Subject"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"></TextView>-->
 
-                    <TextView
-                        android:padding="5dp"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorPrimary"
-                        android:text="Section"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
+<!--                    <TextView-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textColor="@color/colorPrimary"-->
+<!--                        android:text="Section"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"></TextView>-->
+<!--                    <TextView-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textColor="@color/colorPrimary"-->
+<!--                        android:text="Code"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"></TextView>-->
+<!--                </LinearLayout>-->
 
-                    <TextView
-                        android:padding="5dp"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorPrimary"
-                        android:text="Code"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
-                </LinearLayout>
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:padding="20dp"
-                    android:textSize="20dp"
-                    android:textColor="@color/colorPrimary"
-                    android:text="2021-2022"
-                    android:textStyle="bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></TextView>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+<!--                <LinearLayout-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content">-->
 
 
-                    <TextView
-                        android:padding="5dp"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorPrimary"
-                        android:text="Subject"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
+<!--                    <TextView-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textColor="@color/colorPrimary"-->
+<!--                        android:text="Subject"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"></TextView>-->
 
-                    <TextView
-                        android:padding="5dp"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorPrimary"
-                        android:text="Section"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
+<!--                    <TextView-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textColor="@color/colorPrimary"-->
+<!--                        android:text="Section"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"></TextView>-->
 
-                    <TextView
-                        android:padding="5dp"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorPrimary"
-                        android:text="Code"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
+<!--                    <TextView-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textColor="@color/colorPrimary"-->
+<!--                        android:text="Code"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"></TextView>-->
+<!--                </LinearLayout>-->
 
-                </LinearLayout>
+<!--            </TableRow>-->
 
-            </TableRow>
+<!--            <TableRow-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content">-->
 
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+<!--                <TextView-->
+<!--                    android:padding="20dp"-->
+<!--                    android:textSize="20dp"-->
+<!--                    android:textColor="@color/colorPrimary"-->
+<!--                    android:text="2021-2022"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"></TextView>-->
 
-                <TextView
-                    android:padding="20dp"
-                    android:textSize="20dp"
-                    android:textColor="@color/colorPrimary"
-                    android:text="2021-2022"
-                    android:textStyle="bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></TextView>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-
-                    <TextView
-                        android:padding="5dp"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorPrimary"
-                        android:text="Subject"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
-
-                    <TextView
-                        android:padding="5dp"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorPrimary"
-                        android:text="Section"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
-                    <TextView
-                        android:padding="5dp"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorPrimary"
-                        android:text="Code"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
-
-                </LinearLayout>
+<!--                <LinearLayout-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content">-->
 
 
-            </TableRow>
+<!--                    <TextView-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textColor="@color/colorPrimary"-->
+<!--                        android:text="Subject"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"></TextView>-->
 
-        </TableLayout>
+<!--                    <TextView-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textColor="@color/colorPrimary"-->
+<!--                        android:text="Section"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"></TextView>-->
 
-        <TextView
-            android:id="@+id/teacheruser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="TextView" />
+<!--                    <TextView-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textColor="@color/colorPrimary"-->
+<!--                        android:text="Code"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"></TextView>-->
 
-        <Button
-            android:id="@+id/logout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Logout" />
-    </LinearLayout>
+<!--                </LinearLayout>-->
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+<!--            </TableRow>-->
 
+<!--            <TableRow-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content">-->
 
-                    <TextView
-                        android:padding="5dp"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorPrimary"
-                        android:text="Subject"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
+<!--                <TextView-->
+<!--                    android:padding="20dp"-->
+<!--                    android:textSize="20dp"-->
+<!--                    android:textColor="@color/colorPrimary"-->
+<!--                    android:text="2021-2022"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"></TextView>-->
 
-                    <TextView
-                        android:padding="5dp"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorPrimary"
-                        android:text="Section"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
-                    <TextView
-                        android:padding="5dp"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorPrimary"
-                        android:text="Code"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
-
-                </LinearLayout>
+<!--                <LinearLayout-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content">-->
 
 
-            </TableRow>
+<!--                    <TextView-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textColor="@color/colorPrimary"-->
+<!--                        android:text="Subject"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"></TextView>-->
 
-        </TableLayout>
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+<!--                    <TextView-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textColor="@color/colorPrimary"-->
+<!--                        android:text="Section"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"></TextView>-->
+<!--                    <TextView-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textColor="@color/colorPrimary"-->
+<!--                        android:text="Code"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"></TextView>-->
 
-
-                    <TextView
-                        android:padding="5dp"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorPrimary"
-                        android:text="Subject"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
-
-                    <TextView
-                        android:padding="5dp"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorPrimary"
-                        android:text="Section"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
-                    <TextView
-                        android:padding="5dp"
-                        android:textSize="20dp"
-                        android:textColor="@color/colorPrimary"
-                        android:text="Code"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
-
-                </LinearLayout>
+<!--                </LinearLayout>-->
 
 
-            </TableRow>
+<!--            </TableRow>-->
 
-        </TableLayout>
-</LinearLayout>
+<!--        </TableLayout>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/teacheruser"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center"-->
+<!--            android:text="TextView" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/logout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Logout" />-->
+<!--    </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content">-->
+
+
+<!--                    <TextView-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textColor="@color/colorPrimary"-->
+<!--                        android:text="Subject"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"></TextView>-->
+
+<!--                    <TextView-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textColor="@color/colorPrimary"-->
+<!--                        android:text="Section"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"></TextView>-->
+<!--                    <TextView-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textColor="@color/colorPrimary"-->
+<!--                        android:text="Code"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"></TextView>-->
+
+<!--                </LinearLayout>-->
+
+
+<!--            </TableRow>-->
+
+<!--        </TableLayout>-->
+<!--                <LinearLayout-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content">-->
+
+
+<!--                    <TextView-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textColor="@color/colorPrimary"-->
+<!--                        android:text="Subject"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"></TextView>-->
+
+<!--                    <TextView-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textColor="@color/colorPrimary"-->
+<!--                        android:text="Section"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"></TextView>-->
+<!--                    <TextView-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textColor="@color/colorPrimary"-->
+<!--                        android:text="Code"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"></TextView>-->
+
+<!--                </LinearLayout>-->
+
+
+<!--            </TableRow>-->
+
+<!--        </TableLayout>-->
+<!--</LinearLayout>-->
 </LinearLayout>

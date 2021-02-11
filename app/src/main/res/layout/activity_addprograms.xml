@@ -137,8 +137,8 @@
                 android:gravity="center"
                 android:id="@+id/spinnerColProg"
                 android:layout_width="300dp"
-                android:layout_height="50dp">
-            </Spinner>
+                android:layout_height="50dp"/>
+
         </LinearLayout>
 
     <LinearLayout

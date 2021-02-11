@@ -46,9 +46,9 @@ public class addcollege extends AppCompatActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!collegeCodeTxt.getText().toString().equals("") && !collegeNameTxt.getText().toString().equals("")  ){
-                    collegecode=collegeCodeTxt.getText().toString();
-                    collegename=collegeNameTxt.getText().toString();
+                collegecode=collegeCodeTxt.getText().toString();
+                collegename=collegeNameTxt.getText().toString();
+                if(!collegecode.equals("") && !collegename.equals("") &&!schoolcode.equals("") ){
                     addCollege(collegecode, collegename, schoolcode);
                 }else{
                     AlertDialog alertDialog = new AlertDialog.Builder(addcollege.this).create();
@@ -68,12 +68,12 @@ public class addcollege extends AppCompatActivity {
 
     private void addCollege(String collegecode, String collegename, String schoolcode) {
         RequestQueue queueu = Volley.newRequestQueue(this);
-        String url = "http://jeepcard.net/gportal/addcollege.php?schoolcode="+schoolcode+"&collegecode="+collegecode+"&collegename"+collegename;
+        String url = "http://jeepcard.net/gportal/addcollege.php?schoolcode="+schoolcode+"&collegecode="+collegecode+"&collegename="+collegename;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 //                collegeCounterTextView.setText("Response Get: "+response);
-//                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
                 AlertDialog alertDialog = new AlertDialog.Builder(addcollege.this).create();
                 alertDialog.setTitle("Message");
                 alertDialog.setMessage(response);//Message to be shown

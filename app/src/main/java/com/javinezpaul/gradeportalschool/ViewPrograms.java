@@ -94,13 +94,10 @@ public class ViewPrograms extends AppCompatActivity {
                         String collegeid=JA.getJSONObject(i).get("collegeid").toString();
                         String collegecode=JA.getJSONObject(i).get("collegecode").toString();
                         String collegename=JA.getJSONObject(i).get("collegename").toString();
-                        String pyear1=JA.getJSONObject(i).get("pyear1").toString();
-                        String pyear2=JA.getJSONObject(i).get("pyear2").toString();
                         String schoolcode=JA.getJSONObject(i).get("schoolcode").toString();
 
-
                         //to add data in arraylist
-                        programs.add(new Program(programid, programcode, programname, major, collegename, pyear1, pyear2));
+                        programs.add(new Program(programid, programcode, programname, major, collegename));
                     }
                     adapter.setPrograms(programs);
                 } catch (JSONException e) {
@@ -112,7 +109,7 @@ public class ViewPrograms extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
 //                Toast.makeText(getApplicationContext(), "Reconnecting", Toast.LENGTH_LONG).show();
-                Toast.makeText(getApplicationContext(), "Resolving error", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "An error occured\n" + error.toString(), Toast.LENGTH_LONG).show();
                 getFunctionValley();
             }
         });//Stringrequest

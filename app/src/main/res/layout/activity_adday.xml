@@ -52,41 +52,91 @@
         android:layout_marginTop="50dp">
 
 
-        <Spinner
-            android:id="@+id/spinnerYear1"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
+        <androidx.cardview.widget.CardView
             android:layout_gravity="center"
-            android:layout_marginTop="0dp"
-            android:background="@drawable/style_spinner"
-            android:gravity="center"></Spinner>
+            android:elevation="2dp"
+            android:layout_width="300dp"
+            android:layout_height="40dp">
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <Spinner
+                    android:layout_marginTop="0dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:id="@+id/spinnerYear1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </Spinner>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-        <Spinner
-            android:id="@+id/spinnerYear2"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="0dp"
-            android:background="@drawable/style_spinner"
-            android:gravity="center"></Spinner>
 
-        <Spinner
-            android:id="@+id/spinnerLevel"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:layout_marginTop="0dp"
-            android:background="@drawable/style_spinner"
-            android:gravity="center"></Spinner>
+            android:elevation="2dp"
+            android:layout_width="300dp"
+            android:layout_height="40dp">
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <Spinner
+                    android:layout_marginTop="0dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:id="@+id/spinnerYear2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </Spinner>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-        <Spinner
-            android:id="@+id/spinnerSem"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:layout_marginTop="0dp"
-            android:background="@drawable/style_spinner"
-            android:gravity="center"></Spinner>
+            android:elevation="2dp"
+            android:layout_width="300dp"
+            android:layout_height="40dp">
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <Spinner
+                    android:layout_marginTop="0dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:id="@+id/spinnerLevel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </Spinner>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:elevation="2dp"
+            android:layout_width="300dp"
+            android:layout_height="40dp">
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <Spinner
+                    android:layout_marginTop="0dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:id="@+id/spinnerSem"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </Spinner>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
 
     </LinearLayout>

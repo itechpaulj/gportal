@@ -42,6 +42,35 @@ public class MainActivity extends AppCompatActivity {
         schoolbtn.setTypeface(typeface);
 
 
+        //Register form button for teacher
+        RegisterTeacher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent registerteacher = new Intent(MainActivity.this,RegisterTeacher.class);
+                startActivity(registerteacher);
+            }
+        });
+
+        //Register form  button for Student
+        StudentRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent studentregister = new Intent(MainActivity.this,StudentRegister.class);
+                startActivity(studentregister);
+            }
+        });
+
+
+        //JoinCode button for Student
+        viewcode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent joincode = new Intent(MainActivity.this,StudentJoinCode.class);
+                startActivity(joincode);
+            }
+        });
+
+
 
 
         gportal.setOnClickListener(new View.OnClickListener() {

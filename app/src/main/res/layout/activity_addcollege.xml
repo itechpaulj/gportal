@@ -59,9 +59,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <EditText
+            android:maxLines="1"
             android:id="@+id/collegeCodeTxt"
             android:background="@drawable/inputcorner"
-            android:textSize="11dp"
+            android:textSize="15dp"
             android:textColor="@color/colorPrimary"
             android:textColorHint="@color/black"
             android:layout_gravity="center"
@@ -83,9 +84,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></TextView>
         <EditText
+            android:maxLines="1"
             android:id="@+id/collegeNameTxt"
             android:background="@drawable/inputcorner"
-            android:textSize="11dp"
+            android:textSize="15dp"
             android:textColor="@color/colorPrimary"
             android:textColorHint="@color/black"
             android:layout_gravity="center"

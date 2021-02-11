@@ -68,6 +68,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <EditText
+                android:textAllCaps="true"
+                android:maxLines="1"
                 android:id="@+id/schoolcode"
                 android:hint="School Code"
                 android:background="@drawable/inputcorner"
@@ -108,18 +110,20 @@
 
 
             <EditText
+                android:maxLines="1"
                 android:visibility="gone"
                 android:id="@+id/fname"
                 android:hint="First Name"
                 android:background="@drawable/inputcorner"
                 android:textSize="15dp"
-                android:textColor="@color/black"
+                android:textColor="@color/colorPrimary"
                 android:textColorHint="@color/cardview_dark_background"
                 android:layout_gravity="center"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
 
             <EditText
+                android:maxLines="1"
                 android:visibility="gone"
                 android:id="@+id/lname"
                 android:hint="Last Name"
@@ -131,6 +135,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
             <EditText
+                android:maxLines="1"
                 android:visibility="gone"
                 android:id="@+id/mname"
                 android:hint="Middle Name"
@@ -142,6 +147,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
             <EditText
+                android:maxLines="1"
                 android:visibility="gone"
                 android:id="@+id/address"
                 android:hint="Address"
@@ -153,6 +159,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
             <EditText
+                android:maxLines="1"
                 android:visibility="gone"
                 android:id="@+id/schoolid"
                 android:hint="School ID"
@@ -164,6 +171,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
             <EditText
+                android:maxLines="1"
                 android:visibility="gone"
                 android:id="@+id/password"
                 android:hint="Password"
@@ -208,37 +216,75 @@
                         android:layout_height="wrap_content"></RadioButton>>
                 </RadioGroup>
             </LinearLayout>
-            <Spinner
-                android:visibility="gone"
-                android:background="@drawable/style_spinner"
-                android:layout_marginTop="50dp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:id="@+id/collegecode"
-                android:layout_width="300dp"
-                android:layout_height="50dp">
-            </Spinner>
 
-            <Spinner
+
+
+            <androidx.cardview.widget.CardView
                 android:visibility="gone"
-                android:layout_marginTop="15dp"
                 android:layout_gravity="center"
-                android:background="@drawable/style_spinner"
-                android:gravity="center"
-                android:id="@+id/programcode"
+                android:elevation="2dp"
                 android:layout_width="300dp"
-                android:layout_height="50dp">
-            </Spinner>
-            <Spinner
+                android:layout_height="40dp">
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <Spinner
+                        android:layout_marginTop="0dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:id="@+id/collegecode"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    </Spinner>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
                 android:visibility="gone"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:layout_gravity="center"
-                android:background="@drawable/style_spinner"
-                android:gravity="center"
-                android:id="@+id/sectioncode"
+                android:elevation="2dp"
                 android:layout_width="300dp"
-                android:layout_height="50dp">
-            </Spinner>
+                android:layout_height="40dp">
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <Spinner
+                        android:layout_marginTop="0dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:id="@+id/programcode"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    </Spinner>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:visibility="gone"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:elevation="2dp"
+                android:layout_width="300dp"
+                android:layout_height="40dp">
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <Spinner
+                        android:layout_marginTop="0dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:id="@+id/sectioncode"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    </Spinner>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
 
 

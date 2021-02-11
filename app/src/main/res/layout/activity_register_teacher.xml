@@ -66,6 +66,7 @@
             android:layout_height="wrap_content">
 
             <EditText
+                android:textAllCaps="true"
                 android:id="@+id/schoolcode"
                 android:hint="School Code"
                 android:background="@drawable/inputcorner"
@@ -108,6 +109,7 @@
 
 
             <EditText
+                android:maxLines="1"
                 android:id="@+id/fnameteacher"
                 android:visibility="gone"
                 android:hint="First Name"
@@ -120,6 +122,7 @@
                 android:layout_height="wrap_content"></EditText>
 
             <EditText
+                android:maxLines="1"
                 android:id="@+id/lnameteacher"
                 android:visibility="gone"
                 android:hint="Last Name"
@@ -131,6 +134,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
             <EditText
+                android:maxLines="1"
                 android:id="@+id/mnameteacher"
                 android:visibility="gone"
                 android:hint="Middle Name"
@@ -142,6 +146,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
             <EditText
+                android:maxLines="1"
                 android:id="@+id/address"
                 android:visibility="gone"
                 android:hint="Address"
@@ -153,6 +158,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
             <EditText
+                android:maxLines="1"
                 android:id="@+id/empteacher"
                 android:visibility="gone"
                 android:hint="Employee ID"
@@ -164,6 +170,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
             <EditText
+                android:maxLines="1"
                 android:id="@+id/password"
                 android:visibility="gone"
                 android:hint="Password"
@@ -175,15 +182,28 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
 
-            <Spinner
+
+
+            <androidx.cardview.widget.CardView
                 android:visibility="gone"
-                android:background="@drawable/style_spinner"
                 android:layout_gravity="center"
-                android:gravity="center"
-                android:id="@+id/spinnercollegename"
+                android:elevation="2dp"
                 android:layout_width="300dp"
-                android:layout_height="50dp">
-            </Spinner>
+                android:layout_height="40dp">
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <Spinner
+                        android:layout_marginTop="0dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:id="@+id/spinnercollegename"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    </Spinner>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 

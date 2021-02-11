@@ -96,13 +96,16 @@
                 android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="60dp">
                 <EditText
+                    android:maxLines="1"
+                    android:elevation="2dp"
+                    android:padding="10dp"
                     android:inputType="textPassword"
                     android:layout_marginLeft="30dp"
                     android:id="@+id/Password"
                     android:hint="Password"
-                    android:background="@drawable/backgroundapp"
+                    android:background="@drawable/logininputs"
                     android:textSize="15dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/cardview_dark_background"

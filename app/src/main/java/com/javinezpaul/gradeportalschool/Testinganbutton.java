@@ -48,7 +48,7 @@ public class Testinganbutton extends AppCompatActivity {
         patungko.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent patungko = new Intent(Testinganbutton.this , StudentJoinCode.class);
+                Intent patungko = new Intent(Testinganbutton.this , addsubject.class);
                 startActivity(patungko);
 
             }

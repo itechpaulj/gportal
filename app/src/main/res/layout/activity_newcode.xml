@@ -6,46 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".newcode"
-    android:background="@drawable/backgroundapp">
+    android:background="@color/white">
 
-    <RelativeLayout
-        android:padding="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-
-        <ImageView
-            android:src="@drawable/arrowleft"
-            android:id="@+id/left_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"/>
-        <TextView
-            android:id="@+id/toolbarName"
-            android:layout_marginLeft="35dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:layout_centerVertical="true"
-            android:textSize="20sp"
-            android:text="New Code"/>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Generate"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="300dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="58dp"
-            android:textColor="@color/colorTertiary"
-            android:textStyle="normal"
-            android:textSize="20dp"/>
-
-
-    </RelativeLayout>
+    <include layout="@layout/toolbarnikong4"></include>
 
     <LinearLayout
         android:layout_marginTop="30dp"

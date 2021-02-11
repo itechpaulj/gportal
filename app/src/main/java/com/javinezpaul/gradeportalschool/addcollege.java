@@ -43,13 +43,12 @@ public class addcollege extends AppCompatActivity {
         collegeNameTxt=findViewById(R.id.collegeNameTxt);
         addBtn=findViewById(R.id.addBtn);
 
-        collegecode=collegeCodeTxt.getText().toString();
-        collegename=collegeNameTxt.getText().toString();
-
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!collegecode.equals("") && !collegename.equals("")  ){
+                if(!collegeCodeTxt.getText().toString().equals("") && !collegeNameTxt.getText().toString().equals("")  ){
+                    collegecode=collegeCodeTxt.getText().toString();
+                    collegename=collegeNameTxt.getText().toString();
                     addCollege(collegecode, collegename, schoolcode);
                 }else{
                     AlertDialog alertDialog = new AlertDialog.Builder(addcollege.this).create();
@@ -90,8 +89,7 @@ public class addcollege extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
 //                Toast.makeText(getApplicationContext(), "Reconnecting", Toast.LENGTH_LONG).show();
-                Toast.makeText(getApplicationContext(), "Retrying", Toast.LENGTH_LONG).show();
-                addCollege(collegecode, collegename, schoolcode); //retry
+                Toast.makeText(getApplicationContext(), "An error occured\n" + error.toString(), Toast.LENGTH_LONG).show();
             }
         });//Stringrequest
         queueu.add(stringRequest);

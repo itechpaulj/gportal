@@ -13,19 +13,20 @@
         android:padding="16dp">
 
         <ImageView
-            android:src="@drawable/arrowleft"
             android:id="@+id/left_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"/>
+            android:layout_centerVertical="true"
+            android:src="@drawable/arrowleft" />
+
         <TextView
-            android:layout_marginLeft="35dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
             android:layout_centerVertical="true"
-            android:textSize="20sp"
-            android:text="Add Programs"/>
+            android:layout_marginLeft="35dp"
+            android:text="Add Programs"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
         <ImageView
             android:id="@+id/right_icon"
@@ -42,136 +43,91 @@
     </RelativeLayout>
 
 
-
-
     <LinearLayout
-        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:orientation="vertical">
 
         <TextView
-            android:textColor="@color/black"
-            android:text="Subject Code"
-            android:textSize="12sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></TextView>
-        <EditText
-
-            android:textSize="11dp"
-            android:id="@+id/subjectcode"
-            android:background="@drawable/inputcorner"
-            android:textColor="@color/colorPrimary"
-            android:textColorHint="@color/black"
-            android:layout_gravity="center"
-            android:layout_width="300dp"
-            android:layout_height="45dp"></EditText>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:textColor="@color/black"
-            android:text="Program Name"
-            android:textSize="12sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></TextView>
-        <EditText
-            android:id="@+id/programname"
-            android:background="@drawable/inputcorner"
-            android:textSize="11dp"
-            android:textColor="@color/colorPrimary"
-            android:textColorHint="@color/black"
-            android:layout_gravity="center"
-            android:layout_width="300dp"
-            android:layout_height="45dp"></EditText>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:textColor="@color/black"
-            android:text="Major"
-            android:textSize="12sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></TextView>
-        <EditText
-            android:id="@+id/major"
-            android:background="@drawable/inputcorner"
-            android:textSize="11dp"
-            android:textColor="@color/colorPrimary"
-            android:textColorHint="@color/black"
-            android:layout_gravity="center"
-            android:layout_width="300dp"
-            android:layout_height="45dp"></EditText>
-    </LinearLayout>
-
-    <LinearLayout
-            android:gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-    </LinearLayout>
-
-        <LinearLayout
-            android:gravity="center"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <Spinner
-                android:background="@drawable/style_spinner"
-                android:layout_marginTop="0dp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:id="@+id/spinnerColProg"
-                android:layout_width="300dp"
-                android:layout_height="50dp">
-            </Spinner>
-        </LinearLayout>
-
-    <LinearLayout
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Spinner
-            android:background="@drawable/style_spinner"
-            android:layout_marginTop="0dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:id="@+id/spinnerAYProg"
-            android:layout_width="300dp"
-            android:layout_height="50dp">
-        </Spinner>
-    </LinearLayout>
-    <LinearLayout
-
-        android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <Button
-
-            android:textColor="@color/white"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="250dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="11sp"
+            android:text="Program Code"
+            android:textColor="@color/black"
+            android:textSize="12sp"></TextView>
+
+        <EditText
+
+            android:id="@+id/programcode"
+            android:layout_width="300dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:background="@drawable/inputcorner"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/black"
+            android:textSize="11dp"></EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Program Name"
+            android:textColor="@color/black"
+            android:textSize="12sp"></TextView>
+
+        <EditText
+            android:id="@+id/programname"
+            android:layout_width="300dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:background="@drawable/inputcorner"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/black"
+            android:textSize="11dp"></EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Major"
+            android:textColor="@color/black"
+            android:textSize="12sp"></TextView>
+
+        <EditText
+            android:id="@+id/major"
+            android:layout_width="300dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:background="@drawable/inputcorner"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/black"
+            android:textSize="11dp"></EditText>
+
+        <Spinner
+            android:id="@+id/spinnerCollege"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/style_spinner"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:id="@+id/addProgBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="20dp"
             android:text="Add"
-            />
+            android:textColor="@color/white"
+            android:textSize="11sp" />
     </LinearLayout>
 
 </LinearLayout>

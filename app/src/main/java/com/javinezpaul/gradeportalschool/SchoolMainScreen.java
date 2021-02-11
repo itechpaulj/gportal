@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,13 +30,14 @@ public class SchoolMainScreen extends AppCompatActivity{
     TextView collegeCounterTextView, instructorCounterTextView,
               studentsCounterTextView, programCounterTextView,
             subjectsCounterTextView, sectionCounterTextView,
-            ayCounterTextView;
+            ayCounterTextView , schooluser;
 
     CardView cardviewColleges, cardviewTeachers,
             cardviewStudents, cardviewPrograms,
             cardviewSubjects, cardviewSections,
             cardviewAy;
 
+    Button logout;
     public String schoolcode="66527c19b9";
 //    public String schoolcode="c86d491fad";
 
@@ -58,6 +61,34 @@ public class SchoolMainScreen extends AppCompatActivity{
         cardviewSubjects=findViewById(R.id.cardviewSubjects);
         cardviewSections=findViewById(R.id.cardviewSections);
         cardviewAy=findViewById(R.id.cardviewAy);
+
+        logout = (Button) findViewById(R.id.logout);
+        schooluser = (TextView) findViewById(R.id.schooluser);
+        //note session build in ANDROID STUDIO
+        SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+        if(sp.contains("user")){
+            SharedPreferences.Editor editor = sp.edit();
+            schooluser.setText(sp.getString("user",""));
+        }
+        //note session build in ANDROID STUDIO
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+                if(sp.contains("user")){
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.remove("user");
+                    editor.putString("msg","Logged Out Successfully");
+                    editor.commit();
+                    Intent hasloggedout = new Intent(SchoolMainScreen.this , Login.class);
+                    startActivity(hasloggedout);
+                    finish();
+                }
+
+            }
+        });
+
 
         cardviewAy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,7 +153,11 @@ public class SchoolMainScreen extends AppCompatActivity{
 
     }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getFunctionValley();
+    }
 
     private void getFunctionValley() {
         RequestQueue queueu = Volley.newRequestQueue(this);
@@ -155,6 +190,12 @@ public class SchoolMainScreen extends AppCompatActivity{
             }
         });//Stringrequest
         queueu.add(stringRequest);
+    }
+
+    @Override
+    public void onBackPressed(){
+        Toast.makeText(getApplicationContext(),"Press logout button",Toast.LENGTH_LONG).show();
+        return;
     }
 
 }

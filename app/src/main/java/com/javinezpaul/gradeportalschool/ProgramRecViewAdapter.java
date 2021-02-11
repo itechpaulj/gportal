@@ -38,9 +38,7 @@ public class ProgramRecViewAdapter extends RecyclerView.Adapter<ProgramRecViewAd
         Log.d(TAG, "onBindViewHolder: Called ");
 
         holder.code.setText(programs.get(position).getCode());
-        holder.details.setText(programs.get(position).getYear1() + " - " +
-                        programs.get(position).getYear2()  + "\n" +
-                        programs.get(position).getName() + "\n" +
+        holder.details.setText(programs.get(position).getName() + "\n" +
                         programs.get(position).getMajor()
                 );
 

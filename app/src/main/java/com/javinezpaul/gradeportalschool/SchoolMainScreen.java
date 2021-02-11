@@ -153,7 +153,11 @@ public class SchoolMainScreen extends AppCompatActivity{
 
     }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getFunctionValley();
+    }
 
     private void getFunctionValley() {
         RequestQueue queueu = Volley.newRequestQueue(this);

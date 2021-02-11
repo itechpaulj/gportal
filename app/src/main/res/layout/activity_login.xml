@@ -42,7 +42,7 @@
 
 
             <EditText
-
+                android:id="@+id/hasinputeachuser"
                 android:hint="ID Number"
                 android:layout_marginTop="50dp"
                 android:background="@drawable/backgroundapp"
@@ -59,9 +59,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <EditText
+                        android:id="@+id/hasinputpassword"
                         android:inputType="textPassword"
                         android:layout_marginLeft="30dp"
-                        android:id="@+id/Password"
                         android:hint="Password"
                         android:background="@drawable/backgroundapp"
                         android:textSize="15dp"
@@ -85,6 +85,7 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/hasbtnloggedin"
             android:textColor="@color/white"
             android:layout_marginTop="30dp"
             android:layout_gravity="center"
@@ -102,7 +103,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></TextView>
 
-
+        <TextView
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="" />
 
 
     </LinearLayout>

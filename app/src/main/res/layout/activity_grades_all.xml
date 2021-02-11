@@ -135,10 +135,11 @@
             android:gravity="center">
 
             <TableLayout
+                android:elevation="5dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#f2f2f2">
+                android:background="@color/white">
 
                 <TableRow
                     android:gravity="center"

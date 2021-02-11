@@ -71,7 +71,7 @@ public class Login2 extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         //Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
-                        if(response.equals("Success")){
+                        if(response.equals("School")){
                             //note session build in ANDROID STUDIO
                             SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
                             SharedPreferences.Editor editor = sp.edit();
@@ -81,6 +81,24 @@ public class Login2 extends AppCompatActivity {
                             startActivity(school);
                             finish();
                             //note session build in ANDROID STUDIO
+                        }
+                        else if(response.equals("Teacher")){
+                            SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sp.edit();
+                            editor.putString("user",cardidLogin);
+                            editor.commit();
+                            Intent school = new Intent(Login2.this,TeacherMainScreen.class);
+                            startActivity(school);
+                            finish();
+                        }
+                        else if(response.equals("Student")){
+                            SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sp.edit();
+                            editor.putString("user",cardidLogin);
+                            editor.commit();
+                            Intent school = new Intent(Login2.this,StudentMianScreen.class);
+                            startActivity(school);
+                            finish();
                         }
                         else{
                             Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();

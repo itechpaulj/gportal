@@ -126,7 +126,7 @@ make Toast for debugging result if success
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, localUrl, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-                           Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                          // Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
                             Intent login2 = new Intent(School.this , Login2.class);
                             login2.putExtra("name", post_input_school_name);
                             login2.putExtra("cardid", post_input_school_email);

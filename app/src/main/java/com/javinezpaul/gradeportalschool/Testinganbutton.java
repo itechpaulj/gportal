@@ -17,7 +17,7 @@ public class Testinganbutton extends AppCompatActivity {
 			addSchool, addcollege,
             addprograms, addsection,
             addsubject,addTeacher,
-            addstudent;
+            addstudent,hasloggedin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,7 @@ public class Testinganbutton extends AppCompatActivity {
         addSchool = (Button) findViewById(R.id.addSchool);
         addTeacher = findViewById(R.id.addTeacher);
         addstudent = findViewById(R.id.addstudent);
+        hasloggedin = findViewById(R.id.hasloggedin);
         /*
         id ni paul javinez
          */
@@ -49,6 +50,7 @@ public class Testinganbutton extends AppCompatActivity {
             public void onClick(View v) {
                 Intent patungko = new Intent(Testinganbutton.this , StudentJoinCode.class);
                 startActivity(patungko);
+
             }
         });
 
@@ -58,6 +60,7 @@ public class Testinganbutton extends AppCompatActivity {
             public void onClick(View v) {
                 Intent pagumaoc = new Intent(Testinganbutton.this , RegisterTeacher2.class);
                 startActivity(pagumaoc);
+
             }
         });
 
@@ -67,6 +70,7 @@ public class Testinganbutton extends AppCompatActivity {
             public void onClick(View v) {
                 Intent studRegister = new Intent(Testinganbutton.this , StudentRegister.class);
                 startActivity(studRegister);
+
             }
         });
 
@@ -75,6 +79,7 @@ public class Testinganbutton extends AppCompatActivity {
             public void onClick(View v) {
                 Intent schoolMainScreen = new Intent(Testinganbutton.this , SchoolMainScreen.class);
                 startActivity(schoolMainScreen);
+
             }
         });
 
@@ -85,6 +90,7 @@ public class Testinganbutton extends AppCompatActivity {
             public void onClick(View v) {
                 Intent addSchool = new Intent(Testinganbutton.this , School.class);
                 startActivity(addSchool);
+                finish();
 
             }
         });
@@ -129,6 +135,7 @@ public class Testinganbutton extends AppCompatActivity {
             public void onClick(View v) {
                 Intent addTeacher = new Intent(Testinganbutton.this , RegisterTeacher.class);
                 startActivity(addTeacher);
+                finish();
             }
         });
 
@@ -137,6 +144,16 @@ public class Testinganbutton extends AppCompatActivity {
             public void onClick(View v) {
                 Intent addstudent = new Intent(Testinganbutton.this , StudentRegister.class);
                 startActivity(addstudent);
+                finish();
+            }
+        });
+
+        hasloggedin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent hasloggedin = new Intent(Testinganbutton.this , Login.class);
+                startActivity(hasloggedin);
+                finish();
             }
         });
     }

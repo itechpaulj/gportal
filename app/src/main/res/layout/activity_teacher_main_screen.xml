@@ -246,5 +246,19 @@
             </TableRow>
 
         </TableLayout>
-</LinearLayout>
+
+        <TextView
+            android:id="@+id/teacheruser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView" />
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Logout" />
+    </LinearLayout>
 </LinearLayout>

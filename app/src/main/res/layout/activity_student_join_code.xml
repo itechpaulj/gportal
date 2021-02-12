@@ -76,13 +76,12 @@
                     android:layout_height="wrap_content"></TextView>
 
                 <EditText
+                    android:id="@+id/studcode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="@drawable/inputcorner"
-                    android:capitalize="words"
                     android:hint="Example: abasdrqw123"
-                    android:inputType="textNoSuggestions"
                     android:maxLength="20"
                     android:maxLines="1"
                     android:textColor="@color/colorPrimary"

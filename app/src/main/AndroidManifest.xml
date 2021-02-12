@@ -2,18 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.javinezpaul.gradeportalschool">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/gportallogo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/gportallogo"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GradePortalSchool">
-        <activity android:name=".ViewAy"></activity>
+        android:theme="@style/Theme.GradePortalSchool"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".TeacherMainScreen"></activity>
+        <activity android:name=".ViewAy" />
         <activity android:name=".ViewSubjects" />
         <activity android:name=".Testinganbutton" />
         <activity android:name=".MainActivity">
@@ -30,18 +31,18 @@
         <activity android:name=".GradesAll" />
         <activity android:name=".GradesAll2" />
         <activity android:name=".Login" />
+        <activity android:name=".Login2" />
         <activity android:name=".RegisterTeacher" />
         <activity android:name=".School" />
         <activity android:name=".SchoolMainScreen" />
         <activity android:name=".StudentRegister" />
         <activity android:name=".TeacherDrawer" />
-        <activity android:name=".TeacherMainScreen" />
         <activity android:name=".TeacherSubject" />
         <activity android:name=".TeacherSubjects" />
         <activity android:name=".ViewCollege" />
         <activity android:name=".ViewPrograms" />
         <activity android:name=".ViewSections" />
-        <activity android:name=".StudentDrawer"></activity>
+        <activity android:name=".StudentDrawer" />
         <activity android:name=".StudentJoinCode" />
         <activity android:name=".StudentMainScreen2" />
         <activity android:name=".StudentMianScreen" />

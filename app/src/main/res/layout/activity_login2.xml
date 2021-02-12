@@ -131,6 +131,7 @@
         </LinearLayout>
 
         <Button
+            android:background="@drawable/profilebg"
             android:id="@+id/loggedin"
             android:textColor="@color/white"
             android:layout_marginTop="30dp"

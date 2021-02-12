@@ -66,7 +66,6 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:textAllCaps="true"
                 android:id="@+id/schoolcode"
                 android:hint="School Code"
                 android:background="@drawable/inputcorner"
@@ -183,18 +182,18 @@
                 android:layout_height="wrap_content"></EditText>
 
 
+            <LinearLayout
 
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
             <androidx.cardview.widget.CardView
-                android:visibility="gone"
                 android:layout_gravity="center"
                 android:elevation="2dp"
                 android:layout_width="300dp"
                 android:layout_height="40dp">
-                <LinearLayout
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
                     <Spinner
+                        android:visibility="gone"
                         android:layout_marginTop="0dp"
                         android:layout_gravity="center"
                         android:gravity="center"
@@ -202,8 +201,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
                     </Spinner>
-                </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+            </LinearLayout>
 
         </LinearLayout>
 

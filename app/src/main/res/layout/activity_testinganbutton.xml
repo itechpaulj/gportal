@@ -96,5 +96,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"></Button>
 
+    <Button
+        android:textColor="@color/white"
+        android:id="@+id/loggedin2"
+        android:text="Logged in 2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
+
 </LinearLayout>
 </ScrollView>

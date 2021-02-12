@@ -33,6 +33,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -115,6 +116,8 @@ public class StudentRegister extends AppCompatActivity {
                 String post_input_programcode = (String) ""+programcode.getSelectedItem();
                 String post_input_sectioncode = (String) ""+sectioncode.getSelectedItem();
                 String post_input_saddress = (String) ""+address.getText().toString().trim();
+                String randonString = RandomStringUtils.randomAlphanumeric(10);
+                String verifyImage = "upload/profilestudent/"+randonString+".jpeg";
 
                 if(post_input_fname.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Please Input First Name",Toast.LENGTH_LONG).show();
@@ -154,6 +157,17 @@ public class StudentRegister extends AppCompatActivity {
                             @Override
                             public void onResponse(String response) {
                                 Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+                                if(response.equals(verifyImage)){
+                                    Intent login2 = new Intent(StudentRegister.this , Login2.class);
+                                    login2.putExtra("name",post_input_lname+", "+post_input_fname+" "+post_input_mname);
+                                    login2.putExtra("cardid", post_input_schoolid);
+                                    login2.putExtra("image", response);
+                                    login2.putExtra("access", "Student");
+                                    startActivity(login2);
+                                }
+                                else{
+                                    Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+                                }
                             }
                         }, new Response.ErrorListener() {
                             @Override
@@ -177,6 +191,7 @@ public class StudentRegister extends AppCompatActivity {
                                 params.put("programcode",post_input_programcode);
                                 params.put("sectioncode",post_input_sectioncode);
                                 params.put("image",imageData);
+                                params.put("random",verifyImage); // note generate random character for image
                                 return params;
                             }
                         };

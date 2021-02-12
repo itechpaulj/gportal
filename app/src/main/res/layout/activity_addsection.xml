@@ -50,6 +50,7 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/textschoolcode"
             android:maxLines="1"
             android:textColor="@color/black"
             android:text="Section Code"
@@ -68,31 +69,79 @@
     </LinearLayout>
 
 
+
+<!--default spinner has no value-->
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardviewdefault"
         android:layout_gravity="center"
         android:elevation="2dp"
         android:layout_width="300dp"
         android:layout_height="40dp">
         <LinearLayout
+
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <Spinner
+                android:visibility="visible"
+                android:layout_marginTop="0dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/defaultspinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </Spinner>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <!--default spinner has no value-->
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardviewSchoolcode"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:elevation="2dp"
+        android:layout_width="300dp"
+        android:layout_height="40dp">
+        <LinearLayout
+
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Spinner
+                android:visibility="gone"
                 android:layout_marginTop="0dp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:id="@+id/spinnerSection"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
             </Spinner>
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+
     <LinearLayout
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <Button
+            android:id="@+id/generateCode"
+            android:textColor="@color/white"
+            android:layout_marginLeft="250dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11sp"
+            android:text="Generate Code"
+            />
+
+        <Button
+            android:visibility="gone"
+            android:id="@+id/add"
             android:textColor="@color/white"
             android:layout_marginLeft="250dp"
             android:layout_width="wrap_content"

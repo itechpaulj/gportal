@@ -48,11 +48,12 @@ public class Testinganbutton extends AppCompatActivity {
         patungko.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent patungko = new Intent(Testinganbutton.this , addsubject.class);
+                Intent patungko = new Intent(Testinganbutton.this , StudentDrawer.class);
                 startActivity(patungko);
 
             }
         });
+
 
 
         pagumaoc.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +64,8 @@ public class Testinganbutton extends AppCompatActivity {
 
             }
         });
+
+        
 
 
         studRegister.setOnClickListener(new View.OnClickListener() {

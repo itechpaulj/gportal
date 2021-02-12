@@ -1,8 +1,10 @@
 package com.javinezpaul.gradeportalschool;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -198,7 +200,23 @@ public class addsection extends AppCompatActivity{
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
+                            AlertDialog alertDialog = new AlertDialog.Builder(addsection.this).create();
+                            alertDialog.setTitle("Message");
+                            alertDialog.setMessage("ERROR!!");//Message to be shown
+                            alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "OK",
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.dismiss();
+                                        }
+                                    });
+                            alertDialog.show();
+                            cardviewdefault.setVisibility(View.VISIBLE);
+                            generateCode.setVisibility(View.VISIBLE);
+                            defaultspinner.setVisibility(View.VISIBLE);
+                            add.setVisibility(View.GONE);
+                            spinnerSection.setVisibility(View.GONE);
+                            cardviewSchoolcode.setVisibility(View.GONE);
+                           // Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
 
                         }
                     }){

@@ -16,8 +16,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class StudentMianScreen extends AppCompatActivity {
-   Button Selectgrade,logout;
+   Button logout;
    TextView studentuser;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,18 +48,6 @@ public class StudentMianScreen extends AppCompatActivity {
             studentuser.setText(sp.getString("user",""));
         }
 
-
-        Selectgrade =findViewById(R.id.Selectgrade);
-
-
-        Selectgrade.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent selecgrade = new Intent(StudentMianScreen.this,StudentMainScreen2.class);
-                startActivity(selecgrade);
-
-            }
-        });
 
 
     }

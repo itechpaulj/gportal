@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/gradebg"
     tools:context=".GradesAll">
 
     <LinearLayout
@@ -23,7 +23,7 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/arrowleft"></ImageButton>
+                android:background="@drawable/arrowleftwhite"></ImageButton>
 
             <LinearLayout
                 android:gravity="center"
@@ -33,7 +33,7 @@
                 <TextView
                     android:layout_margin="10sp"
                     android:textSize="20sp"
-                    android:textColor="@color/colorSecondary"
+                    android:textColor="@color/white"
                     android:gravity="center"
                     android:text="Grades"
                     android:layout_width="wrap_content"
@@ -42,28 +42,18 @@
             </LinearLayout>
 
 
-            <TextView
-                android:id="@+id/viewallgrade"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
-                android:gravity="center"
-                android:text="All"
-                android:textColor="@color/colorTertiary"
-                android:textSize="15sp" />
+
 
 
         </RelativeLayout>
         <LinearLayout
+            android:elevation="2dp"
+            android:layout_gravity="center"
+            android:background="@drawable/cornerbg"
             android:layout_marginTop="20dp"
             android:gravity="center"
             android:orientation="vertical"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <ImageView
@@ -83,6 +73,9 @@
         </LinearLayout>
 
         <LinearLayout
+            android:background="@drawable/cornerbg"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -128,158 +121,146 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <TableLayout
+            android:background="@drawable/cornerbg"
+            android:elevation="2dp"
             android:layout_marginTop="50dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
+            android:layout_gravity="center_horizontal"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content">
 
-            <TableLayout
-                android:elevation="5dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/white">
+            <TableRow
+                android:gravity="center"
+                android:background="@color/colorSecondary">
 
-                <TableRow
-                    android:gravity="center"
-                    android:background="@color/colorSecondary">
+                <TextView
+                    android:layout_width="150dp"
+                    android:text="Grades"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:padding="10sp"
+                    android:layout_gravity="center_horizontal"
+                    ></TextView>
 
-                    <TextView
-                        android:layout_width="150dp"
-                        android:text="Grades"
-                        android:textSize="15sp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:padding="10sp"
-                        android:layout_gravity="center_horizontal"
-                        ></TextView>
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="150dp"
+                    android:text="Subjects"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:padding="10sp"
 
-                    <TextView
-                        android:layout_gravity="center_horizontal"
-                        android:layout_width="150dp"
-                        android:text="Subjects"
-                        android:textSize="15sp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:padding="10sp"
+                    ></TextView>
 
-                        ></TextView>
+            </TableRow>
 
-                </TableRow>
+            <TableRow
+                android:gravity="center">
 
-                <TableRow
-                    android:gravity="center">
+                <TextView
+                    android:layout_width="150dp"
+                    android:text="Math"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorPrimary"
+                    android:padding="10sp"
+                    android:layout_gravity="center_horizontal"
+                    ></TextView>
 
-                    <TextView
-                        android:layout_width="150dp"
-                        android:text="Math"
-                        android:textSize="15sp"
-                        android:textColor="@color/colorPrimary"
-                        android:padding="10sp"
-                        android:layout_gravity="center_horizontal"
-                        ></TextView>
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="150dp"
+                    android:text="1.0"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorPrimary"
+                    android:padding="10sp"
 
-                    <TextView
-                        android:layout_gravity="center_horizontal"
-                        android:layout_width="150dp"
-                        android:text="1.0"
-                        android:textSize="15sp"
-                        android:textColor="@color/colorPrimary"
-                        android:padding="10sp"
+                    ></TextView>
 
-                        ></TextView>
+            </TableRow>
+            <TableRow
+                android:gravity="center">
 
-                </TableRow>
-                <TableRow
-                    android:gravity="center">
+                <TextView
+                    android:layout_width="150dp"
+                    android:text="Math"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorPrimary"
+                    android:padding="10sp"
+                    android:layout_gravity="center_horizontal"
+                    ></TextView>
 
-                    <TextView
-                        android:layout_width="150dp"
-                        android:text="Math"
-                        android:textSize="15sp"
-                        android:textColor="@color/colorPrimary"
-                        android:padding="10sp"
-                        android:layout_gravity="center_horizontal"
-                        ></TextView>
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="150dp"
+                    android:text="1.0"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorPrimary"
+                    android:padding="10sp"
 
-                    <TextView
-                        android:layout_gravity="center_horizontal"
-                        android:layout_width="150dp"
-                        android:text="1.0"
-                        android:textSize="15sp"
-                        android:textColor="@color/colorPrimary"
-                        android:padding="10sp"
+                    ></TextView>
 
-                        ></TextView>
+            </TableRow>
+            <TableRow
+                android:gravity="center">
 
-                </TableRow>
-                <TableRow
-                    android:gravity="center">
+                <TextView
+                    android:layout_width="150dp"
+                    android:text="Math"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorPrimary"
+                    android:padding="10sp"
+                    android:layout_gravity="center_horizontal"
+                    ></TextView>
 
-                    <TextView
-                        android:layout_width="150dp"
-                        android:text="Math"
-                        android:textSize="15sp"
-                        android:textColor="@color/colorPrimary"
-                        android:padding="10sp"
-                        android:layout_gravity="center_horizontal"
-                        ></TextView>
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="150dp"
+                    android:text="1.0"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorPrimary"
+                    android:padding="10sp"
 
-                    <TextView
-                        android:layout_gravity="center_horizontal"
-                        android:layout_width="150dp"
-                        android:text="1.0"
-                        android:textSize="15sp"
-                        android:textColor="@color/colorPrimary"
-                        android:padding="10sp"
+                    ></TextView>
 
-                        ></TextView>
+            </TableRow>
+            <TableRow
+                android:gravity="center">
 
-                </TableRow>
-                <TableRow
-                    android:gravity="center">
+                <TextView
+                    android:layout_width="150dp"
+                    android:text="Math"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorPrimary"
+                    android:padding="10sp"
+                    android:layout_gravity="center_horizontal"
+                    ></TextView>
 
-                    <TextView
-                        android:layout_width="150dp"
-                        android:text="Math"
-                        android:textSize="15sp"
-                        android:textColor="@color/colorPrimary"
-                        android:padding="10sp"
-                        android:layout_gravity="center_horizontal"
-                        ></TextView>
+                <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="150dp"
+                    android:text="1.0"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorPrimary"
+                    android:padding="10sp"
 
-                    <TextView
-                        android:layout_gravity="center_horizontal"
-                        android:layout_width="150dp"
-                        android:text="1.0"
-                        android:textSize="15sp"
-                        android:textColor="@color/colorPrimary"
-                        android:padding="10sp"
+                    ></TextView>
 
-                        ></TextView>
-
-                </TableRow>
+            </TableRow>
 
 
-            </TableLayout>
-
-
-
-
-
-
-        </LinearLayout>
-
-
+        </TableLayout>
         <LinearLayout
+            android:background="@drawable/cornerbg"
+            android:elevation="2dp"
+            android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center">
 
             <LinearLayout
-                android:layout_marginLeft="50dp"
                 android:gravity="right"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -303,27 +284,13 @@
                     android:text="Units Enrolled:"
                     android:textSize="15dp"></TextView>
 
-                <TextView
-                    android:textStyle="bold"
-                    android:textColor="@color/colorPrimary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:text="Units Earned:"
-                    android:textSize="15dp"></TextView>
 
-                <TextView
-                    android:textStyle="bold"
-                    android:textColor="@color/colorPrimary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:text="Subject Earned:"
-                    android:textSize="15dp"></TextView>
+
 
             </LinearLayout>
 
             <LinearLayout
+                android:layout_marginRight="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -344,25 +311,11 @@
                     android:text="1.90"
                     android:textSize="15dp"></TextView>
 
-                <TextView
-                    android:textColor="@color/colorPrimary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:text="1.90"
-                    android:textSize="15dp"></TextView>
-
-                <TextView
-                    android:textColor="@color/colorPrimary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:text="1.90"
-                    android:textSize="15dp"></TextView>
-
 
 
             </LinearLayout>
+
+
 
 
         </LinearLayout>

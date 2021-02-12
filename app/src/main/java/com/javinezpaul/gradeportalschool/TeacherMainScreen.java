@@ -2,16 +2,24 @@ package com.javinezpaul.gradeportalschool;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class TeacherMainScreen extends AppCompatActivity {
+    Button logout;
+    TextView teacheruser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_main_screen);
 
-     // = (TextView) findViewById(R.id.teacheruser);
+        teacheruser = (TextView) findViewById(R.id.teacheruser);
         logout = (Button) findViewById(R.id.logout);
 
         SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
@@ -39,7 +47,7 @@ public class TeacherMainScreen extends AppCompatActivity {
     }
     @Override
     public void onBackPressed(){
-        Toast.makeText(getApplicationContext(),"Press logout button",Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"Press logout button", Toast.LENGTH_LONG).show();
         return;
 
     }

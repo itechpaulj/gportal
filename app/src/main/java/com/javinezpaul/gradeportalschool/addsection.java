@@ -277,9 +277,12 @@ public class addsection extends AppCompatActivity{
                             cardviewdefault.setVisibility(View.VISIBLE);
                             generateCode.setVisibility(View.VISIBLE);
                             defaultspinner.setVisibility(View.VISIBLE);
+
                             add.setVisibility(View.GONE);
                             spinnerSection.setVisibility(View.GONE);
                             cardviewSchoolcode.setVisibility(View.GONE);
+                            textsecinput.setVisibility(View.GONE);
+                            sectioninput.setVisibility(View.GONE);
                            // Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
 
                         }

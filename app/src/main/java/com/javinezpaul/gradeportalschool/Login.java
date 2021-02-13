@@ -5,11 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputType;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -24,6 +29,8 @@ import java.util.Map;
 
 public class Login extends AppCompatActivity {
     TextView logoutText ;
+     ToggleButton showpassword;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +40,27 @@ public class Login extends AppCompatActivity {
         hasinputeachuser = (EditText) findViewById(R.id.hasinputeachuser);
         hasinputpassword = (EditText) findViewById(R.id.hasinputpassword);
         hasbtnloggedin = (Button) findViewById(R.id.hasbtnloggedin);
+        showpassword = findViewById(R.id.showpassword);
+
+
+
+
+        showpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(showpassword.isChecked()){
+                    Toast.makeText(getApplicationContext(),"Show Password",Toast.LENGTH_SHORT).show();
+                    hasinputpassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"Hide Password",Toast.LENGTH_SHORT).show();
+                    hasinputpassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+
+            }
+        });
+
+
 
         checklogout(logoutText);
 

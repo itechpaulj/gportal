@@ -6,6 +6,7 @@ import androidx.cardview.widget.CardView;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -87,6 +88,10 @@ public class addsection extends AppCompatActivity{
         EditText sectioncode = (EditText) findViewById(R.id.sectioncode);
         //EditText for school code
         //-------------
+
+        //----
+        sectioncode.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+        //----
 
         // has show legit school code
         Spinner spinnerSection =  (Spinner)findViewById(R.id.spinnerSection);

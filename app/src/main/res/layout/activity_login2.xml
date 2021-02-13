@@ -117,11 +117,14 @@
                     android:layout_height="40dp"
                     ></EditText>
 
-                <ImageView
-                    android:layout_marginLeft="10dp"
+                <ToggleButton
                     android:background="@drawable/eyeslash"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></ImageView>
+                    android:textOff=""
+                    android:textOn=""
+                    android:id="@+id/showpassword"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"></ToggleButton>
 
 
             </LinearLayout>

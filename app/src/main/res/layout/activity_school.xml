@@ -93,6 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></TextView>
             <EditText
+                android:inputType="textCapSentences"
                 android:maxLines="1"
                 android:id="@+id/hasinputSchoolName"
                 android:background="@drawable/inputcorner"
@@ -109,6 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></TextView>
             <EditText
+                android:inputType="textCapSentences"
                 android:maxLines="1"
                 android:id="@+id/hasinputAddress"
                 android:background="@drawable/inputcorner"
@@ -125,6 +127,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></TextView>
             <EditText
+                android:inputType="textCapSentences"
                 android:maxLines="1"
                 android:id="@+id/hasinputEmail"
                 android:background="@drawable/inputcorner"
@@ -141,6 +144,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"></TextView>
             <EditText
+                android:inputType="textCapSentences"
                 android:maxLines="1"
                 android:id="@+id/hasinputPassword"
                 android:background="@drawable/inputcorner"

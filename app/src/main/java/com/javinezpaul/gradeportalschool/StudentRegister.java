@@ -12,6 +12,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.util.Base64;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -95,6 +96,10 @@ public class StudentRegister extends AppCompatActivity {
         studentregister = (Button) findViewById(R.id.studentregister);
 
         grpgender = (RadioGroup) findViewById(R.id.gender);
+
+
+        // AUTO ALL CAPS CODE
+        schoolcode.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
 
 
 

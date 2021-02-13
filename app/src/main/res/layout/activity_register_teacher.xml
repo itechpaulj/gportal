@@ -108,6 +108,7 @@
 
 
             <EditText
+                android:inputType="textCapSentences"
                 android:maxLines="1"
                 android:id="@+id/fnameteacher"
                 android:visibility="gone"
@@ -121,6 +122,7 @@
                 android:layout_height="wrap_content"></EditText>
 
             <EditText
+                android:inputType="textCapSentences"
                 android:maxLines="1"
                 android:id="@+id/lnameteacher"
                 android:visibility="gone"
@@ -133,6 +135,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
             <EditText
+                android:inputType="textCapSentences"
                 android:maxLines="1"
                 android:id="@+id/mnameteacher"
                 android:visibility="gone"
@@ -145,6 +148,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
             <EditText
+                android:inputType="textCapSentences"
                 android:maxLines="1"
                 android:id="@+id/address"
                 android:visibility="gone"
@@ -157,6 +161,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
             <EditText
+                android:inputType="textCapSentences"
                 android:maxLines="1"
                 android:id="@+id/empteacher"
                 android:visibility="gone"
@@ -169,6 +174,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
             <EditText
+                android:inputType="textCapSentences"
                 android:maxLines="1"
                 android:id="@+id/password"
                 android:visibility="gone"

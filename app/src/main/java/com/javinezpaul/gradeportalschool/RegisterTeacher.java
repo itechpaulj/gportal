@@ -13,6 +13,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.util.Base64;
 import android.view.View;
 import android.widget.AdapterView;
@@ -86,6 +87,9 @@ public class RegisterTeacher extends AppCompatActivity {
 
         //school code
         btnschoolcode = (Button) findViewById(R.id.btnschoolcode);
+
+        //AUTO CAPS CODE
+        schoolcode.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
 
 
         uploadBtn.setOnClickListener(new View.OnClickListener() {

@@ -6,12 +6,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -31,6 +34,7 @@ public class Login2 extends AppCompatActivity {
     TextView name,cardid,access;
     EditText password;
     Button loggedin;
+    ToggleButton showpassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +56,25 @@ public class Login2 extends AppCompatActivity {
         cardid.setText(cardidLogin);
         name.setText(nameLogin);
         access.setText(accessSchool);
+        showpassword = findViewById(R.id.showpassword);
+
+        // log in show passwword toggle button
+        showpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(showpassword.isChecked()){
+                    Toast.makeText(getApplicationContext(),"Show Password",Toast.LENGTH_SHORT).show();
+                    password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"Hide Password",Toast.LENGTH_SHORT).show();
+                    password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+
+            }
+        });
+
+
 
         String addressView = "http://jeepcard.net/gportal/"+urlimgweb;
         imageResult(addressView);// public string class

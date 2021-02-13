@@ -33,9 +33,20 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+
+
 public class addsection extends AppCompatActivity{
     //defaultspinner
 
+    //EditText input your section
+    EditText sectioninput;
+    //EditText input your section
+
+    //textview for input section
+    TextView textsecinput;
+    //textview for input section
+
+    //---
     //textview for school code
     TextView textschoolcode;
     //textview for school code
@@ -68,6 +79,11 @@ public class addsection extends AppCompatActivity{
     //get a list school code
     CardView cardviewSchoolcode;
     //get a list school code
+
+    private String programid;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +123,17 @@ public class addsection extends AppCompatActivity{
         // show text result section code
         textschoolcode = (TextView) findViewById(R.id.textschoolcode);
 
+        //----
+        //input your section sample IT4a
+        textsecinput = (TextView) findViewById(R.id.textsecinput);
+        // input your section sample IT4a
+
+        //---
+        sectioninput = (EditText) findViewById(R.id.sectioninput);
+        //
+
+
+
 //        String[] sec = {"Section Code","Section Code","Section Code"};
 //        ArrayList<String> Sec = new ArrayList<>(Arrays.asList(sec));
 //        ArrayAdapter<String> arrayAdaptersec = new ArrayAdapter<>(this,R.layout.style_spinner,Sec);
@@ -129,13 +156,40 @@ public class addsection extends AppCompatActivity{
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String input_selectioncode = (String) ""+spinnerSection.getSelectedItem().toString().trim();
+                String input_selectioncode = (String) ""+spinnerSection.getSelectedItem().toString();
 
-                if(input_selectioncode.equals("[SECTION CODE]")){
-                    Toast.makeText(getApplicationContext(),"Please select Section Code",Toast.LENGTH_LONG).show();
+                if(input_selectioncode.equals("[PROGRAM CODE]")){
+                    Toast.makeText(getApplicationContext(),"Please select Program Code",Toast.LENGTH_LONG).show();
                 }
                 else{
-                    Toast.makeText(getApplicationContext(),input_selectioncode,Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(),input_selectioncode,Toast.LENGTH_LONG).show();
+                    String[] getFirstIndex = input_selectioncode.split("-");
+                   // Toast.makeText(getApplicationContext(),getFirstIndex[0],Toast.LENGTH_LONG).show();
+
+                    RequestQueue requestQueue = Volley.newRequestQueue(addsection.this);
+                    String url = "http://jeepcard.net/gportal/addSection.php";
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                        Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
+                        }
+                    }){
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String,String> params = new HashMap<>();
+                            params.put("programid",getFirstIndex[0]);
+                            params.put("inputSection",sectioninput.getText().toString());
+                            params.put("schoolCode",sectioncode.getText().toString());
+                            return params;
+                        }
+                    };
+                    requestQueue.add(stringRequest);
+
                 }
             }
         });
@@ -152,7 +206,7 @@ public class addsection extends AppCompatActivity{
                     Toast.makeText(getApplicationContext(),"Please Enter First School code",Toast.LENGTH_LONG).show();
                 }
                 else{
-                   // Toast.makeText(getApplicationContext(),"Success FROM ANDROID STUDIO",Toast.LENGTH_LONG).show();
+                   //Toast.makeText(getApplicationContext(),"Success FROM ANDROID STUDIO",Toast.LENGTH_LONG).show();
                     cardviewdefault.setVisibility(View.GONE);
                     generateCode.setVisibility(View.GONE);
                     defaultspinner.setVisibility(View.GONE);
@@ -160,6 +214,8 @@ public class addsection extends AppCompatActivity{
                     add.setVisibility(View.VISIBLE);
                     spinnerSection.setVisibility(View.VISIBLE);
                     cardviewSchoolcode.setVisibility(View.VISIBLE);
+                    textsecinput.setVisibility(View.VISIBLE);
+                    sectioninput.setVisibility(View.VISIBLE);
 
                     //--
                     RequestQueue requestQueue = Volley.newRequestQueue(addsection.this);
@@ -167,6 +223,7 @@ public class addsection extends AppCompatActivity{
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
+                          // Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
                            // Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
                             if(response.equals("Failed")){
                                 cardviewdefault.setVisibility(View.VISIBLE);
@@ -176,19 +233,21 @@ public class addsection extends AppCompatActivity{
                                 add.setVisibility(View.GONE);
                                 spinnerSection.setVisibility(View.GONE);
                                 cardviewSchoolcode.setVisibility(View.GONE);
+                                textsecinput.setVisibility(View.GONE);
+                                sectioninput.setVisibility(View.GONE);
                                 Toast.makeText(getApplicationContext(),"Invalid Section Code",Toast.LENGTH_LONG).show();
                             }
 
                             try {
                                 JSONObject jsonObject =  new JSONObject(response);
                                 int success = jsonObject.getInt("success");
-                                spinnerList.add("[SECTION CODE]");
+                                spinnerList.add("[PROGRAM CODE]");
                                 if(success==1){
                                     JSONArray jsonArray = jsonObject.getJSONArray("data");
                                     for(int i=0;i<jsonArray.length();i++){
                                         JSONObject data = jsonArray.getJSONObject(i);
-                                        String sectionid = data.getString("sectioncode");
-                                        String scline = sectionid;
+                                        String proggramid = data.getString("progcodeid");
+                                        String scline = proggramid;
                                         spinnerList.add(scline);
                                         adapter = new ArrayAdapter<>(addsection.this, android.R.layout.simple_spinner_item,spinnerList);
                                         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);

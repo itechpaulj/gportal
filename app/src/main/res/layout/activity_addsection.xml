@@ -66,6 +66,26 @@
             android:layout_gravity="center"
             android:layout_width="300dp"
             android:layout_height="45dp"></EditText>
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/textsecinput"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:text="INPUT SECTION"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></TextView>
+        <EditText
+            android:visibility="gone"
+            android:id="@+id/sectioninput"
+            android:background="@drawable/inputcorner"
+            android:textSize="11dp"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/black"
+            android:layout_gravity="center"
+            android:layout_width="300dp"
+            android:layout_height="45dp"></EditText>
     </LinearLayout>
 
 

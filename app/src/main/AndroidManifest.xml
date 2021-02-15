@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GradePortalSchool"
         android:usesCleartextTraffic="true">
-        <activity android:name=".TeacherMainScreen"></activity>
+        <activity android:name=".Rank"></activity>
+        <activity android:name=".TeacherMainScreen" />
         <activity android:name=".ViewAy" />
         <activity android:name=".ViewSubjects" />
         <activity android:name=".Testinganbutton" />

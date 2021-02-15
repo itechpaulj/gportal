@@ -52,7 +52,7 @@ import java.util.Map;
 public class RegisterTeacher extends AppCompatActivity {
     Button btnschoolcode,
             uploadBtn,nextBtn;
-    TextView setCollegeName;
+    TextView setCollegeName,TeacherLoginbtn;
     ImageView imageTeacher;
     RadioButton radioButton;
     RadioGroup radioGroup;
@@ -84,6 +84,18 @@ public class RegisterTeacher extends AppCompatActivity {
         spinnercollegename = (Spinner) findViewById(R.id.spinnercollegename);
         radioGroup = (RadioGroup) findViewById(R.id.gender);
         min_gender = (LinearLayout) findViewById(R.id.min_gender);
+
+
+        // Login
+        TeacherLoginbtn = findViewById(R.id.TeacherLoginbtn);
+
+        TeacherLoginbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent login = new Intent(RegisterTeacher.this,Login.class);
+                startActivity(login);
+            }
+        });
 
         //school code
         btnschoolcode = (Button) findViewById(R.id.btnschoolcode);

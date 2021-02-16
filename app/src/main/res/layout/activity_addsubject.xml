@@ -75,7 +75,7 @@
 
         <TextView
             android:textColor="@color/black"
-            android:text="Subject Code"
+            android:text="Subject Name"
             android:textSize="12sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></TextView>
@@ -138,6 +138,7 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:id="@+id/addSubject"
             android:textColor="@color/white"
             android:layout_marginLeft="250dp"
             android:layout_width="wrap_content"

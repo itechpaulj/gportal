@@ -65,7 +65,7 @@ public class addsection extends AppCompatActivity{
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                    Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+                   // Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
                 arrayList.add("[Program Code]");
                 try {
                     JSONObject jsonObject = new JSONObject(response);

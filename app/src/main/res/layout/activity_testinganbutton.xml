@@ -103,5 +103,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"></Button>
 
+    <Button
+        android:textColor="@color/white"
+        android:id="@+id/teachermainscreen"
+        android:text="Teacher Main Screen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
+
 </LinearLayout>
 </ScrollView>

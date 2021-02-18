@@ -10,9 +10,20 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
 public class TeacherMainScreen extends AppCompatActivity {
-    Button logout;
+    Button logout,newcode;
     TextView teacheruser;
+    TextView ay,section,subject,programcode,teachercode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +33,16 @@ public class TeacherMainScreen extends AppCompatActivity {
         teacheruser = (TextView) findViewById(R.id.teacheruser);
         logout = (Button) findViewById(R.id.logout);
 
+        // details teacher
+        ay = (TextView) findViewById(R.id.ay);
+        section = (TextView) findViewById(R.id.section);
+        subject = (TextView) findViewById(R.id.subject);
+        programcode= (TextView) findViewById(R.id.programcode);
+        teachercode = (TextView) findViewById(R.id.teachercode);
+        newcode = (Button) findViewById(R.id.newcode);
+        // details teacher
+
+        // session teacher user
         SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
         if(sp.contains("user")){
             SharedPreferences.Editor editor = sp.edit();
@@ -44,6 +65,57 @@ public class TeacherMainScreen extends AppCompatActivity {
 
             }
         });
+        // session teacher user
+
+        newcode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(TeacherMainScreen.this,newcode.class);
+                startActivity(i);
+            }
+        });
+
+        // has shown data teacher main screen
+
+        RequestQueue requestQueue = Volley.newRequestQueue(TeacherMainScreen.this);
+        String url = "http://jeepcard.net/gportal/teachermainscreen.php?valid=true";
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+                try {
+                    JSONArray jsonArray = new JSONArray(response);
+                    for(int i=0;i<jsonArray.length();i++){
+                        String teacherscodeget = jsonArray.getJSONObject(i).get("teacherscode").toString();
+                        String ayget = jsonArray.getJSONObject(i).get("ay").toString();
+                        String subjectcodeget = jsonArray.getJSONObject(i).get("subjectcode").toString();
+                        String sectioncodeget = jsonArray.getJSONObject(i).get("sectioncode").toString();
+                        String programcodeget = jsonArray.getJSONObject(i).get("programcode").toString();
+
+
+                        ay.setText(ayget);
+                        subject.setText(subjectcodeget);
+                        section.setText(sectioncodeget);
+                        programcode.setText(programcodeget);
+                        teachercode.setText(teacherscodeget);
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),"Something went wrong!\n"+error.toString(),Toast.LENGTH_LONG).show();
+            }
+        });
+        requestQueue.add(stringRequest);
+
+
+        // has shown data teacher main screen
+
     }
     @Override
     public void onBackPressed(){

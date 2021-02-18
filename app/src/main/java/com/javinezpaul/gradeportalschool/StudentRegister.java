@@ -51,7 +51,7 @@ public class StudentRegister extends AppCompatActivity {
     final int CODE_GALLERY_REQUEST = 999;
     Bitmap bitmap;
 
-    LinearLayout min_gender;
+    LinearLayout min_gender,linear_collegcode,linear_programcode,linear_sectioncode;
     EditText schoolcode,
             fname,lname,mname,schoolid,
             password,address;
@@ -85,6 +85,9 @@ public class StudentRegister extends AppCompatActivity {
         address = (EditText) findViewById(R.id.address);
 
         min_gender = (LinearLayout) findViewById(R.id.min_gender);
+        linear_collegcode = (LinearLayout) findViewById(R.id.linear_collegcode);
+        linear_programcode = (LinearLayout) findViewById(R.id.linear_programcode);
+        linear_sectioncode = (LinearLayout) findViewById(R.id.linear_sectioncode);
         btnschoolcode = (Button) findViewById(R.id.btnschoolcode);
         btnUploadStudent = (Button) findViewById(R.id.btnUploadStudent);
 
@@ -245,6 +248,10 @@ public class StudentRegister extends AppCompatActivity {
                 sectioncode.setVisibility(View.VISIBLE);
                 studentregister.setVisibility(View.VISIBLE);
                 min_gender.setVisibility(View.VISIBLE);
+                linear_collegcode.setVisibility(View.VISIBLE);
+                linear_sectioncode.setVisibility(View.VISIBLE);
+                linear_programcode.setVisibility(View.VISIBLE);
+
 
                 hasSchoolcode();
 
@@ -278,6 +285,9 @@ public class StudentRegister extends AppCompatActivity {
                                     sectioncode.setVisibility(View.GONE);
                                     studentregister.setVisibility(View.GONE);
                                     min_gender.setVisibility(View.GONE);
+                                    linear_collegcode.setVisibility(View.GONE);
+                                    linear_sectioncode.setVisibility(View.GONE);
+                                    linear_programcode.setVisibility(View.GONE);
                                 }
                                 JSONObject jsonResult = null;
                                 jsonResult = new JSONObject(response);
@@ -325,6 +335,9 @@ public class StudentRegister extends AppCompatActivity {
                         sectioncode.setVisibility(View.GONE);
                         studentregister.setVisibility(View.GONE);
                         min_gender.setVisibility(View.GONE);
+                        linear_collegcode.setVisibility(View.GONE);
+                        linear_sectioncode.setVisibility(View.GONE);
+                        linear_programcode.setVisibility(View.GONE);
                         Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
                     }
                 }){
@@ -367,6 +380,9 @@ public class StudentRegister extends AppCompatActivity {
                                 sectioncode.setVisibility(View.GONE);
                                 studentregister.setVisibility(View.GONE);
                                 min_gender.setVisibility(View.GONE);
+                                linear_collegcode.setVisibility(View.GONE);
+                                linear_sectioncode.setVisibility(View.GONE);
+                                linear_programcode.setVisibility(View.GONE);
                             }
                                 // Toast.makeText(getApplicationContext(),"Verified!",Toast.LENGTH_LONG).show();
                                 JSONObject jsonResult = null;
@@ -422,6 +438,9 @@ public class StudentRegister extends AppCompatActivity {
                         sectioncode.setVisibility(View.GONE);
                         studentregister.setVisibility(View.GONE);
                         min_gender.setVisibility(View.GONE);
+                        linear_collegcode.setVisibility(View.GONE);
+                        linear_sectioncode.setVisibility(View.GONE);
+                        linear_programcode.setVisibility(View.GONE);
                     }
                 }){
                     @Override
@@ -464,6 +483,9 @@ public class StudentRegister extends AppCompatActivity {
                                 sectioncode.setVisibility(View.GONE);
                                 studentregister.setVisibility(View.GONE);
                                 min_gender.setVisibility(View.GONE);
+                                linear_collegcode.setVisibility(View.GONE);
+                                linear_sectioncode.setVisibility(View.GONE);
+                                linear_programcode.setVisibility(View.GONE);
                             }
                                 // Toast.makeText(getApplicationContext(),"Verified!",Toast.LENGTH_LONG).show();
                                 JSONObject jsonResult = null;
@@ -514,6 +536,9 @@ public class StudentRegister extends AppCompatActivity {
                         sectioncode.setVisibility(View.GONE);
                         studentregister.setVisibility(View.GONE);
                         min_gender.setVisibility(View.GONE);
+                        linear_collegcode.setVisibility(View.GONE);
+                        linear_sectioncode.setVisibility(View.GONE);
+                        linear_programcode.setVisibility(View.GONE);
                         Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
                     }
                 }){

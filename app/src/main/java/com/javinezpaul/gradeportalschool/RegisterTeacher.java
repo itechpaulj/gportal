@@ -56,7 +56,7 @@ public class RegisterTeacher extends AppCompatActivity {
     ImageView imageTeacher;
     RadioButton radioButton;
     RadioGroup radioGroup;
-    LinearLayout min_gender;
+    LinearLayout min_gender,linear_spinnercollegename;
     EditText schoolcode,fnameteacher,lnameteacher,mnameteacher,empteacher,address,password;
     Spinner spinnercollegename;
     ArrayList<String> spinnerList = new ArrayList<>();
@@ -84,8 +84,7 @@ public class RegisterTeacher extends AppCompatActivity {
         spinnercollegename = (Spinner) findViewById(R.id.spinnercollegename);
         radioGroup = (RadioGroup) findViewById(R.id.gender);
         min_gender = (LinearLayout) findViewById(R.id.min_gender);
-
-
+        linear_spinnercollegename = (LinearLayout) findViewById(R.id.linear_spinnercollegename);
         // Login
         TeacherLoginbtn = findViewById(R.id.TeacherLoginbtn);
 
@@ -252,6 +251,7 @@ public class RegisterTeacher extends AppCompatActivity {
                 min_gender.setVisibility(View.VISIBLE);
                 address.setVisibility(View.VISIBLE);
                 password.setVisibility(View.VISIBLE);
+                linear_spinnercollegename.setVisibility(View.VISIBLE);
                 /*
                 * Executed the code
                 *
@@ -287,6 +287,8 @@ public class RegisterTeacher extends AppCompatActivity {
                            min_gender.setVisibility(View.GONE);
                            address.setVisibility(View.GONE);
                            password.setVisibility(View.GONE);
+                           linear_spinnercollegename.setVisibility(View.GONE);
+
                        }
 
 
@@ -338,6 +340,7 @@ public class RegisterTeacher extends AppCompatActivity {
                         min_gender.setVisibility(View.GONE);
                         address.setVisibility(View.GONE);
                         password.setVisibility(View.GONE);
+                        linear_spinnercollegename.setVisibility(View.GONE);
                         Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
                     }
                 }){

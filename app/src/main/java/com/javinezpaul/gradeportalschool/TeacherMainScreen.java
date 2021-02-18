@@ -82,7 +82,7 @@ public class TeacherMainScreen extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
                 try {
                     JSONArray jsonArray = new JSONArray(response);
                     for(int i=0;i<jsonArray.length();i++){

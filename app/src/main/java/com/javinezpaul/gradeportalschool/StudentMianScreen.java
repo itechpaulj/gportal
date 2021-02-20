@@ -20,6 +20,7 @@ import java.util.Arrays;
 public class StudentMianScreen extends AppCompatActivity {
    Button logout;
    TextView studentuser;
+   Spinner spinnerAcademicYear;
 
     //Declaration of components
     private RecyclerView gradesRecView;
@@ -36,6 +37,20 @@ public class StudentMianScreen extends AppCompatActivity {
         gradesRecView  = findViewById(R.id.gradesRecView);
         adapter = new gradesRecViewAdapter(this);
         gradesRecView.setAdapter(adapter);
+
+        spinnerAcademicYear=findViewById(R.id.spinnerAcademicYear);
+
+
+
+
+
+
+        //spinner
+        String[] value = {"2021-2022","2021-2022","2021-2022",};
+        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(value));
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,R.layout.style_spinner,arrayList);
+        spinnerAcademicYear.setAdapter(arrayAdapter);
+
 
         gradesRecView.setLayoutManager(new LinearLayoutManager(StudentMianScreen.this));
 

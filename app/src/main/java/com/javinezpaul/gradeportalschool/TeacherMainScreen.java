@@ -2,6 +2,9 @@ package com.javinezpaul.gradeportalschool;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -21,9 +24,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 public class TeacherMainScreen extends AppCompatActivity {
-    Button logout,newcode;
-    TextView teacheruser;
-    TextView ay,section,subject,programcode,teachercode;
+    private Button logout,newcode,clipboard_copy;
+    private TextView teacheruser;
+    private TextView ay,section,subject,programcode,teachercode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,7 @@ public class TeacherMainScreen extends AppCompatActivity {
         programcode= (TextView) findViewById(R.id.programcode);
         teachercode = (TextView) findViewById(R.id.teachercode);
         newcode = (Button) findViewById(R.id.newcode);
+        clipboard_copy = (Button) findViewById(R.id.clipboard_copy);
         // details teacher
 
         // session teacher user
@@ -74,6 +78,20 @@ public class TeacherMainScreen extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
+
+        clipboard_copy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               // Toast.makeText(getApplicationContext(),"Test",Toast.LENGTH_LONG).show();
+                ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clipData = ClipData.newPlainText("TextView",teachercode.getText().toString());
+                clipboardManager.setPrimaryClip(clipData);
+                Toast.makeText(getApplicationContext(),"Copied.",Toast.LENGTH_LONG).show();
+            }
+        });
+
 
         // has shown data teacher main screen
 

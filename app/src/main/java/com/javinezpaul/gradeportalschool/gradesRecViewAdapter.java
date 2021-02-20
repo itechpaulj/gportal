@@ -48,7 +48,7 @@ public class gradesRecViewAdapter extends RecyclerView.Adapter<gradesRecViewAdap
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, grade.get(position).getNote(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "Message: \n" + grade.get(position).getNote(), Toast.LENGTH_SHORT).show();
             }
         });
     }

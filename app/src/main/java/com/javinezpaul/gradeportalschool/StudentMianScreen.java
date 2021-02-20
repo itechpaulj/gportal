@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -31,15 +32,19 @@ import java.util.Arrays;
 
 public class StudentMianScreen extends AppCompatActivity {
    Button logout;
-   TextView studentuser;
-   Spinner spinnerAcademicYear;
+   TextView studentuser, gwa, subjectsEnrolled;
+   Spinner spinnerAcademicYear, spinnerSem;
 
     //Declaration of components
     private RecyclerView gradesRecView;
     private gradesRecViewAdapter adapter;
-    private String schoolcode;
+    public String ayearlevel="", aysem="";
 
     public String userid="";
+
+    private  double gwa2=0.00, subjectsEnrolled2=0.00;
+
+    ArrayList<Grades> grades = new ArrayList<>();
 
 
     @Override
@@ -55,67 +60,53 @@ public class StudentMianScreen extends AppCompatActivity {
         }
 
 
-        gradesRecView  = findViewById(R.id.gradesRecView);
-        adapter = new gradesRecViewAdapter(this);
-        gradesRecView.setAdapter(adapter);
-
-        spinnerAcademicYear=findViewById(R.id.spinnerAcademicYear);
+        spinnerAcademicYear=findViewById(R.id.spinnerYearLevel);
+        spinnerSem=findViewById(R.id.spinnerSem);
+        gwa=findViewById(R.id.gwa);
+        subjectsEnrolled=findViewById(R.id.subjectsEnrolled);
 
 
         //spinner initialization
-        String[] value = {"2021-2022","2021-2022","2021-2022"};
+        String[] value = {"1", "2", "3", "4","5"};
         ArrayList<String> ayspinner = new ArrayList<>(Arrays.asList(value));
-        ayspinner.clear();
-
-        //HTTP request
-        RequestQueue queueu = Volley.newRequestQueue(this);
-        String url = "http://jeepcard.net/gportal/gradesay.php?userid="+userid+"&ayid=1";
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-//                collegeCounterTextView.setText("Response Get: "+response);
-//                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
-                try {
-                    JSONArray JA= new JSONArray(response);
-                    for(int i=0;i<JA.length();i++) {
-                        String collegeid=JA.getJSONObject(i).get("collegeid").toString();
-                        String collegecode=JA.getJSONObject(i).get("collegecode").toString();
-                        String collegename=JA.getJSONObject(i).get("collegename").toString();
-
-                        //to add data in arraylist spinner
-                        ayspinner.add("");
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            } //onResponse
-        }, new Response.ErrorListener(){
-            @Override
-            public void onErrorResponse(VolleyError error) {
-//                Toast.makeText(getApplicationContext(), "Reconnecting", Toast.LENGTH_LONG).show();
-                Toast.makeText(getApplicationContext(), "An error occured\n" + error.toString(), Toast.LENGTH_LONG).show();
-            }
-        });//Stringrequest
-        queueu.add(stringRequest);
-
-
-        //spinner adapter
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,R.layout.style_spinner,ayspinner);
         spinnerAcademicYear.setAdapter(arrayAdapter);
+        spinnerAcademicYear.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // your code here
+                ayearlevel = spinnerAcademicYear.getSelectedItem().toString();
+//                Toast.makeText(getApplicationContext(), ayearlevel, Toast.LENGTH_LONG).show();
+                getGrades();
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
 
-        gradesRecView.setLayoutManager(new LinearLayoutManager(StudentMianScreen.this));
+        });
 
-          //to add data in grades arraylist
-          ArrayList<Grades> grades = new ArrayList<>();
-          grades.add(new Grades("1", "1", "PHYSCI", "Physical Science", "1.00", "02-19-2021", "You rock!"));
-          grades.add(new Grades("2", "2", "GENSCI", "General Science", "1.25", "02-19-2021", "Keep up the good work!"));
-          grades.add(new Grades("3", "3", "IT101", "Economy Taxation & Agrarian Reform", "1.50", "02-19-2021", "Nice!"));
+        //spinner initialization
+        String[] value1 = {"1", "2"};
+        ArrayList<String> ayspinnersem = new ArrayList<>(Arrays.asList(value1));
+        ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<>(this,R.layout.style_spinner,ayspinnersem);
+        spinnerSem.setAdapter(arrayAdapter2);
+        spinnerSem.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // your code here
+                aysem = spinnerSem.getSelectedItem().toString();
+//                Toast.makeText(getApplicationContext(), aysem, Toast.LENGTH_LONG).show();
+                getGrades();
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
 
-          adapter.setGrade(grades);
-
-
+        });
 
         logout = (Button) findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
@@ -135,10 +126,80 @@ public class StudentMianScreen extends AppCompatActivity {
             }
         });
 
+        getGrades();
     }
+
     @Override
     public void onBackPressed(){
         Toast.makeText(getApplicationContext(),"Press logout button",Toast.LENGTH_LONG).show();
         return;
+    }
+
+    public void getGrades(){
+        //HTTP request
+        Boolean hasRecord=false;
+        ayearlevel = spinnerAcademicYear.getSelectedItem().toString();
+        aysem = spinnerSem.getSelectedItem().toString();
+        RequestQueue queueu = Volley.newRequestQueue(this);
+        String url = "http://jeepcard.net/gportal/gradesay.php?userid="+userid+"&ayearlevel="+ayearlevel+"&aysem="+aysem;
+
+        //reset
+        grades.clear(); gwa2=0.00; subjectsEnrolled2=0.00;
+        //print average results
+        gwa2=gwa2/subjectsEnrolled2;
+        gwa.setText(String.valueOf(gwa2));
+        subjectsEnrolled.setText(String.valueOf(subjectsEnrolled2));
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+//                collegeCounterTextView.setText("Response Get: "+response);
+//                Toast.makeText(getApplicationContext(), response +" : \nuserid: "+ userid + "\nayearlevel: " + ayearlevel + " aysem: " + aysem, Toast.LENGTH_LONG).show();
+
+                gradesRecView  = findViewById(R.id.gradesRecView);
+                adapter = new gradesRecViewAdapter(StudentMianScreen.this);
+
+                gradesRecView.setAdapter(adapter);
+                gradesRecView.setLayoutManager(new LinearLayoutManager(StudentMianScreen.this));
+                grades.clear(); gwa2=0.00; subjectsEnrolled2=0.00;
+                grades.add(new Grades("", "", "", "SUBJECT", "GRADE", "", "Header"));
+                try {
+                    JSONArray JA= new JSONArray(response);
+                    for(int i=0;i<JA.length();i++) {
+                        String gradeid=JA.getJSONObject(i).get("gradeid").toString();
+                        String subjectid=JA.getJSONObject(i).get("subjectid").toString();
+                        String subjectcode=JA.getJSONObject(i).get("subjectcode").toString();
+                        String subjecttitle=JA.getJSONObject(i).get("subjecttitle").toString();
+                        String grade=JA.getJSONObject(i).get("grade").toString();
+                        gwa2=gwa2+Double.parseDouble(grade);
+                        String date=JA.getJSONObject(i).get("date").toString();
+                        String note=JA.getJSONObject(i).get("note").toString();
+                        String ayear1=JA.getJSONObject(i).get("ayear1").toString();
+                        String ayear2=JA.getJSONObject(i).get("ayear2").toString();
+                        String ayearlevel=JA.getJSONObject(i).get("ayearlevel").toString();
+                        String aysem=JA.getJSONObject(i).get("aysem").toString();
+
+                        //to add data in grades arraylist
+                        grades.add(new Grades(gradeid, subjectid, subjectcode, subjecttitle, grade, date, note));
+                        ++subjectsEnrolled2;
+                    }
+                    adapter.setGrade(grades);
+
+                    //print average results
+                    gwa2=gwa2/subjectsEnrolled2;
+                    gwa.setText(String.valueOf(gwa2));
+                    subjectsEnrolled.setText(String.valueOf(subjectsEnrolled2));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            } //onResponse
+        }, new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError error) {
+//                Toast.makeText(getApplicationContext(), "Reconnecting", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "An error occured\n" + error.toString(), Toast.LENGTH_LONG).show();
+            }
+        });//Stringrequest
+        queueu.add(stringRequest);
     }
 }

@@ -16,7 +16,7 @@
 
         <TextView
             android:id="@+id/subjectTitle"
-            android:layout_width="250dp"
+            android:layout_width="225dp"
             android:layout_centerVertical="true"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"

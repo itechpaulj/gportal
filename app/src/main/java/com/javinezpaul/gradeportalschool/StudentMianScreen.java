@@ -27,12 +27,21 @@ public class StudentMianScreen extends AppCompatActivity {
     private gradesRecViewAdapter adapter;
     private String schoolcode;
 
+    public String userid="";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_mian_screen);
         studentuser = (TextView) findViewById(R.id.studentuser);
+        SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+        if(sp.contains("user")){
+            SharedPreferences.Editor editor = sp.edit();
+            studentuser.setText(sp.getString("user",""));
+            userid=sp.getString("user","").toString();
+        }
+
 
         gradesRecView  = findViewById(R.id.gradesRecView);
         adapter = new gradesRecViewAdapter(this);
@@ -41,20 +50,17 @@ public class StudentMianScreen extends AppCompatActivity {
         spinnerAcademicYear=findViewById(R.id.spinnerAcademicYear);
 
 
-
-
-
-
         //spinner
-        String[] value = {"2021-2022","2021-2022","2021-2022",};
-        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(value));
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,R.layout.style_spinner,arrayList);
+        String[] value = {"2021-2022","2021-2022","2021-2022",userid};
+        ArrayList<String> ayspinner = new ArrayList<>(Arrays.asList(value));
+//        ayspinner.add("String");
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,R.layout.style_spinner,ayspinner);
         spinnerAcademicYear.setAdapter(arrayAdapter);
 
 
         gradesRecView.setLayoutManager(new LinearLayoutManager(StudentMianScreen.this));
 
-          //to add data in arraylist
+          //to add data in grades arraylist
           ArrayList<Grades> grades = new ArrayList<>();
           grades.add(new Grades("1", "1", "PHYSCI", "Physical Science", "1.00", "02-19-2021", "You rock!"));
           grades.add(new Grades("2", "2", "GENSCI", "General Science", "1.25", "02-19-2021", "Keep up the good work!"));
@@ -82,13 +88,6 @@ public class StudentMianScreen extends AppCompatActivity {
 
             }
         });
-        SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
-        if(sp.contains("user")){
-            SharedPreferences.Editor editor = sp.edit();
-            studentuser.setText(sp.getString("user",""));
-        }
-
-
 
     }
     @Override

@@ -2,6 +2,7 @@ package com.javinezpaul.gradeportalschool;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -89,6 +90,9 @@ public class RegisterTeacher extends AppCompatActivity {
         linear_spinnercollegename = (LinearLayout) findViewById(R.id.linear_spinnercollegename);
         backBtn = findViewById(R.id.backBtn);
         TeacherLoginbtn = findViewById(R.id.TeacherLoginbtn);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         //LOGIN BTN
         TeacherLoginbtn.setOnClickListener(new View.OnClickListener() {

@@ -22,6 +22,7 @@ import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -92,7 +93,8 @@ make Toast for debugging result if success
         hasinputPassword = (EditText) findViewById(R.id.hasinputPassword);
 
 
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
 
 

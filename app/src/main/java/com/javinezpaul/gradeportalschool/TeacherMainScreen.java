@@ -1,5 +1,6 @@
 package com.javinezpaul.gradeportalschool;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,6 +11,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -178,6 +181,31 @@ public class TeacherMainScreen extends AppCompatActivity {
         // has shown data teacher main screen
 
     }
+
+    //3 dots menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.teacher_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.Profile:
+                Toast.makeText(this,"VIEW CODE SELECTED",Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.Students:
+                Toast.makeText(this,"VIEW CODE SELECTED",Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.Logout:
+                Toast.makeText(this,"VIEW CODE SELECTED",Toast.LENGTH_SHORT).show();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
     @Override
     public void onBackPressed(){
         Toast.makeText(getApplicationContext(),"Press logout button", Toast.LENGTH_LONG).show();

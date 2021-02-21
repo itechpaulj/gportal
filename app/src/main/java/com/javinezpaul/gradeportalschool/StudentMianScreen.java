@@ -195,7 +195,7 @@ public class StudentMianScreen extends AppCompatActivity {
             public void onResponse(String response) {
 //                collegeCounterTextView.setText("Response Get: "+response);
 //                Toast.makeText(getApplicationContext(), response +" : \nuserid: "+ userid + "\nayearlevel: " + ayearlevel + " aysem: " + aysem, Toast.LENGTH_LONG).show();
-
+                int i=0;
                 gradesRecView  = findViewById(R.id.gradesRecView);
                 adapter = new gradesRecViewAdapter(StudentMianScreen.this);
 
@@ -205,7 +205,7 @@ public class StudentMianScreen extends AppCompatActivity {
                 grades.add(new Grades("", "", "", "SUBJECT", "GRADE", "", "Header"));
                 try {
                     JSONArray JA= new JSONArray(response);
-                    for(int i=0;i<JA.length();i++) {
+                    for(i=0;i<JA.length();i++) {
                         String gradeid=JA.getJSONObject(i).get("gradeid").toString();
                         String subjectid=JA.getJSONObject(i).get("subjectid").toString();
                         String subjectcode=JA.getJSONObject(i).get("subjectcode").toString();
@@ -222,7 +222,9 @@ public class StudentMianScreen extends AppCompatActivity {
                         //to add data in grades arraylist
                         grades.add(new Grades(gradeid, subjectid, subjectcode, subjecttitle, grade, date, note));
                         ++subjectsEnrolled2;
+//                        Toast.makeText(getApplicationContext(), String.valueOf(subjectsEnrolled2) + "@ forloop" , Toast.LENGTH_LONG).show();
                     }
+//                    Toast.makeText(getApplicationContext(), String.valueOf(subjectsEnrolled2) + "outside forloop", Toast.LENGTH_LONG).show();
                     adapter.setGrade(grades);
 
                     //print average results
@@ -232,6 +234,11 @@ public class StudentMianScreen extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+
+                if(subjectsEnrolled2==0) {
+                    grades.add(new Grades("", "", "", "No data found", ":(", "", "No data found"));
+                }
+                adapter.setGrade(grades);
             } //onResponse
         }, new Response.ErrorListener(){
             @Override

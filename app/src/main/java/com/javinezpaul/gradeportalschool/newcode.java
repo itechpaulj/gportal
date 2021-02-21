@@ -2,6 +2,7 @@ package com.javinezpaul.gradeportalschool;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -35,6 +36,9 @@ public class newcode extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_newcode);
+        SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+        String getTeachercardid = (String) sp.getString("user","");
+
 
         spinnerAy = findViewById(R.id.spinnerAy);
         spinnerCollege = findViewById(R.id.spinnerCollege);
@@ -56,7 +60,7 @@ public class newcode extends AppCompatActivity {
                // Toast.makeText(getApplicationContext(),"pindot",Toast.LENGTH_LONG).show();
 
                 RequestQueue requestQueue = Volley.newRequestQueue(newcode.this);
-                String url = "http://jeepcard.net/gportal/addNewcode_teacher.php";
+                String url = "http://192.168.1.236//gportal/addNewcode_teacher.php";
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -79,7 +83,7 @@ public class newcode extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),"Please Select Subject Code",Toast.LENGTH_LONG).show();
                         }
                         else{
-                           // Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+                            //.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
                             if(response.equals("Success")){
                                 Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
                             }
@@ -115,6 +119,8 @@ public class newcode extends AppCompatActivity {
                         params.put("getFirstIndex_spinnerProgram",getFirstIndex_spinnerProgram[0]);
                         params.put("getFirstIndex_spinnerSection",getFirstIndex_spinnerSection[0]);
                         params.put("getFirstIndex_spinnerSubjects",getFirstIndex_spinnerSubjects[0]);
+                        params.put("getTeachercardid",getTeachercardid);
+
                         return params;
                     }
                 };

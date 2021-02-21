@@ -30,6 +30,7 @@ import java.util.Map;
 public class Login extends AppCompatActivity {
     TextView logoutText ;
      ToggleButton showpassword;
+     TextView registerBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,14 @@ public class Login extends AppCompatActivity {
         hasbtnloggedin = (Button) findViewById(R.id.hasbtnloggedin);
         showpassword = findViewById(R.id.showpassword);
 
-
+        registerBtn=findViewById(R.id.registerBtn);
+        registerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent register = new Intent(Login.this, MainActivity.class);
+                startActivity(register);
+            }
+        });
 
 
         showpassword.setOnClickListener(new View.OnClickListener() {

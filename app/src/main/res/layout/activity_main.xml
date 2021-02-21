@@ -103,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="0dp"
-                android:text="Register Your School"
+                android:text="Grades Portal"
                 android:textColor="@color/colorPrimary"
                 android:textSize="30dp" />
 
@@ -116,7 +116,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
                 android:gravity="center"
-                android:text="Tap New Code to get a link you can send to people you want to see your grades wtih"
+                android:text="Register and start seeing your grades\neasy and on-the-go!"
                 android:textColor="@color/cardview_dark_background"
                 android:textSize="15sp" />
 

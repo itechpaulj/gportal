@@ -14,6 +14,7 @@ import java.lang.reflect.Type;
 
 public class MainActivity extends AppCompatActivity {
     Button RegisterTeacher,StudentRegister;
+    TextView schoolbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
 
         RegisterTeacher = findViewById(R.id.RegisterTeacher);
         StudentRegister = findViewById(R.id.StudentRegister);
+        schoolbtn=findViewById(R.id.schoolbtn);
+
+
 
 
         TextView viewcode = (TextView) findViewById(R.id.viewcode);
@@ -41,6 +45,15 @@ public class MainActivity extends AppCompatActivity {
         gportal.setTypeface(typeface);
         schoolbtn.setTypeface(typeface);
 
+
+        //Register form button for School
+        schoolbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent registerschool = new Intent(MainActivity.this,School.class);
+                startActivity(registerschool);
+            }
+        });
 
         //Register form button for teacher
         RegisterTeacher.setOnClickListener(new View.OnClickListener() {

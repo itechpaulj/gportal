@@ -97,12 +97,12 @@
                 android:maxLines="1"
                 android:id="@+id/hasinputSchoolName"
                 android:background="@drawable/inputcorner"
-                android:textSize="20dp"
+                android:textSize="15sp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:layout_gravity="center"
                 android:layout_width="300dp"
-                android:layout_height="40dp"></EditText>
+                android:layout_height="wrap_content"></EditText>
             <TextView
                 android:textColor="@color/black"
                 android:text="Address"
@@ -114,12 +114,12 @@
                 android:maxLines="1"
                 android:id="@+id/hasinputAddress"
                 android:background="@drawable/inputcorner"
-                android:textSize="20dp"
+                android:textSize="15sp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:layout_gravity="center"
                 android:layout_width="300dp"
-                android:layout_height="40dp"></EditText>
+                android:layout_height="wrap_content"></EditText>
             <TextView
                 android:textColor="@color/black"
                 android:text="Email"
@@ -131,12 +131,13 @@
                 android:maxLines="1"
                 android:id="@+id/hasinputEmail"
                 android:background="@drawable/inputcorner"
-                android:textSize="20dp"
+                android:textSize="15sp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:layout_gravity="center"
                 android:layout_width="300dp"
-                android:layout_height="40dp"></EditText>
+                android:layout_height="wrap_content"></EditText>
+
             <TextView
                 android:textColor="@color/black"
                 android:text="Password"
@@ -148,12 +149,12 @@
                 android:maxLines="1"
                 android:id="@+id/hasinputPassword"
                 android:background="@drawable/inputcorner"
-                android:textSize="20dp"
+                android:textSize="15sp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:layout_gravity="center"
                 android:layout_width="300dp"
-                android:layout_height="40dp"></EditText>
+                android:layout_height="wrap_content"></EditText>
 
             <TextView
                 android:id="@+id/selectCollegeName"

@@ -18,6 +18,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
+                android:id="@+id/backBtn"
                 android:layout_margin="10dp"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
@@ -148,19 +149,7 @@
                 android:layout_gravity="center"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
-            <EditText
-                android:inputType="textCapSentences"
-                android:maxLines="1"
-                android:id="@+id/address"
-                android:visibility="gone"
-                android:hint="Address"
-                android:background="@drawable/inputcorner"
-                android:textSize="15dp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/cardview_dark_background"
-                android:layout_gravity="center"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"></EditText>
+
             <EditText
                 android:inputType="textCapSentences"
                 android:maxLines="1"

@@ -50,13 +50,13 @@ public class StudentRegister extends AppCompatActivity {
 
     final int CODE_GALLERY_REQUEST = 999;
     Bitmap bitmap;
-
+    TextView studloginbtn;
     LinearLayout min_gender,linear_collegcode,linear_programcode,linear_sectioncode;
     EditText schoolcode,
             fname,lname,mname,schoolid,
             password,address;
     Button btnschoolcode,btnUploadStudent,studentregister;
-    ImageView imageStudent;
+    ImageView imageStudent,backBtn;
     Spinner collegecode,programcode,sectioncode;
 
     RadioGroup grpgender;
@@ -90,6 +90,8 @@ public class StudentRegister extends AppCompatActivity {
         linear_sectioncode = (LinearLayout) findViewById(R.id.linear_sectioncode);
         btnschoolcode = (Button) findViewById(R.id.btnschoolcode);
         btnUploadStudent = (Button) findViewById(R.id.btnUploadStudent);
+        backBtn = findViewById(R.id.backBtn);
+        studloginbtn = findViewById(R.id.studloginbtn);
 
         imageStudent = (ImageView) findViewById(R.id.imageStudent);
 
@@ -103,6 +105,23 @@ public class StudentRegister extends AppCompatActivity {
 
         // AUTO ALL CAPS CODE
         schoolcode.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+
+        //LOGINBTN
+        studloginbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent login = new Intent(StudentRegister.this,Login.class);
+                startActivity(login);
+            }
+        });
+
+        //BACK BTN
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
 
 

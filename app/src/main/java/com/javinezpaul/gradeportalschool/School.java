@@ -16,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,6 +30,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.apache.commons.lang3.RandomStringUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -85,6 +88,11 @@ make Toast for debugging result if success
         hasinputEmail = (EditText) findViewById(R.id.hasinputEmail);
         hasinputPassword = (EditText) findViewById(R.id.hasinputPassword);
 
+        Toolbar toolbar = findViewById(R.id.school_toolbar);
+        setSupportActionBar(toolbar);
+
+
+
         backBtn = findViewById(R.id.backBtn);
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,7 +126,7 @@ make Toast for debugging result if success
         hasRegisterSchool.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Processing...",Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(),"Processing...",Toast.LENGTH_LONG).show();
                 hasProcessRegisterSchool();
             }
 
@@ -128,6 +136,8 @@ make Toast for debugging result if success
                 String post_input_school_address = (String) hasinputAddress.getText().toString();
                 String post_input_school_email = (String) hasinputEmail.getText().toString();
                 String post_input_school_password = (String) hasinputPassword.getText().toString();
+                String randonString = RandomStringUtils.randomAlphanumeric(20);
+                String verifyImage = "upload/logoschool/"+randonString+".jpeg";
                 if(post_input_school_name.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Please Input School Name",Toast.LENGTH_LONG).show();
                 }
@@ -147,13 +157,15 @@ make Toast for debugging result if success
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, localUrl, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-                          // Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
-                            Intent login2 = new Intent(School.this , Login2.class);
-                            login2.putExtra("name", post_input_school_name);
-                            login2.putExtra("cardid", post_input_school_email);
-                            login2.putExtra("image", response);
-                            login2.putExtra("access", "School");
-                            startActivity(login2);
+                          //Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                            if(response.equals(verifyImage)) {
+                                Intent login2 = new Intent(School.this, Login2.class);
+                                login2.putExtra("name", post_input_school_name);
+                                login2.putExtra("cardid", post_input_school_email);
+                                login2.putExtra("image", response);
+                                login2.putExtra("access", "School");
+                                startActivity(login2);
+                            }
                         }
                     }, new Response.ErrorListener() {
                         @Override
@@ -172,6 +184,7 @@ make Toast for debugging result if success
                             params.put("schoolemail",post_input_school_email);
                             params.put("schoolpassword",post_input_school_password);
                             params.put("image",imageData);
+                            params.put("random",verifyImage); // note generate random character for image
                             return params;
 
                         }
@@ -183,6 +196,9 @@ make Toast for debugging result if success
         });
         //{end}Register Button setOnclick
 
+    }
+
+    private void setSupportActionBar(Toolbar toolbar) {
     }
 
     //{start} worked load for image and button Upload Gallery
@@ -229,6 +245,7 @@ make Toast for debugging result if success
             String encodeImage = Base64.encodeToString(imagebytes,Base64.DEFAULT);
             return encodeImage;
         }
+
 
     //{end} imageView result
 

@@ -20,6 +20,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -52,6 +53,7 @@ import java.util.Map;
 public class RegisterTeacher extends AppCompatActivity {
     Button btnschoolcode,
             uploadBtn,nextBtn;
+    ImageButton backBtn;
     TextView setCollegeName,TeacherLoginbtn;
     ImageView imageTeacher;
     RadioButton radioButton;
@@ -79,20 +81,27 @@ public class RegisterTeacher extends AppCompatActivity {
         lnameteacher = (EditText) findViewById(R.id.lnameteacher);
         mnameteacher = (EditText) findViewById(R.id.mnameteacher);
         empteacher = (EditText) findViewById(R.id.empteacher);
-        address = (EditText) findViewById(R.id.address);
+        //address = (EditText) findViewById(R.id.address);
         password = (EditText) findViewById(R.id.password);
         spinnercollegename = (Spinner) findViewById(R.id.spinnercollegename);
         radioGroup = (RadioGroup) findViewById(R.id.gender);
         min_gender = (LinearLayout) findViewById(R.id.min_gender);
         linear_spinnercollegename = (LinearLayout) findViewById(R.id.linear_spinnercollegename);
-        // Login
+        backBtn = findViewById(R.id.backBtn);
         TeacherLoginbtn = findViewById(R.id.TeacherLoginbtn);
 
+        //LOGIN BTN
         TeacherLoginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent login = new Intent(RegisterTeacher.this,Login.class);
                 startActivity(login);
+            }
+        });
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
 
@@ -131,9 +140,9 @@ public class RegisterTeacher extends AppCompatActivity {
                 post_input_empid = (String) empteacher.getText().toString().trim();
                 post_input_schoolcode = (String) schoolcode.getText().toString().trim();
                 post_input_spinner = (String) ""+spinnercollegename.getSelectedItem();
-                post_input_address = (String) address.getText().toString().trim();
+                //post_input_address = (String) address.getText().toString().trim();
                 post_input_password = (String) password.getText().toString().trim();
-                String randonString = RandomStringUtils.randomAlphanumeric(10);
+                String randonString = RandomStringUtils.randomAlphanumeric(20);
                 String verifyImage = "upload/profileteacher/"+randonString+".jpeg";
                 if(post_input_fname.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Please Enter First Name",Toast.LENGTH_LONG).show();
@@ -144,9 +153,9 @@ public class RegisterTeacher extends AppCompatActivity {
                 else if(post_input_mname.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Please Enter Middle Name",Toast.LENGTH_LONG).show();
                 }
-                else if(post_input_address.isEmpty()){
-                    Toast.makeText(getApplicationContext(),"Please Enter Your Address",Toast.LENGTH_LONG).show();
-                }
+                //else if(post_input_address.isEmpty()){
+                    //Toast.makeText(getApplicationContext(),"Please Enter Your Address",Toast.LENGTH_LONG).show();
+                //}
                 else if(post_input_empid.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Please Enter Employee ID",Toast.LENGTH_LONG).show();
                 }
@@ -198,7 +207,7 @@ public class RegisterTeacher extends AppCompatActivity {
                             params.put("lname",post_input_lname);
                             params.put("mname",post_input_mname);
                             params.put("gender",gender);
-                            params.put("address",post_input_address);
+                            //params.put("address",post_input_address);
                             params.put("schoolcode",post_input_schoolcode);
                             params.put("empTeacher",post_input_empid);
                             params.put("password",post_input_password);
@@ -249,7 +258,7 @@ public class RegisterTeacher extends AppCompatActivity {
                 spinnercollegename.setVisibility(View.VISIBLE);
                 nextBtn.setVisibility(View.VISIBLE);
                 min_gender.setVisibility(View.VISIBLE);
-                address.setVisibility(View.VISIBLE);
+               // address.setVisibility(View.VISIBLE);
                 password.setVisibility(View.VISIBLE);
                 linear_spinnercollegename.setVisibility(View.VISIBLE);
                 /*
@@ -285,7 +294,7 @@ public class RegisterTeacher extends AppCompatActivity {
                            spinnercollegename.setVisibility(View.GONE);
                            nextBtn.setVisibility(View.GONE);
                            min_gender.setVisibility(View.GONE);
-                           address.setVisibility(View.GONE);
+                           //address.setVisibility(View.GONE);
                            password.setVisibility(View.GONE);
                            linear_spinnercollegename.setVisibility(View.GONE);
 
@@ -338,7 +347,7 @@ public class RegisterTeacher extends AppCompatActivity {
                         spinnercollegename.setVisibility(View.GONE);
                         nextBtn.setVisibility(View.GONE);
                         min_gender.setVisibility(View.GONE);
-                        address.setVisibility(View.GONE);
+                        //address.setVisibility(View.GONE);
                         password.setVisibility(View.GONE);
                         linear_spinnercollegename.setVisibility(View.GONE);
                         Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();

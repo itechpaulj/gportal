@@ -82,7 +82,7 @@
                 android:id="@+id/btnschoolcode"
                 android:layout_gravity="center"
                 android:textAllCaps="false"
-                android:text="CLICK"
+                android:text="Next"
                 android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

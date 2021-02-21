@@ -12,6 +12,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -54,6 +55,8 @@ make Toast for debugging result if success
     final int CODE_GALLERY_REQUEST = 999;
     Bitmap bitmap;
     Button hasUploadSchoolLogo;
+    ImageButton backBtn;
+    TextView loginBtn;
     /*{end}ImageVIew*/
 
     //---
@@ -81,6 +84,24 @@ make Toast for debugging result if success
         hasinputAddress = (EditText) findViewById(R.id.hasinputAddress);
         hasinputEmail = (EditText) findViewById(R.id.hasinputEmail);
         hasinputPassword = (EditText) findViewById(R.id.hasinputPassword);
+
+        backBtn = findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
+        loginBtn = findViewById(R.id.loginBtn);
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent login = new Intent(School.this , Login.class);
+                startActivity(login);
+            }
+        });
+
         //{start}hasUploadSchoolLogo Button
         hasUploadSchoolLogo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,7 +118,7 @@ make Toast for debugging result if success
         hasRegisterSchool.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Toast.makeText(getApplicationContext(),"Processing...",Toast.LENGTH_LONG).show();
                 hasProcessRegisterSchool();
             }
 

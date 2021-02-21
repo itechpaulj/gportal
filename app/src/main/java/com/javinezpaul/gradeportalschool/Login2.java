@@ -31,7 +31,7 @@ import java.util.Map;
 public class Login2 extends AppCompatActivity {
 
     ImageView image;
-    TextView name,cardid,access;
+    TextView name,cardid,access,switchacc;
     EditText password;
     Button loggedin;
     ToggleButton showpassword;
@@ -43,6 +43,7 @@ public class Login2 extends AppCompatActivity {
         name = (TextView) findViewById(R.id.name);
         cardid = (TextView) findViewById(R.id.cardid);
         access = (TextView) findViewById(R.id.access);
+        switchacc = findViewById(R.id.switchacc);
 
         password = (EditText) findViewById(R.id.password);
 
@@ -79,7 +80,14 @@ public class Login2 extends AppCompatActivity {
         String addressView = "http://jeepcard.net/gportal/"+urlimgweb;
         imageResult(addressView);// public string class
 
-
+        // SWITCH ACCOUNT BUTTON
+        switchacc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent login = new Intent(Login2.this,Login.class);
+                startActivity(login);
+            }
+        });
         //btnlogin
         //---------------
 

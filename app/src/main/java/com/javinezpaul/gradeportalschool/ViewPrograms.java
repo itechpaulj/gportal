@@ -1,5 +1,6 @@
 package com.javinezpaul.gradeportalschool;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -47,6 +48,9 @@ public class ViewPrograms extends AppCompatActivity {
 
         toolbarName=findViewById(R.id.toolbarName);
         toolbarName.setText("Programs");
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         toolbarAddButton=findViewById(R.id.toolbarAddButton);
         left_icon=findViewById(R.id.left_icon);

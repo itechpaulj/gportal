@@ -1,5 +1,6 @@
 package com.javinezpaul.gradeportalschool;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -44,6 +45,9 @@ public class addprograms extends AppCompatActivity {
 
         SchoolMainScreen mainClass = new SchoolMainScreen();
         schoolcode=mainClass.schoolcode;
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         spinnerCollege=(Spinner)findViewById(R.id.spinnerCollege);
         programcode=findViewById(R.id.programcode);

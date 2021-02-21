@@ -9,6 +9,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Patterns;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -75,6 +77,7 @@ make Toast for debugging result if success
     /*{end}Register Declaration button*/
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,8 +91,9 @@ make Toast for debugging result if success
         hasinputEmail = (EditText) findViewById(R.id.hasinputEmail);
         hasinputPassword = (EditText) findViewById(R.id.hasinputPassword);
 
-        Toolbar toolbar = findViewById(R.id.school_toolbar);
-        setSupportActionBar(toolbar);
+
+
+
 
 
 
@@ -198,8 +202,7 @@ make Toast for debugging result if success
 
     }
 
-    private void setSupportActionBar(Toolbar toolbar) {
-    }
+
 
     //{start} worked load for image and button Upload Gallery
     //---------

@@ -1,5 +1,6 @@
 package com.javinezpaul.gradeportalschool;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -38,6 +39,9 @@ public class addcollege extends AppCompatActivity {
 
         SchoolMainScreen mainClass = new SchoolMainScreen();
         schoolcode=mainClass.schoolcode;
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         collegeCodeTxt=findViewById(R.id.collegeCodeTxt);
         collegeNameTxt=findViewById(R.id.collegeNameTxt);

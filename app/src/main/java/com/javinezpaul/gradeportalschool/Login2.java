@@ -1,5 +1,6 @@
 package com.javinezpaul.gradeportalschool;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -44,6 +45,9 @@ public class Login2 extends AppCompatActivity {
         cardid = (TextView) findViewById(R.id.cardid);
         access = (TextView) findViewById(R.id.access);
         switchacc = findViewById(R.id.switchacc);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         password = (EditText) findViewById(R.id.password);
 

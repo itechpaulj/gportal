@@ -1,5 +1,6 @@
 package com.javinezpaul.gradeportalschool;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -24,6 +25,9 @@ public class Testinganbutton extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_testinganbutton);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         /*
         id ni paul javinez
@@ -51,7 +55,7 @@ public class Testinganbutton extends AppCompatActivity {
         patungko.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent patungko = new Intent(Testinganbutton.this , Login2.class);
+                Intent patungko = new Intent(Testinganbutton.this , StudentMianScreen.class);
                 startActivity(patungko);
 
             }

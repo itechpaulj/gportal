@@ -10,26 +10,13 @@
     android:background="@drawable/gradebg">
 
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/school_toolbar"
-            app:titleMarginStart="175dp"
-            app:titleTextColor="@color/white"
-            app:title="Gportal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_marginLeft="110dp"
-                android:background="@drawable/ic_baseline_more_vert_24"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            </ImageView>
-        </androidx.appcompat.widget.Toolbar>
 
 
         <ScrollView

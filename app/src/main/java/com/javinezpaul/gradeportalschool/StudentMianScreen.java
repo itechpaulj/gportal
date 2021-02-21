@@ -1,5 +1,6 @@
 package com.javinezpaul.gradeportalschool;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,6 +11,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -167,6 +171,31 @@ public class StudentMianScreen extends AppCompatActivity {
 
         //Function calls
         getGrades();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.student_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menuviewcode:
+                Toast.makeText(this,"VIEW CODE SELECTED",Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.Profile:
+                Toast.makeText(this,"VIEW CODE SELECTED",Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.EnrolledCode:
+                Toast.makeText(this,"VIEW CODE SELECTED",Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.Logout:
+                Toast.makeText(this,"VIEW CODE SELECTED",Toast.LENGTH_SHORT).show();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

@@ -69,10 +69,7 @@ public class TeacherMainScreen extends AppCompatActivity {
 
         // session teacher user
         SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
-        if(sp.contains("user")){
-            SharedPreferences.Editor editor = sp.edit();
-            teacheruser.setText(sp.getString("user",""));
-        }
+
 
 
         // volley data
@@ -107,12 +104,26 @@ public class TeacherMainScreen extends AppCompatActivity {
                             String aysem=jsonArray.getJSONObject(i).get("aysem").toString();
                             String ayear1=jsonArray.getJSONObject(i).get("ayear1").toString();
                             String ayear2=jsonArray.getJSONObject(i).get("ayear2").toString();
+                            String fullname=jsonArray.getJSONObject(i).get("fullname").toString();
+                            String access=jsonArray.getJSONObject(i).get("access").toString();
+                            String photo=jsonArray.getJSONObject(i).get("photo").toString();
+                            String cardid=jsonArray.getJSONObject(i).get("cardid").toString();
+
 
         teachersCodes.add(new TeachersCode(teacherscodeid, teacherscode, collegeid, programid, sectionid, subjectid,
                 ayid, date, collegecode, collegename, programcode,
                 programname, sectioncode, subjectcode, subjecttitle,
                 ayear1, ayear2, ayearlevel, aysem));
                             adapter.setTeachersCodes(teachersCodes);
+
+                            if(sp.contains("user")){
+                                SharedPreferences.Editor editor = sp.edit();
+                                editor.putString("name",fullname);
+                                editor.putString("cardid",access);
+                                editor.putString("image",photo);
+                                editor.putString("access",cardid);
+                                editor.commit();
+                            }
                         }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -139,6 +150,9 @@ public class TeacherMainScreen extends AppCompatActivity {
                 if(sp.contains("user")){
                     SharedPreferences.Editor editor = sp.edit();
                     editor.remove("user");
+                    editor.remove("name");
+                    editor.remove("image");
+                    editor.remove("access");
                     editor.putString("msg","Logged Out Successfully");
                     editor.commit();
                     Intent hasloggedout = new Intent(TeacherMainScreen.this , Login.class);

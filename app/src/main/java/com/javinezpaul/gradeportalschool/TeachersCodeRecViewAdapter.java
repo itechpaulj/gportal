@@ -5,6 +5,7 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -63,10 +64,10 @@ public class TeachersCodeRecViewAdapter extends RecyclerView.Adapter<TeachersCod
 //                Toast.makeText(mContext, teachersCodes.get(position).getTeacherscode() + " Selected", Toast.LENGTH_SHORT).show();
                 //TODO: Please show an alertdialog with 2 buttons, copy and delete code. to gete the code: teachersCodes.get(position).getTeacherscode()
                 AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-                builder.setTitle("Copy or Delete?");
+                builder.setTitle("Actions");
 
                 // Set up the buttons
-                builder.setNeutralButton("Copy", new DialogInterface.OnClickListener() {
+                builder.setNeutralButton("Copy to Clipboard", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //TODO: please write copy to clipboard function here
@@ -77,7 +78,7 @@ public class TeachersCodeRecViewAdapter extends RecyclerView.Adapter<TeachersCod
                     }
                 });
 
-                builder.setNegativeButton("Delete", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //TODO: please write delete function here
@@ -89,10 +90,14 @@ public class TeachersCodeRecViewAdapter extends RecyclerView.Adapter<TeachersCod
                     }
                 });
 
-                builder.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("Students", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
+                        //TODO: Intent to TeachersCodeStudents.class
+                        Intent redirect = new Intent(mContext , TeachersCodeStudents.class);
+                        redirect.putExtra("toolbarName", teachersCodes.get(position).getSubjecttitle() + " Students");
+                        redirect.putExtra("teacherscode", teachersCodes.get(position).getTeacherscode());
+                        mContext.startActivity(redirect);
                     }
                 });
 

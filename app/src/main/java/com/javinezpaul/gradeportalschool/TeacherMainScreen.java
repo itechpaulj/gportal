@@ -122,9 +122,9 @@ public class TeacherMainScreen extends AppCompatActivity {
                             if(sp.contains("user")){
                                 SharedPreferences.Editor editor = sp.edit();
                                 editor.putString("name",fullname);
-                                editor.putString("cardid",access);
+                                editor.putString("cardid",cardid);
                                 editor.putString("image",photo);
-                                editor.putString("access",cardid);
+                                editor.putString("access",access);
                                 editor.commit();
                             }
                         }
@@ -153,6 +153,7 @@ public class TeacherMainScreen extends AppCompatActivity {
                 if(sp.contains("user")){
                     SharedPreferences.Editor editor = sp.edit();
                     editor.remove("user");
+                    editor.remove("cardid");
                     editor.remove("name");
                     editor.remove("image");
                     editor.remove("access");

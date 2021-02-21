@@ -79,6 +79,15 @@ public class Login2 extends AppCompatActivity {
             }
         });
 
+        SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+        if(sp.contains("cardid")){
+            cardid.setText(sp.getString("cardid",""));
+            name.setText(sp.getString("name",""));
+            access.setText(sp.getString("access",""));
+            String addressView1 = "http://jeepcard.net/gportal/"+sp.getString("image","");
+            imageResult(addressView1);// public string class
+        }
+
 
 
         String addressView = "http://jeepcard.net/gportal/"+urlimgweb;
@@ -110,7 +119,7 @@ public class Login2 extends AppCompatActivity {
                             //note session build in ANDROID STUDIO
                             SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
                             SharedPreferences.Editor editor = sp.edit();
-                            editor.putString("user",cardidLogin);
+                            editor.putString("user",cardid.getText().toString());
                             editor.commit();
                             Intent school = new Intent(Login2.this,SchoolMainScreen.class);
                             startActivity(school);
@@ -120,7 +129,7 @@ public class Login2 extends AppCompatActivity {
                         else if(response.equals("Teacher")){
                             SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
                             SharedPreferences.Editor editor = sp.edit();
-                            editor.putString("user",cardidLogin);
+                            editor.putString("user",cardid.getText().toString());
                             editor.commit();
                             Intent school = new Intent(Login2.this,TeacherMainScreen.class);
                             startActivity(school);
@@ -129,7 +138,7 @@ public class Login2 extends AppCompatActivity {
                         else if(response.equals("Student")){
                             SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
                             SharedPreferences.Editor editor = sp.edit();
-                            editor.putString("user",cardidLogin);
+                            editor.putString("user",cardid.getText().toString());
                             editor.commit();
                             Intent school = new Intent(Login2.this,StudentMianScreen.class);
                             startActivity(school);
@@ -151,7 +160,7 @@ public class Login2 extends AppCompatActivity {
                     protected Map<String, String> getParams() throws AuthFailureError {
                         Map<String,String> params = new HashMap<>();
                         //params.put("name",nameLogin);
-                        params.put("cardid",cardidLogin);
+                        params.put("cardid",cardid.getText().toString());
                         params.put("password",password.getText().toString());
                         return params;
                     }
@@ -175,7 +184,7 @@ public class Login2 extends AppCompatActivity {
         }, 0, 0, ImageView.ScaleType.CENTER_CROP, null, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Reconnect..",Toast.LENGTH_LONG).show();
             }
         });
         requestQueueImage.add(imageRequest);

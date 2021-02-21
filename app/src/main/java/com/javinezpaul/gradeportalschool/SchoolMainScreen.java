@@ -70,14 +70,15 @@ public class SchoolMainScreen extends AppCompatActivity{
 
         logout = (Button) findViewById(R.id.logout);
         schooluser = (TextView) findViewById(R.id.schooluser);
+
         //note session build in ANDROID STUDIO
         SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
         if(sp.contains("user")){
             SharedPreferences.Editor editor = sp.edit();
             schooluser.setText(sp.getString("user",""));
+
         }
         //note session build in ANDROID STUDIO
-
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

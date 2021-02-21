@@ -30,12 +30,11 @@ import java.util.Map;
 
 public class Login2 extends AppCompatActivity {
 
-    private ImageView image;
-    private TextView name,cardid,access;
-    private EditText password;
-    private Button loggedin;
-    private ToggleButton showpassword;
-    private String schoolcode;
+    ImageView image;
+    TextView name,cardid,access;
+    EditText password;
+    Button loggedin;
+    ToggleButton showpassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,9 +57,6 @@ public class Login2 extends AppCompatActivity {
         name.setText(nameLogin);
         access.setText(accessSchool);
         showpassword = findViewById(R.id.showpassword);
-
-        SchoolMainScreen mainClass = new SchoolMainScreen();
-        schoolcode=mainClass.schoolcode;
 
         // log in show passwword toggle button
         showpassword.setOnClickListener(new View.OnClickListener() {
@@ -103,7 +99,6 @@ public class Login2 extends AppCompatActivity {
                             SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
                             SharedPreferences.Editor editor = sp.edit();
                             editor.putString("user",cardidLogin);
-                            editor.putString("schoolcode",schoolcode);
                             editor.commit();
                             Intent school = new Intent(Login2.this,SchoolMainScreen.class);
                             startActivity(school);
@@ -114,7 +109,6 @@ public class Login2 extends AppCompatActivity {
                             SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
                             SharedPreferences.Editor editor = sp.edit();
                             editor.putString("user",cardidLogin);
-                            editor.putString("schoolcode",schoolcode);
                             editor.commit();
                             Intent school = new Intent(Login2.this,TeacherMainScreen.class);
                             startActivity(school);
@@ -124,7 +118,6 @@ public class Login2 extends AppCompatActivity {
                             SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
                             SharedPreferences.Editor editor = sp.edit();
                             editor.putString("user",cardidLogin);
-                            editor.putString("schoolcode",schoolcode);
                             editor.commit();
                             Intent school = new Intent(Login2.this,StudentMianScreen.class);
                             startActivity(school);

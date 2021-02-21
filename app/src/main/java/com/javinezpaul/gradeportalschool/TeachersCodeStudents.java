@@ -1,5 +1,6 @@
 package com.javinezpaul.gradeportalschool;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,6 +29,9 @@ public class TeachersCodeStudents extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teachers_code_students);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         toolbarName=findViewById(R.id.toolbarName);
         toolbarName.setText("Subjectname Students");

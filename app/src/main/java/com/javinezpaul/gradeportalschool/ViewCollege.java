@@ -1,5 +1,6 @@
 package com.javinezpaul.gradeportalschool;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -47,6 +48,9 @@ public class ViewCollege extends AppCompatActivity {
 //        String schoolcode=getIntent().getStringExtra("schoolcode");
         SchoolMainScreen mainClass = new SchoolMainScreen();
         schoolcode=mainClass.schoolcode;
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
 //        Toast.makeText(getApplicationContext(), "Schoolcode: " + schoolcode + " is from SchoolMainScreen", Toast.LENGTH_LONG).show();
         toolbarName=findViewById(R.id.toolbarName);

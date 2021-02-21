@@ -2,6 +2,7 @@ package com.javinezpaul.gradeportalschool;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -83,6 +84,9 @@ public class StudentRegister extends AppCompatActivity {
         schoolid = (EditText) findViewById(R.id.schoolid);
         password = (EditText) findViewById(R.id.password);
         address = (EditText) findViewById(R.id.address);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         min_gender = (LinearLayout) findViewById(R.id.min_gender);
         linear_collegcode = (LinearLayout) findViewById(R.id.linear_collegcode);

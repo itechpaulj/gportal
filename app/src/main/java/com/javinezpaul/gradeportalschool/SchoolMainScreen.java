@@ -1,5 +1,6 @@
 package com.javinezpaul.gradeportalschool;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -7,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -45,6 +47,8 @@ public class SchoolMainScreen extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_school_main_screen);
+
+
 
         collegeCounterTextView=findViewById(R.id.collegeCounterTextView);
         instructorCounterTextView=findViewById(R.id.instructorCounterTextView);
@@ -152,6 +156,7 @@ public class SchoolMainScreen extends AppCompatActivity{
         getFunctionValley();
 
     }
+
 
     @Override
     protected void onResume() {

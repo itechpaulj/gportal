@@ -1,5 +1,6 @@
 package com.javinezpaul.gradeportalschool;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         StudentRegister = findViewById(R.id.StudentRegister);
         schoolbtn=findViewById(R.id.schoolbtn);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
 
 

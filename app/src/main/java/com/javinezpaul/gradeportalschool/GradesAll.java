@@ -1,5 +1,6 @@
 package com.javinezpaul.gradeportalschool;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,6 +14,9 @@ public class GradesAll extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grades_all);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
 
 

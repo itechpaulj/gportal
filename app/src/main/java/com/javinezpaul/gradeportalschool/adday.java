@@ -1,5 +1,6 @@
 package com.javinezpaul.gradeportalschool;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,6 +38,9 @@ public class adday extends AppCompatActivity {
         setContentView(R.layout.activity_adday);
         SchoolMainScreen mainClass = new SchoolMainScreen();
         schoolcode=mainClass.schoolcode;
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
 
         spinnerSem =findViewById(R.id.spinnerSem);

@@ -1,5 +1,6 @@
 package com.javinezpaul.gradeportalschool;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,6 +41,9 @@ public class ViewStudents extends AppCompatActivity {
 
         toolbarName=findViewById(R.id.toolbarName);
         toolbarName.setText("Students");
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         SchoolMainScreen mainClass = new SchoolMainScreen();
         schoolcode=mainClass.schoolcode;

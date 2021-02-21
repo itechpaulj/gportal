@@ -142,7 +142,7 @@ public class RegisterTeacher extends AppCompatActivity {
                 post_input_spinner = (String) ""+spinnercollegename.getSelectedItem();
                 //post_input_address = (String) address.getText().toString().trim();
                 post_input_password = (String) password.getText().toString().trim();
-                String randonString = RandomStringUtils.randomAlphanumeric(10);
+                String randonString = RandomStringUtils.randomAlphanumeric(20);
                 String verifyImage = "upload/profileteacher/"+randonString+".jpeg";
                 if(post_input_fname.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Please Enter First Name",Toast.LENGTH_LONG).show();
@@ -258,7 +258,7 @@ public class RegisterTeacher extends AppCompatActivity {
                 spinnercollegename.setVisibility(View.VISIBLE);
                 nextBtn.setVisibility(View.VISIBLE);
                 min_gender.setVisibility(View.VISIBLE);
-                address.setVisibility(View.VISIBLE);
+               // address.setVisibility(View.VISIBLE);
                 password.setVisibility(View.VISIBLE);
                 linear_spinnercollegename.setVisibility(View.VISIBLE);
                 /*
@@ -294,7 +294,7 @@ public class RegisterTeacher extends AppCompatActivity {
                            spinnercollegename.setVisibility(View.GONE);
                            nextBtn.setVisibility(View.GONE);
                            min_gender.setVisibility(View.GONE);
-                           address.setVisibility(View.GONE);
+                           //address.setVisibility(View.GONE);
                            password.setVisibility(View.GONE);
                            linear_spinnercollegename.setVisibility(View.GONE);
 
@@ -347,7 +347,7 @@ public class RegisterTeacher extends AppCompatActivity {
                         spinnercollegename.setVisibility(View.GONE);
                         nextBtn.setVisibility(View.GONE);
                         min_gender.setVisibility(View.GONE);
-                        address.setVisibility(View.GONE);
+                        //address.setVisibility(View.GONE);
                         password.setVisibility(View.GONE);
                         linear_spinnercollegename.setVisibility(View.GONE);
                         Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();

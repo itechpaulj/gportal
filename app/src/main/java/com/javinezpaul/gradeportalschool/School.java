@@ -16,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -81,9 +82,14 @@ make Toast for debugging result if success
         imageview = (ImageView) findViewById(R.id.imageView);
         hasRegisterSchool = (Button) findViewById(R.id.hasRegisterSchool);
         hasinputSchoolName = (EditText) findViewById(R.id.hasinputSchoolName);
-        hasinputAddress = (EditText) findViewById(R.id.hasinputAddress);
+        //hasinputAddress = (EditText) findViewById(R.id.hasinputAddress);
         hasinputEmail = (EditText) findViewById(R.id.hasinputEmail);
         hasinputPassword = (EditText) findViewById(R.id.hasinputPassword);
+
+        Toolbar toolbar = findViewById(R.id.school_toolbar);
+        setSupportActionBar(toolbar);
+
+
 
         backBtn = findViewById(R.id.backBtn);
         backBtn.setOnClickListener(new View.OnClickListener() {
@@ -125,15 +131,15 @@ make Toast for debugging result if success
             private void hasProcessRegisterSchool() {
                 String regExpression = "^[\\\\w\\\\.-]+@([\\\\w\\\\-]+\\\\.)+[A-Z]{2,4}$";
                 String post_input_school_name = (String) hasinputSchoolName.getText().toString();
-                String post_input_school_address = (String) hasinputAddress.getText().toString();
+                //String post_input_school_address = (String) hasinputAddress.getText().toString();
                 String post_input_school_email = (String) hasinputEmail.getText().toString();
                 String post_input_school_password = (String) hasinputPassword.getText().toString();
                 if(post_input_school_name.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Please Input School Name",Toast.LENGTH_LONG).show();
                 }
-                else if(post_input_school_address.isEmpty()){
-                    Toast.makeText(getApplicationContext(),"Please Input Address",Toast.LENGTH_LONG).show();
-                }
+                //else if(post_input_school_address.isEmpty()){
+                    //Toast.makeText(getApplicationContext(),"Please Input Address",Toast.LENGTH_LONG).show();
+                //}
                 else if(!Patterns.EMAIL_ADDRESS.matcher(post_input_school_email).matches() && !post_input_school_email.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Please Input Email",Toast.LENGTH_LONG).show();
                 }
@@ -168,7 +174,7 @@ make Toast for debugging result if success
                             String imageData = imageToString(bitmap);
 
                             params.put("schoolname",post_input_school_name);
-                            params.put("schooladdress",post_input_school_address);
+                            //params.put("schooladdress",post_input_school_address);
                             params.put("schoolemail",post_input_school_email);
                             params.put("schoolpassword",post_input_school_password);
                             params.put("image",imageData);
@@ -183,6 +189,9 @@ make Toast for debugging result if success
         });
         //{end}Register Button setOnclick
 
+    }
+
+    private void setSupportActionBar(Toolbar toolbar) {
     }
 
     //{start} worked load for image and button Upload Gallery
@@ -229,6 +238,7 @@ make Toast for debugging result if success
             String encodeImage = Base64.encodeToString(imagebytes,Base64.DEFAULT);
             return encodeImage;
         }
+
 
     //{end} imageView result
 

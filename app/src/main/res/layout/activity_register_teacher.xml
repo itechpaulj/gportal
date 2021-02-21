@@ -25,6 +25,7 @@
                 android:background="@drawable/arrowleft"></ImageButton>
 
             <LinearLayout
+                android:id="@+id/backBtn"
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">

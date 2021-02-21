@@ -1,6 +1,7 @@
 package com.javinezpaul.gradeportalschool;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -48,7 +50,19 @@ public class gradesRecViewAdapter extends RecyclerView.Adapter<gradesRecViewAdap
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, "Message: \n" + grade.get(position).getNote(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(mContext, "Message: \n" + grade.get(position).getNote(), Toast.LENGTH_SHORT).show();
+                //shows the note from teacher
+                AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+                builder.setTitle(grade.get(position).getSubjecttitle());
+                builder.setMessage(grade.get(position).getNote());
+
+                builder.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                builder.show();
             }
         });
     }
@@ -60,6 +74,7 @@ public class gradesRecViewAdapter extends RecyclerView.Adapter<gradesRecViewAdap
 
     public void setGrade(ArrayList<Grades> grade) {
         this.grade = grade;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

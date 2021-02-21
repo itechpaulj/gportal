@@ -32,7 +32,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="50dp"
                 android:background="@drawable/cornerbg"
-                android:text="Join with a code"
+                android:text="Join class"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="15dp"></Button>

@@ -1,6 +1,8 @@
 package com.javinezpaul.gradeportalschool;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -23,10 +25,16 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.util.ArrayList;
+
 public class TeacherMainScreen extends AppCompatActivity {
-    private Button logout,newcode,clipboard_copy;
+    private Button logout,newcode;
     private TextView teacheruser;
-    private TextView ay,section,subject,programcode,teachercode;
+
+    private RecyclerView teachersCodeRecView;
+    private TeachersCodeRecViewAdapter adapter;
+
+    ArrayList<TeachersCode> teachersCodes = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,16 +43,28 @@ public class TeacherMainScreen extends AppCompatActivity {
 
         teacheruser = (TextView) findViewById(R.id.teacheruser);
         logout = (Button) findViewById(R.id.logout);
-
-        // details teacher
-        ay = (TextView) findViewById(R.id.ay);
-        section = (TextView) findViewById(R.id.section);
-        subject = (TextView) findViewById(R.id.subject);
-        programcode= (TextView) findViewById(R.id.programcode);
-        teachercode = (TextView) findViewById(R.id.teachercode);
         newcode = (Button) findViewById(R.id.newcode);
-        clipboard_copy = (Button) findViewById(R.id.clipboard_copy);
-        // details teacher
+
+        //TODO: insert lines 48 - 67 in volley request function.
+        // RecView Adapter and initialization
+        teachersCodeRecView = findViewById(R.id.teachersCodeRecView);
+        adapter = new TeachersCodeRecViewAdapter(TeacherMainScreen.this);
+        teachersCodeRecView.setAdapter(adapter);
+        teachersCodeRecView.setLayoutManager(new LinearLayoutManager(TeacherMainScreen.this));
+
+
+        //adding data in recyclerview
+        teachersCodes.clear();
+        teachersCodes.add(new TeachersCode("1", "TE1234", "1", "1", "1", "1",
+                        "1", "2021-02-20", "IIT", "Industrial and Information Technology", "ACT",
+                "Associate in Computer Technology", "IT1A", "GENSCI", "General Science 101",
+                "2020", "2021", "1st", "1st"));
+        teachersCodes.add(new TeachersCode("1", "TE4321", "1", "1", "1", "1",
+                "1", "2021-02-20", "IIT", "Industrial and Information Technology", "ACT",
+                "Associate in Computer Technology", "IT1A", "GENSCI", "Physical Science",
+                "2020", "2021", "2nd", "2nd"));
+
+        adapter.setTeachersCodes(teachersCodes);
 
         // session teacher user
         SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
@@ -80,56 +100,6 @@ public class TeacherMainScreen extends AppCompatActivity {
         });
 
 
-
-        clipboard_copy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               // Toast.makeText(getApplicationContext(),"Test",Toast.LENGTH_LONG).show();
-                ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData clipData = ClipData.newPlainText("TextView",teachercode.getText().toString());
-                clipboardManager.setPrimaryClip(clipData);
-                Toast.makeText(getApplicationContext(),"Copied.",Toast.LENGTH_LONG).show();
-            }
-        });
-
-
-        // has shown data teacher main screen
-
-        RequestQueue requestQueue = Volley.newRequestQueue(TeacherMainScreen.this);
-        String url = "http://jeepcard.net/gportal/teachermainscreen.php?valid=true";
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                //Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
-                try {
-                    JSONArray jsonArray = new JSONArray(response);
-                    for(int i=0;i<jsonArray.length();i++){
-                        String teacherscodeget = jsonArray.getJSONObject(i).get("teacherscode").toString();
-                        String ayget = jsonArray.getJSONObject(i).get("ay").toString();
-                        String subjectcodeget = jsonArray.getJSONObject(i).get("subjectcode").toString();
-                        String sectioncodeget = jsonArray.getJSONObject(i).get("sectioncode").toString();
-                        String programcodeget = jsonArray.getJSONObject(i).get("programcode").toString();
-
-
-                        ay.setText(ayget);
-                        subject.setText(subjectcodeget);
-                        section.setText(sectioncodeget);
-                        programcode.setText(programcodeget);
-                        teachercode.setText(teacherscodeget);
-                    }
-
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),"Something went wrong!\n"+error.toString(),Toast.LENGTH_LONG).show();
-            }
-        });
-        requestQueue.add(stringRequest);
 
 
         // has shown data teacher main screen

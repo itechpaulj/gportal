@@ -9,10 +9,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,7 +33,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class StudentMianScreen extends AppCompatActivity {
-   Button logout;
+   Button logout, joinbtn;
    TextView studentuser, gwa, subjectsEnrolled;
    Spinner spinnerAcademicYear, spinnerSem;
 
@@ -41,6 +43,7 @@ public class StudentMianScreen extends AppCompatActivity {
     public String ayearlevel="", aysem="";
 
     public String userid="";
+    private String m_Text = "";
 
     private  double gwa2=0.00, subjectsEnrolled2=0.00;
 
@@ -64,6 +67,7 @@ public class StudentMianScreen extends AppCompatActivity {
         spinnerSem=findViewById(R.id.spinnerSem);
         gwa=findViewById(R.id.gwa);
         subjectsEnrolled=findViewById(R.id.subjectsEnrolled);
+        joinbtn=findViewById(R.id.joinbtn);
 
 
         //spinner initialization
@@ -108,6 +112,7 @@ public class StudentMianScreen extends AppCompatActivity {
 
         });
 
+        //button functionalities
         logout = (Button) findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,6 +131,40 @@ public class StudentMianScreen extends AppCompatActivity {
             }
         });
 
+
+        joinbtn=findViewById(R.id.joinbtn);
+        joinbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(StudentMianScreen.this);
+                builder.setTitle("Enter the class code");
+
+                // Set up the input
+                final EditText input = new EditText(StudentMianScreen.this);
+                // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+                input.setInputType(InputType.TYPE_CLASS_TEXT);
+                builder.setView(input);
+
+                // Set up the buttons
+                builder.setPositiveButton("Join", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        m_Text = input.getText().toString();
+                        Toast.makeText(getApplicationContext(),m_Text,Toast.LENGTH_LONG).show();
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                builder.show();
+            }
+        });
+
+        //Function calls
         getGrades();
     }
 

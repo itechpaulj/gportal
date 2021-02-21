@@ -60,7 +60,7 @@ public class newcode extends AppCompatActivity {
                // Toast.makeText(getApplicationContext(),"pindot",Toast.LENGTH_LONG).show();
 
                 RequestQueue requestQueue = Volley.newRequestQueue(newcode.this);
-                String url = "http://192.168.1.236//gportal/addNewcode_teacher.php";
+                String url = "http://jeepcard.net/gportal/addNewcode_teacher.php";
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

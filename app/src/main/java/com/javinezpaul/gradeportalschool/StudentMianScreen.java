@@ -142,7 +142,7 @@ public class StudentMianScreen extends AppCompatActivity {
                 // Set up the input
                 final EditText input = new EditText(StudentMianScreen.this);
                 // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
-                input.setInputType(InputType.TYPE_CLASS_TEXT);
+                input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS);
                 builder.setView(input);
 
                 // Set up the buttons
@@ -150,7 +150,8 @@ public class StudentMianScreen extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         m_Text = input.getText().toString();
-                        Toast.makeText(getApplicationContext(),m_Text,Toast.LENGTH_LONG).show();
+                        joinclass();
+//                      Toast.makeText(getApplicationContext(),"Joining...",Toast.LENGTH_LONG).show();
                     }
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -231,6 +232,27 @@ public class StudentMianScreen extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+            } //onResponse
+        }, new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError error) {
+//                Toast.makeText(getApplicationContext(), "Reconnecting", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "An error occured\n" + error.toString(), Toast.LENGTH_LONG).show();
+            }
+        });//Stringrequest
+        queueu.add(stringRequest);
+    }
+
+    public void joinclass(){
+        //HTTP request
+        RequestQueue queueu = Volley.newRequestQueue(this);
+        String url = "http://jeepcard.net/gportal/joinclass.php?userid="+userid+"&teacherscode="+m_Text;
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+//                collegeCounterTextView.setText("Response Get: "+response);
+                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                getGrades();
             } //onResponse
         }, new Response.ErrorListener(){
             @Override

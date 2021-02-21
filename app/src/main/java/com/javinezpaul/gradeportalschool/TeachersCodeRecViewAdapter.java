@@ -1,6 +1,8 @@
 package com.javinezpaul.gradeportalschool;
 
 import android.annotation.SuppressLint;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.text.InputType;
@@ -68,6 +70,9 @@ public class TeachersCodeRecViewAdapter extends RecyclerView.Adapter<TeachersCod
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //TODO: please write copy to clipboard function here
+                        ClipboardManager clipboardManager = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+                        ClipData clipData = ClipData.newPlainText("TextView",teachersCodes.get(position).getTeacherscode());
+                        clipboardManager.setPrimaryClip(clipData);
                         Toast.makeText(mContext, teachersCodes.get(position).getTeacherscode() + " Copied", Toast.LENGTH_LONG).show();
                     }
                 });
@@ -77,6 +82,10 @@ public class TeachersCodeRecViewAdapter extends RecyclerView.Adapter<TeachersCod
                     public void onClick(DialogInterface dialog, int which) {
                         //TODO: please write delete function here
                         Toast.makeText(mContext, teachersCodes.get(position).getTeacherscode() + " Deleted", Toast.LENGTH_SHORT).show();
+                        ClipboardManager clipboardManager = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+                        ClipData clipData = ClipData.newPlainText("TextView","");
+                        clipboardManager.setPrimaryClip(clipData);
+                        Toast.makeText(mContext, teachersCodes.get(position).getTeacherscode() + " Copied", Toast.LENGTH_LONG).show();
                     }
                 });
 

@@ -31,6 +31,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.apache.commons.lang3.RandomStringUtils;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -82,7 +84,7 @@ make Toast for debugging result if success
         imageview = (ImageView) findViewById(R.id.imageView);
         hasRegisterSchool = (Button) findViewById(R.id.hasRegisterSchool);
         hasinputSchoolName = (EditText) findViewById(R.id.hasinputSchoolName);
-        //hasinputAddress = (EditText) findViewById(R.id.hasinputAddress);
+        hasinputAddress = (EditText) findViewById(R.id.hasinputAddress);
         hasinputEmail = (EditText) findViewById(R.id.hasinputEmail);
         hasinputPassword = (EditText) findViewById(R.id.hasinputPassword);
 
@@ -124,22 +126,24 @@ make Toast for debugging result if success
         hasRegisterSchool.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Processing...",Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(),"Processing...",Toast.LENGTH_LONG).show();
                 hasProcessRegisterSchool();
             }
 
             private void hasProcessRegisterSchool() {
                 String regExpression = "^[\\\\w\\\\.-]+@([\\\\w\\\\-]+\\\\.)+[A-Z]{2,4}$";
                 String post_input_school_name = (String) hasinputSchoolName.getText().toString();
-                //String post_input_school_address = (String) hasinputAddress.getText().toString();
+                String post_input_school_address = (String) hasinputAddress.getText().toString();
                 String post_input_school_email = (String) hasinputEmail.getText().toString();
                 String post_input_school_password = (String) hasinputPassword.getText().toString();
+                String randonString = RandomStringUtils.randomAlphanumeric(20);
+                String verifyImage = "upload/logoschool/"+randonString+".jpeg";
                 if(post_input_school_name.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Please Input School Name",Toast.LENGTH_LONG).show();
                 }
-                //else if(post_input_school_address.isEmpty()){
-                    //Toast.makeText(getApplicationContext(),"Please Input Address",Toast.LENGTH_LONG).show();
-                //}
+                else if(post_input_school_address.isEmpty()){
+                    Toast.makeText(getApplicationContext(),"Please Input Address",Toast.LENGTH_LONG).show();
+                }
                 else if(!Patterns.EMAIL_ADDRESS.matcher(post_input_school_email).matches() && !post_input_school_email.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Please Input Email",Toast.LENGTH_LONG).show();
                 }
@@ -153,13 +157,15 @@ make Toast for debugging result if success
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, localUrl, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-                          // Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
-                            Intent login2 = new Intent(School.this , Login2.class);
-                            login2.putExtra("name", post_input_school_name);
-                            login2.putExtra("cardid", post_input_school_email);
-                            login2.putExtra("image", response);
-                            login2.putExtra("access", "School");
-                            startActivity(login2);
+                          //Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                            if(response.equals(verifyImage)) {
+                                Intent login2 = new Intent(School.this, Login2.class);
+                                login2.putExtra("name", post_input_school_name);
+                                login2.putExtra("cardid", post_input_school_email);
+                                login2.putExtra("image", response);
+                                login2.putExtra("access", "School");
+                                startActivity(login2);
+                            }
                         }
                     }, new Response.ErrorListener() {
                         @Override
@@ -174,10 +180,11 @@ make Toast for debugging result if success
                             String imageData = imageToString(bitmap);
 
                             params.put("schoolname",post_input_school_name);
-                            //params.put("schooladdress",post_input_school_address);
+                            params.put("schooladdress",post_input_school_address);
                             params.put("schoolemail",post_input_school_email);
                             params.put("schoolpassword",post_input_school_password);
                             params.put("image",imageData);
+                            params.put("random",verifyImage); // note generate random character for image
                             return params;
 
                         }

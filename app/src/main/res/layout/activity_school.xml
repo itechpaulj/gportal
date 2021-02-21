@@ -105,6 +105,23 @@
                 android:layout_height="wrap_content"></EditText>
             <TextView
                 android:textColor="@color/black"
+                android:text="Address"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+            <EditText
+                android:inputType="textCapSentences"
+                android:maxLines="1"
+                android:id="@+id/hasinputAddress"
+                android:background="@drawable/inputcorner"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:layout_gravity="center"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"></EditText>
+            <TextView
+                android:textColor="@color/black"
                 android:text="Email"
                 android:textSize="12sp"
                 android:layout_width="wrap_content"
@@ -120,6 +137,7 @@
                 android:layout_gravity="center"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"></EditText>
+
             <TextView
                 android:textColor="@color/black"
                 android:text="Password"

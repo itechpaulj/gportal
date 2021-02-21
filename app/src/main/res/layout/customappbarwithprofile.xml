@@ -11,6 +11,7 @@
         android:gravity="center">
 
         <ImageView
+            android:visibility="invisible"
             android:id="@+id/left_icon"
             android:layout_width="30dp"
             android:layout_height="35dp"
@@ -37,6 +38,7 @@
             android:textStyle="bold" />
 
         <ImageButton
+            android:visibility="invisible"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginStart="180dp"

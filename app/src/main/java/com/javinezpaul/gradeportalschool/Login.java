@@ -28,9 +28,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Login extends AppCompatActivity {
-    TextView logoutText ;
-     ToggleButton showpassword;
-
+    private TextView logoutText ;
+    private ToggleButton showpassword;
+    private String schoolcode;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +43,8 @@ public class Login extends AppCompatActivity {
         showpassword = findViewById(R.id.showpassword);
 
 
-
+        SchoolMainScreen mainClass = new SchoolMainScreen();
+        schoolcode=mainClass.schoolcode;
 
         showpassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +88,7 @@ public class Login extends AppCompatActivity {
                             SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
                             SharedPreferences.Editor editor = sp.edit();
                             editor.putString("user",hasinputeachuser.getText().toString());
+                            editor.putString("schoolcode",schoolcode);
                             editor.commit();
                             Intent school = new Intent(Login.this,SchoolMainScreen.class);
                             startActivity(school);
@@ -101,6 +103,7 @@ public class Login extends AppCompatActivity {
                             SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
                             SharedPreferences.Editor editor = sp.edit();
                             editor.putString("user",hasinputeachuser.getText().toString());
+                            editor.putString("schoolcode",schoolcode);
                             editor.commit();
                             finish();
                             //note session build in ANDROID STUDIO
@@ -112,6 +115,7 @@ public class Login extends AppCompatActivity {
                             SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
                             SharedPreferences.Editor editor = sp.edit();
                             editor.putString("user",hasinputeachuser.getText().toString());
+                            editor.putString("schoolcode",schoolcode);
                             editor.commit();
                             finish();
                             //note session build in ANDROID STUDIO

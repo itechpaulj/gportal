@@ -45,6 +45,8 @@ public class StudentMianScreen extends AppCompatActivity {
     public String userid="";
     private String m_Text = "";
 
+    private String schoolcode;
+
     private  double gwa2=0.00, subjectsEnrolled2=0.00;
 
     ArrayList<Grades> grades = new ArrayList<>();
@@ -56,6 +58,10 @@ public class StudentMianScreen extends AppCompatActivity {
         setContentView(R.layout.activity_student_mian_screen);
         studentuser = (TextView) findViewById(R.id.studentuser);
         SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+        // TODO schoolcode
+        schoolcode =  (String) sp.getString("schoolcode","");
+        // TODO schoolcode
+
         if(sp.contains("user")){
             SharedPreferences.Editor editor = sp.edit();
             studentuser.setText(sp.getString("user",""));

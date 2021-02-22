@@ -110,10 +110,23 @@ public class MainActivity extends AppCompatActivity {
 //                            +sp.getString("cardid","")+"\n"
 //                            +sp.getString("access","")+"\n"
 //                    ,Toast.LENGTH_LONG).show();
-            Intent login2 = new Intent(MainActivity.this, Login2.class);
-            startActivity(login2);
+            String access = (String) sp.getString("access","");
+            if(access.equals("School")){
+                Intent school = new Intent(MainActivity.this, SchoolMainScreen.class);
+                startActivity(school);
+            }
 
-        } else {
+            if (access.equals("Teacher")){
+
+                Intent teacher = new Intent(MainActivity.this, TeacherMainScreen.class);
+                startActivity(teacher);
+            }
+
+
+
+        }
+
+        else {
            Toast.makeText(getApplicationContext(), "Welcome Gportal", Toast.LENGTH_LONG).show();
         }
     }

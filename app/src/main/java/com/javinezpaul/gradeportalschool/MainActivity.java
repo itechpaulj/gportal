@@ -115,19 +115,30 @@ public class MainActivity extends AppCompatActivity {
                 Intent school = new Intent(MainActivity.this, SchoolMainScreen.class);
                 startActivity(school);
             }
-
-            if (access.equals("Teacher")){
+            else if(access.equals("Teacher")){
 
                 Intent teacher = new Intent(MainActivity.this, TeacherMainScreen.class);
                 startActivity(teacher);
             }
-
+            else if(access.equals("Student")){
+                Intent student = new Intent(MainActivity.this, StudentMianScreen.class);
+                startActivity(student);
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "Welcome Gportal", Toast.LENGTH_LONG).show();
+            }
 
 
         }
 
         else {
            Toast.makeText(getApplicationContext(), "Welcome Gportal", Toast.LENGTH_LONG).show();
+//                        Toast.makeText(getApplicationContext(),sp.getString("user","")+"\n"
+//                    +sp.getString("name","")+"\n"
+//                            +sp.getString("image","")+"\n"
+//                            +sp.getString("cardid","")+"\n"
+//                            +sp.getString("access","")+"\n"
+//                    ,Toast.LENGTH_LONG).show();
         }
     }
 }

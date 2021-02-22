@@ -134,6 +134,7 @@ make Toast for debugging result if success
             @Override
             public void onClick(View v) {
                 //Toast.makeText(getApplicationContext(),"Processing...",Toast.LENGTH_LONG).show();
+                hasRegisterSchool.setVisibility(View.INVISIBLE);
                 hasProcessRegisterSchool();
             }
 
@@ -170,8 +171,10 @@ make Toast for debugging result if success
                           Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
                             if(response.equals("An Error occured")){
                                 Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                                hasRegisterSchool.setVisibility(View.VISIBLE);
                             }else if(response.equals("Email address already exist!")){
                                 Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                                hasRegisterSchool.setVisibility(View.VISIBLE);
                             }else {
                                 Intent login2 = new Intent(School.this, SchoolMainScreen.class);
                                 SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
@@ -184,6 +187,7 @@ make Toast for debugging result if success
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
+                            hasRegisterSchool.setVisibility(View.VISIBLE);
                             Toast.makeText(getApplicationContext(),"Network unstable, please retry",Toast.LENGTH_LONG).show();
                         }
                     }){

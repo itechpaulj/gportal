@@ -44,7 +44,7 @@
             android:layout_marginRight="58dp"
             android:textColor="@color/colorTertiary"
             android:textStyle="normal"
-            android:textSize="20dp"/>
+            android:textSize="15dp"/>
 
 
     </RelativeLayout>

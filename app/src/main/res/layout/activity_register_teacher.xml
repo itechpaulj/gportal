@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:background="@color/white"
+        android:orientation="vertical"
         tools:context=".RegisterTeacher">
 
         <RelativeLayout
@@ -19,25 +19,25 @@
 
             <ImageButton
                 android:id="@+id/backBtn"
-                android:layout_margin="10dp"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_margin="10dp"
                 android:background="@drawable/arrowleft"></ImageButton>
 
             <LinearLayout
-                android:gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:gravity="center">
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_margin="10sp"
-                    android:textSize="20sp"
-                    android:textColor="@color/colorSecondary"
                     android:gravity="center"
                     android:text="Register"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:textColor="@color/colorSecondary"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -61,160 +61,165 @@
 
 
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
 
             <EditText
                 android:id="@+id/schoolcode"
-                android:hint="School Code"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:background="@drawable/inputcorner"
-                android:textSize="15dp"
+                android:hint="School Code"
+                android:textAllCaps="false"
                 android:textColor="@color/black"
                 android:textColorHint="@color/cardview_dark_background"
-                android:layout_gravity="center"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"></EditText>
+                android:textSize="15dp"></EditText>
 
 
             <Button
                 android:id="@+id/btnschoolcode"
-                android:layout_gravity="center"
-                android:textAllCaps="false"
-                android:text="Next"
-                android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="50dp"></Button>
+                android:layout_gravity="center"
+                android:layout_marginBottom="50dp"
+                android:text="Next"
+                android:textAllCaps="false"
+                android:textColor="@color/white"></Button>
 
             <ImageView
                 android:id="@+id/imageTeacher"
-                android:visibility="gone"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:background="@drawable/default_border_image"
-                android:layout_width="200dp"
-                android:layout_height="200dp"></ImageView>
+                android:visibility="gone"></ImageView>
 
             <Button
                 android:id="@+id/uploadBtn"
-                android:visibility="gone"
-                android:layout_gravity="center"
-                android:textAllCaps="false"
-                android:text="Upload Photo"
-                android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="50dp"></Button>
+                android:layout_gravity="center"
+                android:layout_marginBottom="50dp"
+                android:text="Upload Photo"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:visibility="gone"></Button>
 
 
             <EditText
-                android:inputType="textCapSentences"
-                android:maxLines="1"
                 android:id="@+id/fnameteacher"
-                android:visibility="gone"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/inputcorner"
                 android:hint="First Name"
-                android:background="@drawable/inputcorner"
-                android:textSize="15dp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/cardview_dark_background"
-                android:layout_gravity="center"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"></EditText>
-
-            <EditText
                 android:inputType="textCapSentences"
                 android:maxLines="1"
+                android:textColor="@color/black"
+                android:textColorHint="@color/cardview_dark_background"
+                android:textSize="15dp"
+                android:visibility="gone"></EditText>
+
+            <EditText
                 android:id="@+id/lnameteacher"
-                android:visibility="gone"
-                android:hint="Last Name"
-                android:background="@drawable/inputcorner"
-                android:textSize="15dp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/cardview_dark_background"
-                android:layout_gravity="center"
                 android:layout_width="300dp"
-                android:layout_height="wrap_content"></EditText>
-            <EditText
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/inputcorner"
+                android:hint="Last Name"
                 android:inputType="textCapSentences"
                 android:maxLines="1"
-                android:id="@+id/mnameteacher"
-                android:visibility="gone"
-                android:hint="Middle Name"
-                android:background="@drawable/inputcorner"
-                android:textSize="15dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/cardview_dark_background"
-                android:layout_gravity="center"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"></EditText>
+                android:textSize="15dp"
+                android:visibility="gone"></EditText>
 
             <EditText
+                android:id="@+id/mnameteacher"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/inputcorner"
+                android:hint="Middle Name"
                 android:inputType="textCapSentences"
                 android:maxLines="1"
-                android:id="@+id/empteacher"
-                android:visibility="gone"
-                android:hint="Employee ID"
-                android:background="@drawable/inputcorner"
-                android:textSize="15dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/cardview_dark_background"
-                android:layout_gravity="center"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"></EditText>
+                android:textSize="15dp"
+                android:visibility="gone"></EditText>
+
             <EditText
+                android:id="@+id/empteacher"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/inputcorner"
+                android:hint="Employee ID"
                 android:inputType="textCapSentences"
                 android:maxLines="1"
-                android:id="@+id/password"
-                android:visibility="gone"
-                android:hint="Password"
-                android:background="@drawable/inputcorner"
-                android:textSize="15dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/cardview_dark_background"
-                android:layout_gravity="center"
+                android:textSize="15dp"
+                android:visibility="gone"></EditText>
+
+            <EditText
+                android:id="@+id/password"
                 android:layout_width="300dp"
-                android:layout_height="wrap_content"></EditText>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/inputcorner"
+                android:hint="Password"
+                android:inputType="textCapSentences"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textColorHint="@color/cardview_dark_background"
+                android:textSize="15dp"
+                android:visibility="gone"></EditText>
 
 
             <LinearLayout
                 android:id="@+id/linear_spinnercollegename"
-                android:visibility="gone"
-                android:gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            <androidx.cardview.widget.CardView
-                android:layout_gravity="center"
-                android:elevation="2dp"
-                android:layout_width="300dp"
-                android:layout_height="40dp">
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:elevation="2dp">
+
                     <Spinner
-                        android:visibility="gone"
-                        android:layout_marginTop="0dp"
-                        android:layout_gravity="center"
-                        android:gravity="center"
                         android:id="@+id/spinnercollegename"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                    </Spinner>
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="0dp"
+                        android:gravity="center"
+                        android:visibility="gone"></Spinner>
 
-            </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
         </LinearLayout>
 
         <LinearLayout
-            android:visibility="gone"
             android:id="@+id/min_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:visibility="gone">
+
             <RadioGroup
                 android:id="@+id/gender"
                 android:layout_width="300dp"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <RadioButton
                     android:id="@+id/male"
@@ -226,35 +231,33 @@
                     android:textColor="@color/cardview_dark_background"></RadioButton>
 
                 <RadioButton
+                    android:id="@+id/female"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginLeft="50dp"
                     android:layout_marginTop="-47dp"
-                    android:id="@+id/female"
-                    android:textColor="@color/cardview_dark_background"
                     android:text="Female"
-                    android:layout_gravity="center"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"></RadioButton>>
+                    android:textColor="@color/cardview_dark_background"></RadioButton>>
             </RadioGroup>
         </LinearLayout>
 
 
-
         <Button
-            android:visibility="gone"
-            android:textColor="@color/white"
-            android:background="@drawable/custombutton"
             android:id="@+id/nextBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_marginTop="30dp"
             android:layout_marginRight="20dp"
+            android:background="@drawable/custombutton"
             android:text="REGISTER"
-            android:textAllCaps="false"></Button>
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:visibility="gone"></Button>
 
 
     </LinearLayout>
-
 
 
 </ScrollView>

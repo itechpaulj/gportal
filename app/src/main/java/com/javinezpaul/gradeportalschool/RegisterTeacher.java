@@ -134,8 +134,10 @@ public class RegisterTeacher extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                nextBtn.setVisibility(View.INVISIBLE);
+
                 //{post_input_fname} {post_input_lname} {post_input_mname} {post_input_empid} {post_input_spinner} {post_input_schoolcode} {post_input_address} {post_input_password}
-               // Toast.makeText(getApplicationContext(),"Please Enter First Name",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Processing...",Toast.LENGTH_LONG).show();
                 String post_input_fname,post_input_lname,post_input_mname,
                         post_input_empid, post_input_spinner,post_input_schoolcode,post_input_address,post_input_password;
                 post_input_fname = (String) fnameteacher.getText().toString().trim();
@@ -149,24 +151,32 @@ public class RegisterTeacher extends AppCompatActivity {
                 String randonString = RandomStringUtils.randomAlphanumeric(20);
                 String verifyImage = "upload/profileteacher/"+randonString+".jpeg";
                 if(post_input_fname.isEmpty()){
+                    nextBtn.setVisibility(View.VISIBLE);
                     Toast.makeText(getApplicationContext(),"Please Enter First Name",Toast.LENGTH_LONG).show();
-                }
-                else if(post_input_lname.isEmpty()){
+                }else if(imageTeacher.getDrawable() == null){
+                    nextBtn.setVisibility(View.VISIBLE);
+                    Toast.makeText(getApplicationContext(),"Please select a Profile picture",Toast.LENGTH_LONG).show();
+                }else if(post_input_lname.isEmpty()){
+                    nextBtn.setVisibility(View.VISIBLE);
                     Toast.makeText(getApplicationContext(),"Please Enter Last Name",Toast.LENGTH_LONG).show();
                 }
                 else if(post_input_mname.isEmpty()){
+                    nextBtn.setVisibility(View.VISIBLE);
                     Toast.makeText(getApplicationContext(),"Please Enter Middle Name",Toast.LENGTH_LONG).show();
                 }
                 //else if(post_input_address.isEmpty()){
                     //Toast.makeText(getApplicationContext(),"Please Enter Your Address",Toast.LENGTH_LONG).show();
                 //}
                 else if(post_input_empid.isEmpty()){
+                    nextBtn.setVisibility(View.VISIBLE);
                     Toast.makeText(getApplicationContext(),"Please Enter Employee ID",Toast.LENGTH_LONG).show();
                 }
                 else if(post_input_spinner.isEmpty()){
+                    nextBtn.setVisibility(View.VISIBLE);
                     Toast.makeText(getApplicationContext(),"Please Select College Code",Toast.LENGTH_LONG).show();
                 }
                 else if(post_input_password.isEmpty()){
+                    nextBtn.setVisibility(View.VISIBLE);
                     Toast.makeText(getApplicationContext(),"Please Enter Your Password",Toast.LENGTH_LONG).show();
                 }
                 else{
@@ -198,7 +208,8 @@ public class RegisterTeacher extends AppCompatActivity {
                         }, new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-                                Toast.makeText(getApplicationContext(),"Something went wrong!\n"+error.toString(),Toast.LENGTH_LONG).show();
+                                nextBtn.setVisibility(View.VISIBLE);
+                                Toast.makeText(getApplicationContext(),"Network unstable, please retry",Toast.LENGTH_LONG).show();
                             }
                         }){
                             @Override
@@ -284,7 +295,7 @@ public class RegisterTeacher extends AppCompatActivity {
                     public void onResponse(String response) {
 
                        JSONObject jsonResult = null;
-                       if(response.equals("FAILED")){
+                       if(response.equals("School doesn't have college yet")){
                            Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
                            schoolcode.setVisibility(View.VISIBLE);
                            btnschoolcode.setVisibility(View.VISIBLE);
@@ -324,7 +335,7 @@ public class RegisterTeacher extends AppCompatActivity {
 
                                 }
                                 else{
-                                    spinnerList.add("[ERROR]");
+                                    spinnerList.add("[No data found]");
                                 }
 
                             }catch (JSONException e) {

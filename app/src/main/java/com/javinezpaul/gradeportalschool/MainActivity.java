@@ -17,7 +17,7 @@ import java.lang.reflect.Type;
 
 public class MainActivity extends AppCompatActivity {
     Button RegisterTeacher,StudentRegister;
-    TextView schoolbtn;
+    TextView schoolbtn, loginBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         RegisterTeacher = findViewById(R.id.RegisterTeacher);
         StudentRegister = findViewById(R.id.StudentRegister);
         schoolbtn=findViewById(R.id.schoolbtn);
+        loginBtn=findViewById(R.id.loginBtn);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
@@ -95,6 +96,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent testing = new Intent(MainActivity.this,Testinganbutton.class);
+                startActivity(testing);
+            }
+        });
+
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent testing = new Intent(MainActivity.this,Login.class);
                 startActivity(testing);
             }
         });

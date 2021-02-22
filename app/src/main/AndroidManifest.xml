@@ -52,6 +52,7 @@
         <activity android:name=".StudentMainScreen2" />
         <activity android:name=".StudentMianScreen" />
         <activity android:name=".newcode"/>
+        <activity android:name=".TeachersCodeStudents"/>
 
     </application>
 

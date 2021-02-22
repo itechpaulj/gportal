@@ -15,6 +15,37 @@
 
         <include layout="@layout/customappbar"></include>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="0dp"
+                android:gravity="center"
+                android:text="Already Registered? "
+                android:textColor="@color/colorPrimary"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/loginBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="0dp"
+                android:gravity="center"
+                android:text=" Login"
+                android:textColor="@color/colorTertiary"
+                android:textSize="15dp" />
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,6 +55,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="20dp"
             android:gravity="center">
+
 
             <Button
                 android:id="@+id/RegisterTeacher"
@@ -94,8 +126,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="vertical"
-            android:layout_marginTop="0dp">
+            android:layout_marginTop="0dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/footertext"

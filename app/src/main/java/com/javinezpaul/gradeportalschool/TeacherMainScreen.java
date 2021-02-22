@@ -1,6 +1,7 @@
 package com.javinezpaul.gradeportalschool;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -37,12 +39,22 @@ public class TeacherMainScreen extends AppCompatActivity {
     private RecyclerView teachersCodeRecView;
     private TeachersCodeRecViewAdapter adapter;
 
+    private String schoolcode;
+
     ArrayList<TeachersCode> teachersCodes = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_main_screen);
+
+        SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+        schoolcode= (sp.getString("schoolcode",""));
+        if(sp.contains("schoolcode")){
+            schoolcode= (sp.getString("schoolcode",""));
+        }
+
+        Toast.makeText(getApplicationContext(),"schoolcode: " + schoolcode,Toast.LENGTH_LONG).show();
 
         teacheruser = (TextView) findViewById(R.id.teacheruser);
         logout = (Button) findViewById(R.id.logout);
@@ -117,6 +129,12 @@ public class TeacherMainScreen extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        showTeacherscode();
+    }
+
     //3 dots menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -179,6 +197,7 @@ public class TeacherMainScreen extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 //Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+                teachersCodes.clear();
                 try {
                     JSONArray jsonArray = new JSONArray(response);
                     for(int i=0;i<jsonArray.length();i++){

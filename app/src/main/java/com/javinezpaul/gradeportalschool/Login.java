@@ -82,6 +82,7 @@ public class Login extends AppCompatActivity {
         hasbtnloggedin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"Authenticating...",Toast.LENGTH_LONG).show();
                 hasprocessloggedin();
             }
 
@@ -109,7 +110,7 @@ public class Login extends AppCompatActivity {
                             finish();
                             //note session build in ANDROID STUDIO
                         }
-                        else if(response.equals("Teacher")){
+                        else if(responseSplit[0].equals("Teacher")){
                             Intent teacher = new Intent(Login.this,TeacherMainScreen.class);
                             startActivity(teacher);
                             //Toast.makeText(getApplicationContext(),"This is a Teacher",Toast.LENGTH_LONG).show();
@@ -117,6 +118,7 @@ public class Login extends AppCompatActivity {
                             SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
                             SharedPreferences.Editor editor = sp.edit();
                             editor.putString("user",hasinputeachuser.getText().toString());
+                            editor.putString("schoolcode",responseSplit[1]);
                             editor.commit();
                             finish();
                             //note session build in ANDROID STUDIO
@@ -133,7 +135,9 @@ public class Login extends AppCompatActivity {
                             //note session build in ANDROID STUDIO
                             //Toast.makeText(getApplicationContext(),"This is a Student",Toast.LENGTH_LONG).show();
                         }
-                        else{
+                        else if(response.equals("Invalid credentials")){
+                            Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+                        }else{
                             Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
                         }
                     }

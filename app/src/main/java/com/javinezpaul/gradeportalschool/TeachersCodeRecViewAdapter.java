@@ -74,7 +74,8 @@ public class TeachersCodeRecViewAdapter extends RecyclerView.Adapter<TeachersCod
 //                Toast.makeText(mContext, teachersCodes.get(position).getTeacherscode() + " Selected", Toast.LENGTH_SHORT).show();
                 //TODO: Please show an alertdialog with 2 buttons, copy and delete code. to gete the code: teachersCodes.get(position).getTeacherscode()
                 AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-                builder.setTitle("Actions");
+                builder.setTitle(teachersCodes.get(position).getTeacherscode());
+                builder.setMessage("Actions");
 
                 // Set up the buttons
                 builder.setNeutralButton("Copy to Clipboard", new DialogInterface.OnClickListener() {
@@ -91,36 +92,45 @@ public class TeachersCodeRecViewAdapter extends RecyclerView.Adapter<TeachersCod
                 builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //TODO: please write delete function here
-//                        Toast.makeText(mContext, teachersCodes.get(position).getTeacherscode() + " Deleted", Toast.LENGTH_SHORT).show();
-//                        ClipboardManager clipboardManager = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
-//                        ClipData clipData = ClipData.newPlainText("TextView","");
-//                        clipboardManager.setPrimaryClip(clipData);
-//                        Toast.makeText(mContext, teachersCodes.get(position).getTeacherscode() + " Copied", Toast.LENGTH_LONG).show();
-                        RequestQueue requestQueue = Volley.newRequestQueue(mContext);
-                        SharedPreferences sp = mContext.getSharedPreferences("credentials",MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sp.edit();
-                        String userid = sp.getString("cardid","");
+                        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+                        builder.setTitle("Are you sure you want to delete the code?");
+                        builder.setMessage("Enrolled in this code may not retain its records.");
 
-                        String url = "http://jeepcard.net/gportal/deactivateTeachercode.php?teacherscodeid="+teachersCodes.get(position).getTeacherscodeid();
-                        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+                        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
-                            public void onResponse(String response) {
-                                Toast.makeText(mContext,response,Toast.LENGTH_LONG).show();
-                                TeacherMainScreen mainClass = new TeacherMainScreen();
-                                mainClass.showTeacherscode();
-//                                Intent reload = new Intent(mContext, TeacherMainScreen.class);
-//                                mContext.startActivity(reload);
+                            public void onClick(DialogInterface dialog, int which) {
+                                //TODO: please write delete function here
+                                RequestQueue requestQueue = Volley.newRequestQueue(mContext);
+                                SharedPreferences sp = mContext.getSharedPreferences("credentials",MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sp.edit();
+                                String userid = sp.getString("cardid","");
 
-                            }
-                        }, new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                Toast.makeText(mContext,"Error",Toast.LENGTH_LONG).show();
+                                String url = "http://jeepcard.net/gportal/deactivateTeachercode.php?teacherscodeid="+teachersCodes.get(position).getTeacherscodeid();
+                                StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+                                    @Override
+                                    public void onResponse(String response) {
+                                        Intent redirect = new Intent(mContext , TeacherMainScreen.class);
+                                        mContext.startActivity(redirect);
+                                    }
+                                }, new Response.ErrorListener() {
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+                                        Intent redirect = new Intent(mContext , TeacherMainScreen.class);
+                                        mContext.startActivity(redirect);
+                                        Toast.makeText(mContext,"Network unstable, please retry\n"+error.toString(),Toast.LENGTH_LONG).show();
+                                    }
+                                });
+                                requestQueue.add(stringRequest);
                             }
                         });
-                        requestQueue.add(stringRequest);
 
+                        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                        builder.show();
 
                     }
                 });

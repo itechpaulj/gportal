@@ -8,6 +8,7 @@ import androidx.cardview.widget.CardView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.Menu;
@@ -15,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +25,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -42,7 +45,7 @@ public class SchoolMainScreen extends AppCompatActivity{
             cardviewAy;
 
     Button logout;
-    public String schoolcode="66527c19b9";
+    public String schoolcode="66527c19b9", userid;
 //    public String schoolcode="c86d491fad";
 
 
@@ -53,8 +56,12 @@ public class SchoolMainScreen extends AppCompatActivity{
 
         SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
         schoolcode= (sp.getString("schoolcode",""));
+        userid= (sp.getString("user",""));
         if(sp.contains("schoolcode")){
             schoolcode= (sp.getString("schoolcode",""));
+        }
+        if(sp.contains("user")){
+            userid= (sp.getString("user",""));
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -249,7 +256,7 @@ public class SchoolMainScreen extends AppCompatActivity{
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.Profile:
-                Toast.makeText(this,"VIEW CODE SELECTED",Toast.LENGTH_SHORT).show();
+                    getProfile();
                 return true;
             case R.id.about:
                 Toast.makeText(this,"About Page",Toast.LENGTH_SHORT).show();
@@ -312,6 +319,46 @@ public class SchoolMainScreen extends AppCompatActivity{
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getApplicationContext(), "Reconnecting", Toast.LENGTH_LONG).show();
                 getFunctionValley();
+            }
+        });//Stringrequest
+        queueu.add(stringRequest);
+    }
+
+    private void getProfile() {
+        RequestQueue queueu = Volley.newRequestQueue(this);
+        String url = "http://jeepcard.net/gportal/profile.php?cardid="+userid;
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+//                collegeCounterTextView.setText("Response Get: "+response);
+//                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                try {
+                    JSONArray JA= new JSONArray(response);
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(SchoolMainScreen.this);
+                    builder.setTitle("Profile");
+                    builder.setMessage("\nSchool code:" + JA.getJSONObject(0).get("schoolcode").toString() + "\n\n" +
+                                    JA.getJSONObject(0).get("cardid").toString() + "\n" +
+                                    JA.getJSONObject(0).get("lname").toString() + "\n" +
+                                    JA.getJSONObject(0).get("address").toString()
+                            );
+                    builder.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+
+                    builder.show();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            } //onResponse
+        }, new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), "Network unstable, please retry", Toast.LENGTH_LONG).show();
             }
         });//Stringrequest
         queueu.add(stringRequest);

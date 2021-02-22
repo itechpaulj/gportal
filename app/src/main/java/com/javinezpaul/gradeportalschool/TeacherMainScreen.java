@@ -39,7 +39,7 @@ public class TeacherMainScreen extends AppCompatActivity {
     private RecyclerView teachersCodeRecView;
     private TeachersCodeRecViewAdapter adapter;
 
-    private String schoolcode;
+    private String schoolcode, userid;
 
     ArrayList<TeachersCode> teachersCodes = new ArrayList<>();
 
@@ -50,8 +50,12 @@ public class TeacherMainScreen extends AppCompatActivity {
 
         SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
         schoolcode= (sp.getString("schoolcode",""));
+        userid= (sp.getString("user",""));
         if(sp.contains("schoolcode")){
             schoolcode= (sp.getString("schoolcode",""));
+        }
+        if(sp.contains("user")){
+            userid= (sp.getString("user",""));
         }
 
         Toast.makeText(getApplicationContext(),"schoolcode: " + schoolcode,Toast.LENGTH_LONG).show();
@@ -146,11 +150,11 @@ public class TeacherMainScreen extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.Profile:
-                Toast.makeText(this,"VIEW CODE SELECTED",Toast.LENGTH_SHORT).show();
+                getProfile();
                 return true;
-            case R.id.Students:
-                Toast.makeText(this,"VIEW CODE SELECTED",Toast.LENGTH_SHORT).show();
-                return true;
+//            case R.id.Students:
+//                Toast.makeText(this,"VIEW CODE SELECTED",Toast.LENGTH_SHORT).show();
+//                return true;
             case R.id.about:
                 Toast.makeText(this,"About Page",Toast.LENGTH_SHORT).show();
                 Intent about = new Intent(TeacherMainScreen.this,About.class);
@@ -184,6 +188,48 @@ public class TeacherMainScreen extends AppCompatActivity {
         //Toast.makeText(getApplicationContext(),"Press logout button", Toast.LENGTH_LONG).show();
         return;
 
+    }
+
+    private void getProfile() {
+        RequestQueue queueu = Volley.newRequestQueue(this);
+        String url = "http://jeepcard.net/gportal/profile.php?cardid="+userid;
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+//                collegeCounterTextView.setText("Response Get: "+response);
+//                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                try {
+                    JSONArray JA= new JSONArray(response);
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(TeacherMainScreen.this);
+                    builder.setTitle("Profile");
+                    builder.setMessage("\nCollege: " + JA.getJSONObject(0).get("collegecode").toString() + "\n" +
+                            "Employee ID: " + JA.getJSONObject(0).get("cardid").toString() + "\n\n" +
+                            JA.getJSONObject(0).get("lname").toString() + ", " +
+                            JA.getJSONObject(0).get("fname").toString() + " " +
+                            JA.getJSONObject(0).get("mname").toString() + "\n" +
+                            JA.getJSONObject(0).get("gender").toString()
+                    );
+                    builder.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+
+                    builder.show();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            } //onResponse
+        }, new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), "Network unstable, please retry", Toast.LENGTH_LONG).show();
+            }
+        });//Stringrequest
+        queueu.add(stringRequest);
     }
 
     public void showTeacherscode(){

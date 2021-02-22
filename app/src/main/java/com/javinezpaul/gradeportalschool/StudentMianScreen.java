@@ -191,6 +191,11 @@ public class StudentMianScreen extends AppCompatActivity {
             case R.id.EnrolledCode:
                 Toast.makeText(this,"VIEW CODE SELECTED",Toast.LENGTH_SHORT).show();
                 return true;
+            case R.id.about:
+                Toast.makeText(this,"About Page",Toast.LENGTH_SHORT).show();
+                Intent about = new Intent(StudentMianScreen.this,About.class);
+                startActivity(about);
+                return true;
             case R.id.Logout:
                 Toast.makeText(this,"VIEW CODE SELECTED",Toast.LENGTH_SHORT).show();
                 return true;

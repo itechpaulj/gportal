@@ -199,6 +199,11 @@ public class TeacherMainScreen extends AppCompatActivity {
             case R.id.Students:
                 Toast.makeText(this,"VIEW CODE SELECTED",Toast.LENGTH_SHORT).show();
                 return true;
+            case R.id.about:
+                Toast.makeText(this,"About Page",Toast.LENGTH_SHORT).show();
+                Intent about = new Intent(TeacherMainScreen.this,About.class);
+                startActivity(about);
+                return true;
             case R.id.Logout:
                 Toast.makeText(this,"VIEW CODE SELECTED",Toast.LENGTH_SHORT).show();
                 return true;

@@ -4,6 +4,8 @@
 
     <item android:title="Profile"
         android:id="@+id/Profile"></item>
+    <item android:title="About"
+        android:id="@+id/about"></item>
     <item android:title="Logout"
         android:id="@+id/Logout"></item>
 

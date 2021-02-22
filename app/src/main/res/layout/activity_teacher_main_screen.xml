@@ -39,6 +39,7 @@
 
 
         <TextView
+            android:visibility="gone"
             android:id="@+id/teacheruser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,6 +48,7 @@
             android:text="Teacher User"></TextView>
 
         <Button
+            android:visibility="gone"
             android:background="@drawable/profilebg"
             android:id="@+id/logout"
             android:textColor="@color/white"

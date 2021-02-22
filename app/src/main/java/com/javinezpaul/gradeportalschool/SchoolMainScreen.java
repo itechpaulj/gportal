@@ -131,26 +131,26 @@ public class SchoolMainScreen extends AppCompatActivity{
 
 
         //note session build in ANDROID STUDIO
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
-                if(sp.contains("user")){
-                    SharedPreferences.Editor editor = sp.edit();
-                    editor.remove("user");
-                    editor.remove("cardid");
-                    editor.remove("name");
-                    editor.remove("image");
-                    editor.remove("access");
-                    editor.putString("msg","Logged Out Successfully");
-                    editor.commit();
-                    Intent hasloggedout = new Intent(SchoolMainScreen.this , Login.class);
-                    startActivity(hasloggedout);
-                    finish();
-                }
-
-            }
-        });
+//        logout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+//                if(sp.contains("user")){
+//                    SharedPreferences.Editor editor = sp.edit();
+//                    editor.remove("user");
+//                    editor.remove("cardid");
+//                    editor.remove("name");
+//                    editor.remove("image");
+//                    editor.remove("access");
+//                    editor.putString("msg","Logged Out Successfully");
+//                    editor.commit();
+//                    Intent hasloggedout = new Intent(SchoolMainScreen.this , Login.class);
+//                    startActivity(hasloggedout);
+//                    finish();
+//                }
+//
+//            }
+//        });
 
 
         cardviewAy.setOnClickListener(new View.OnClickListener() {
@@ -228,7 +228,21 @@ public class SchoolMainScreen extends AppCompatActivity{
                 Toast.makeText(this,"VIEW CODE SELECTED",Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.Logout:
-                Toast.makeText(this,"VIEW CODE SELECTED",Toast.LENGTH_SHORT).show();
+               // Toast.makeText(this,"VIEW CODE SELECTED",Toast.LENGTH_SHORT).show();
+                SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+                if(sp.contains("user")){
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.remove("user");
+                    editor.remove("cardid");
+                    editor.remove("name");
+                    editor.remove("image");
+                    editor.remove("access");
+                    editor.putString("msg","Logged Out Successfully");
+                    editor.commit();
+                    Intent hasloggedout = new Intent(SchoolMainScreen.this , Login.class);
+                    startActivity(hasloggedout);
+                    finish();
+                }
                 return true;
         }
         return super.onOptionsItemSelected(item);

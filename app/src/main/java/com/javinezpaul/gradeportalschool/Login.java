@@ -96,7 +96,6 @@ public class Login extends AppCompatActivity {
                     public void onResponse(String response) {
                         //Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
                         String[] responseSplit = response.split("-");
-                        Toast.makeText(getApplicationContext(),responseSplit[0] + " : " + responseSplit[1],Toast.LENGTH_LONG).show();
                         if(responseSplit[0].equals("School")){
                             //Toast.makeText(getApplicationContext(),"This is a School",Toast.LENGTH_LONG).show();
                             //note session build in ANDROID STUDIO

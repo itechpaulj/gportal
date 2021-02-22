@@ -66,11 +66,11 @@ public class StudentMianScreen extends AppCompatActivity {
             userid=sp.getString("user","").toString();
             // inside session
             RequestQueue requestQueue = Volley.newRequestQueue(StudentMianScreen.this);
-            String url = "http://192.168.43.177/gportal/session_student.php?cardid="+sp.getString("user","");
+            String url = "http://jeepcard.net/gportal/session_student.php?cardid="+sp.getString("user","");
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
 
                     try {
                         JSONArray jsonArray = new JSONArray(response);

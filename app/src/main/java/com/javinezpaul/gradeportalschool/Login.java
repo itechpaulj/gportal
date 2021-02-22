@@ -94,12 +94,15 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         //Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
-                        if(response.equals("School")){
+                        String[] responseSplit = response.split("-");
+                        Toast.makeText(getApplicationContext(),responseSplit[0] + " : " + responseSplit[1],Toast.LENGTH_LONG).show();
+                        if(responseSplit[0].equals("School")){
                             //Toast.makeText(getApplicationContext(),"This is a School",Toast.LENGTH_LONG).show();
                             //note session build in ANDROID STUDIO
                             SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
                             SharedPreferences.Editor editor = sp.edit();
                             editor.putString("user",hasinputeachuser.getText().toString());
+                            editor.putString("schoolcode",responseSplit[1]);
                             editor.commit();
                             Intent school = new Intent(Login.this,SchoolMainScreen.class);
                             startActivity(school);

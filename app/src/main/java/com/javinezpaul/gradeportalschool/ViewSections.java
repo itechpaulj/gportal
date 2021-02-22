@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -47,8 +48,10 @@ public class ViewSections extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
-        SchoolMainScreen mainClass = new SchoolMainScreen();
-        schoolcode=mainClass.schoolcode;
+        SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+        if(sp.contains("schoolcode")){
+            schoolcode= (sp.getString("schoolcode",""));
+        }
 //        Toast.makeText(getApplicationContext(), "Schoolcode: " + schoolcode + " is from SchoolMainScreen", Toast.LENGTH_LONG).show();
 
         toolbarAddButton=findViewById(R.id.toolbarAddButton);
@@ -72,6 +75,12 @@ public class ViewSections extends AppCompatActivity {
         getFunctionValley();
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        getFunctionValley();
+    }
+
     private void getFunctionValley() {
         RequestQueue queueu = Volley.newRequestQueue(this);
         String url = "http://jeepcard.net/gportal/sections.php?schoolcode="+schoolcode;
@@ -85,7 +94,7 @@ public class ViewSections extends AppCompatActivity {
 
                 sectionsRecView.setAdapter(adapter);
                 sectionsRecView.setLayoutManager(new LinearLayoutManager(ViewSections.this));
-
+                sections.clear();
                 try {
                     JSONArray JA= new JSONArray(response);
                     for(int i=0;i<JA.length();i++) {

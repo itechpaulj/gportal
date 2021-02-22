@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
@@ -45,8 +46,10 @@ public class addprograms extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addprograms);
 
-        SchoolMainScreen mainClass = new SchoolMainScreen();
-        schoolcode=mainClass.schoolcode;
+        SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+        if(sp.contains("schoolcode")){
+            schoolcode= (sp.getString("schoolcode",""));
+        }
         backBtn = findViewById(R.id.backBtn);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();

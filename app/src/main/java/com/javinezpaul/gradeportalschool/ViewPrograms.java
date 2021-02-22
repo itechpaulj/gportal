@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -42,8 +43,10 @@ public class ViewPrograms extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_programs);
-        SchoolMainScreen mainClass = new SchoolMainScreen();
-        schoolcode=mainClass.schoolcode;
+        SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+        if(sp.contains("schoolcode")){
+            schoolcode= (sp.getString("schoolcode",""));
+        }
 //        Toast.makeText(getApplicationContext(), "Schoolcode: " + schoolcode + " is from SchoolMainScreen", Toast.LENGTH_LONG).show();
 
         toolbarName=findViewById(R.id.toolbarName);
@@ -73,6 +76,12 @@ public class ViewPrograms extends AppCompatActivity {
         getFunctionValley();
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        getFunctionValley();
+    }
+
     private void getFunctionValley() {
         RequestQueue queueu = Volley.newRequestQueue(this);
         String url = "http://jeepcard.net/gportal/programs.php?schoolcode="+schoolcode;
@@ -86,7 +95,7 @@ public class ViewPrograms extends AppCompatActivity {
 
                 programsRecView.setAdapter(adapter);
                 programsRecView.setLayoutManager(new LinearLayoutManager(ViewPrograms.this));
-
+                programs.clear();
                 try {
                     JSONArray JA= new JSONArray(response);
                     for(int i=0;i<JA.length();i++) {

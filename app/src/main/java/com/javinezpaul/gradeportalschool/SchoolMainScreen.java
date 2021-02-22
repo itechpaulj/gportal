@@ -1,16 +1,21 @@
 package com.javinezpaul.gradeportalschool;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,10 +45,30 @@ public class SchoolMainScreen extends AppCompatActivity{
     public String schoolcode="66527c19b9";
 //    public String schoolcode="c86d491fad";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_school_main_screen);
+
+        SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+        schoolcode= (sp.getString("schoolcode",""));
+        if(sp.contains("schoolcode")){
+            schoolcode= (sp.getString("schoolcode",""));
+        }
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Your schoolcode is:");
+        builder.setMessage(schoolcode);
+
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
 
 
 
@@ -66,8 +91,7 @@ public class SchoolMainScreen extends AppCompatActivity{
         logout = (Button) findViewById(R.id.logout);
         schooluser = (TextView) findViewById(R.id.schooluser);
 
-        //note session build in ANDROID STUDIO
-        SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+
 
 
             schooluser.setText(sp.getString("user",""));

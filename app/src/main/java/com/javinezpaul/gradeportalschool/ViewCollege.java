@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -45,9 +46,11 @@ public class ViewCollege extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_college);
-//        String schoolcode=getIntent().getStringExtra("schoolcode");
-        SchoolMainScreen mainClass = new SchoolMainScreen();
-        schoolcode=mainClass.schoolcode;
+
+        SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+        if(sp.contains("schoolcode")){
+            schoolcode= (sp.getString("schoolcode",""));
+        }
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
@@ -77,6 +80,12 @@ public class ViewCollege extends AppCompatActivity {
         getFunctionValley();
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        getFunctionValley();
+    }
+
     private void getFunctionValley() {
         RequestQueue queueu = Volley.newRequestQueue(this);
         String url = "http://jeepcard.net/gportal/colleges.php?schoolcode="+schoolcode;
@@ -90,7 +99,7 @@ public class ViewCollege extends AppCompatActivity {
 
                 collegesRecView.setAdapter(adapter);
                 collegesRecView.setLayoutManager(new LinearLayoutManager(ViewCollege.this));
-
+                colleges.clear();
                 try {
                     JSONArray JA= new JSONArray(response);
                     for(int i=0;i<JA.length();i++) {

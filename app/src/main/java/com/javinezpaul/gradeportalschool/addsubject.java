@@ -3,6 +3,7 @@ package com.javinezpaul.gradeportalschool;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -59,8 +60,10 @@ public class addsubject extends AppCompatActivity {
         subjectcode = (EditText) findViewById(R.id.subjectcode);
         subjecttitle = (EditText) findViewById(R.id.subjecttitle);
 
-        SchoolMainScreen mainClass = new SchoolMainScreen();
-        schoolcode=mainClass.schoolcode;
+        SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+        if(sp.contains("schoolcode")){
+            schoolcode= (sp.getString("schoolcode",""));
+        }
 
 
         //back button
@@ -112,6 +115,9 @@ public class addsubject extends AppCompatActivity {
         // Academic Year
         RequestQueue requestQueue1 = Volley.newRequestQueue(addsubject.this);
         String url1 = "http://jeepcard.net/gportal/spinnersubjectacdemicyear.php?schoolcode="+schoolcode;
+        arrayList1.add("[Academic Year]");
+        arrayAdapter1 = new ArrayAdapter<>(addsubject.this, android.R.layout.simple_spinner_item,arrayList1);
+        arrayAdapter1.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         StringRequest stringRequest1 = new StringRequest(Request.Method.GET, url1, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -119,16 +125,13 @@ public class addsubject extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     int success = jsonObject.getInt("success");
-                        arrayList1.add("[Academic Year]");
+
                         if(success==1){
                             JSONArray jsonArray = jsonObject.getJSONArray("data");
                             for(int i=0;i<jsonArray.length();i++){
                                 JSONObject data = jsonArray.getJSONObject(i);
                                 String ayid = data.getString("acyrid");
                                 arrayList1.add(ayid);
-                                arrayAdapter1 = new ArrayAdapter<>(addsubject.this, android.R.layout.simple_spinner_item,arrayList1);
-                                arrayAdapter1.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-                                spinnerAcademicYear.setAdapter(arrayAdapter1);
                             }
 
                         }
@@ -143,6 +146,7 @@ public class addsubject extends AppCompatActivity {
             }
         });
         requestQueue1.add(stringRequest1);
+        spinnerAcademicYear.setAdapter(arrayAdapter1);
 
         //end Academic Year
 

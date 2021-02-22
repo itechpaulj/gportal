@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.view.View;
@@ -61,8 +62,10 @@ public class addsection extends AppCompatActivity{
         hasSpinner = (Spinner) findViewById(R.id.spinnerprogramcode);
         hasSectioncode = (EditText) findViewById(R.id.sectioncode);
 
-        SchoolMainScreen mainClass = new SchoolMainScreen();
-        schoolcode=mainClass.schoolcode;
+        SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+        if(sp.contains("schoolcode")){
+            schoolcode= (sp.getString("schoolcode",""));
+        }
 
         //back button
         backBtn.setOnClickListener(new View.OnClickListener() {

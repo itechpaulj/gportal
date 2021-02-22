@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -46,8 +47,10 @@ public class ViewTeachers extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
-        SchoolMainScreen mainClass = new SchoolMainScreen();
-        schoolcode=mainClass.schoolcode;
+        SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+        if(sp.contains("schoolcode")){
+            schoolcode= (sp.getString("schoolcode",""));
+        }
 //        Toast.makeText(getApplicationContext(), "Schoolcode: " + schoolcode + " is from SchoolMainScreen", Toast.LENGTH_LONG).show();
 
         left_icon=findViewById(R.id.left_icon);
@@ -60,6 +63,12 @@ public class ViewTeachers extends AppCompatActivity {
 
         getFunctionValley();
 
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        getFunctionValley();
     }
 
     private void getFunctionValley() {
@@ -76,7 +85,7 @@ public class ViewTeachers extends AppCompatActivity {
                 teachersRecView.setAdapter(adapter);
                 teachersRecView.setLayoutManager(new LinearLayoutManager(ViewTeachers.this));
 
-
+                teachers.clear();
                 try {
                     JSONArray JA= new JSONArray(response);
                     for(int i=0;i<JA.length();i++) {

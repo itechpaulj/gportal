@@ -2,6 +2,7 @@ package com.javinezpaul.gradeportalschool;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -137,6 +138,7 @@ make Toast for debugging result if success
             }
 
             private void hasProcessRegisterSchool() {
+                Toast.makeText(getApplicationContext(), "Processing...", Toast.LENGTH_LONG).show();
                 String regExpression = "^[\\\\w\\\\.-]+@([\\\\w\\\\-]+\\\\.)+[A-Z]{2,4}$";
                 String post_input_school_name = (String) hasinputSchoolName.getText().toString();
                 String post_input_school_address = (String) hasinputAddress.getText().toString();
@@ -155,6 +157,8 @@ make Toast for debugging result if success
                 }
                 else if(post_input_school_password.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Please Input Your Password",Toast.LENGTH_LONG).show();
+                }else if(imageview.getDrawable() == null){
+                    Toast.makeText(getApplicationContext(),"Please select an image logo",Toast.LENGTH_LONG).show();
                 }
                 else{
                     RequestQueue requestQueue = Volley.newRequestQueue(School.this);
@@ -164,19 +168,23 @@ make Toast for debugging result if success
                         @Override
                         public void onResponse(String response) {
                           Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
-                            if(response.equals(verifyImage)) {
-                                Intent login2 = new Intent(School.this, Login2.class);
-                                login2.putExtra("name", post_input_school_name);
-                                login2.putExtra("cardid", post_input_school_email);
-                                login2.putExtra("image", response);
-                                login2.putExtra("access", "School");
+                            if(response.equals("An Error occured")){
+                                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                            }else if(response.equals("Email address already exist!")){
+                                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                            }else {
+                                Intent login2 = new Intent(School.this, SchoolMainScreen.class);
+                                SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sp.edit();
+                                editor.putString("schoolcode",response);
+                                editor.commit();
                                 startActivity(login2);
                             }
                         }
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(getApplicationContext(),"Reconnect..",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),"Network unstable, please retry",Toast.LENGTH_LONG).show();
                         }
                     }){
                         @Override

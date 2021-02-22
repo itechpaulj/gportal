@@ -1,20 +1,16 @@
 package com.javinezpaul.gradeportalschool;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +23,6 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 public class SchoolMainScreen extends AppCompatActivity{
 
@@ -73,11 +68,68 @@ public class SchoolMainScreen extends AppCompatActivity{
 
         //note session build in ANDROID STUDIO
         SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
-        if(sp.contains("user")){
-            SharedPreferences.Editor editor = sp.edit();
-            schooluser.setText(sp.getString("user",""));
 
-        }
+
+            schooluser.setText(sp.getString("user",""));
+            // inside session
+            RequestQueue requestQueue = Volley.newRequestQueue(SchoolMainScreen.this);
+            String url = "http://jeepcard.net/gportal/school_session.php?cardid="+sp.getString("user","");
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    //Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+
+                    try {
+                        JSONArray jsonArray = new JSONArray(response);
+                        // cardid,name,access,image
+                   // Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+
+
+                        for(int i=0;i<jsonArray.length();i++) {
+                            String cardid = (String) jsonArray.getJSONObject(i).get("cardid").toString();
+                            String name = (String) jsonArray.getJSONObject(i).get("lname").toString();
+                            String access = (String) jsonArray.getJSONObject(i).get("access").toString();
+                            String image = (String) jsonArray.getJSONObject(i).get("photo").toString();
+                            //Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+//                            editor.putString("cardid", cardid);
+//                            editor.putString("name", name);
+//                            editor.putString("access", access);
+//                            editor.putString("image", image);
+//
+                            if(sp.contains("user")) {
+                                SharedPreferences.Editor editor = sp.edit();
+                                //Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+//                                Toast.makeText(getApplicationContext(), sp.getString("user", "") + "\n"
+//                                                + cardid + "\n"
+//                                                + name + "\n"
+//                                                + access + "\n"
+//                                                + image + "\n"
+//                                        , Toast.LENGTH_LONG).show();
+                                editor.putString("name",name);
+                                editor.putString("cardid",cardid);
+                                editor.putString("image",image);
+                                editor.putString("access",access);
+                                editor.commit();
+                            }
+
+
+                            //editor.commit();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(getApplicationContext(),"Reconnect..",Toast.LENGTH_LONG).show();
+                }
+            });
+            requestQueue.add(stringRequest);
+            //inside session
+
+
+
         //note session build in ANDROID STUDIO
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +138,10 @@ public class SchoolMainScreen extends AppCompatActivity{
                 if(sp.contains("user")){
                     SharedPreferences.Editor editor = sp.edit();
                     editor.remove("user");
+                    editor.remove("cardid");
+                    editor.remove("name");
+                    editor.remove("image");
+                    editor.remove("access");
                     editor.putString("msg","Logged Out Successfully");
                     editor.commit();
                     Intent hasloggedout = new Intent(SchoolMainScreen.this , Login.class);
@@ -223,5 +279,6 @@ public class SchoolMainScreen extends AppCompatActivity{
         Toast.makeText(getApplicationContext(),"Press logout button",Toast.LENGTH_LONG).show();
         return;
     }
+
 
 }

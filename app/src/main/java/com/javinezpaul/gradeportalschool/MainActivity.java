@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(login2);
 
         } else {
-            Toast.makeText(getApplicationContext(), "No login", Toast.LENGTH_LONG).show();
+           Toast.makeText(getApplicationContext(), "Welcome Gportal", Toast.LENGTH_LONG).show();
         }
     }
 }

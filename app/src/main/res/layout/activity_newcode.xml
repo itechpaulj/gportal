@@ -16,7 +16,7 @@
 
         <ImageView
             android:src="@drawable/arrowleft"
-            android:id="@+id/left_icon"
+            android:id="@+id/backBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"/>

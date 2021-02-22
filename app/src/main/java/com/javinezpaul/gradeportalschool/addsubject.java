@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -33,6 +34,7 @@ public class addsubject extends AppCompatActivity {
     private String schoolcode;
     private Button addSubject;
     private EditText subjectcode,subjecttitle;
+    ImageView backBtn;
 
     // programcode
     ArrayList<String> arrayList = new ArrayList<String>();
@@ -48,7 +50,7 @@ public class addsubject extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-
+        backBtn = findViewById(R.id.backBtn);
         spinnerProgram = (Spinner) findViewById(R.id.spinnerProgram);
         spinnerAcademicYear = (Spinner) findViewById(R.id.spinnerAcademicYear);
 
@@ -61,7 +63,13 @@ public class addsubject extends AppCompatActivity {
         schoolcode=mainClass.schoolcode;
 
 
-
+        //back button
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
          // ------------
         // Programcode
         RequestQueue requestQueue = Volley.newRequestQueue(addsubject.this);

@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -34,6 +35,7 @@ public class addprograms extends AppCompatActivity {
     private Spinner spinnerCollege;
     private EditText programcode, programname, major;
     private Button addProgBtn;
+    ImageView backBtn;
 
     private String schoolcode;
     private String code, name, major2, collegeid;
@@ -45,7 +47,7 @@ public class addprograms extends AppCompatActivity {
 
         SchoolMainScreen mainClass = new SchoolMainScreen();
         schoolcode=mainClass.schoolcode;
-
+        backBtn = findViewById(R.id.backBtn);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
@@ -54,6 +56,14 @@ public class addprograms extends AppCompatActivity {
         programname=findViewById(R.id.programname);
         major=findViewById(R.id.major);
         addProgBtn=findViewById(R.id.addProgBtn);
+
+        //back button
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         addProgBtn.setOnClickListener(new View.OnClickListener() {
             @Override

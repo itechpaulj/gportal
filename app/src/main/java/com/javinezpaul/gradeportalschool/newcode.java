@@ -1,12 +1,15 @@
 package com.javinezpaul.gradeportalschool;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -32,6 +35,7 @@ public class newcode extends AppCompatActivity {
     private String schoolcode;
     private Button gen_code;
     private  String post_spinner_spinnerAy,post_spinner_spinnerCollege,post_spinner_spinnerProgram,post_spinner_spinnerSection,post_spinner_spinnerSubjects;
+    ImageView backBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +43,10 @@ public class newcode extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
         String getTeachercardid = (String) sp.getString("user","");
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
+        backBtn = findViewById(R.id.backBtn);
         spinnerAy = findViewById(R.id.spinnerAy);
         spinnerCollege = findViewById(R.id.spinnerCollege);
         spinnerProgram = findViewById(R.id.spinnerProgram);
@@ -125,6 +132,14 @@ public class newcode extends AppCompatActivity {
                     }
                 };
                 requestQueue.add(stringRequest);
+            }
+        });
+
+        //backbutton
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
 

@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,7 +45,7 @@ public class addsection extends AppCompatActivity{
     private EditText hasSectioncode;
     private Button hasBtnaddsection;
     //global var
-
+    ImageView backBtn;
     ArrayAdapter<String> arrayAdapter;
     ArrayList<String> arrayList =  new ArrayList<>();
 
@@ -55,7 +56,7 @@ public class addsection extends AppCompatActivity{
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-
+        backBtn = findViewById(R.id.backBtn);
         hasBtnaddsection = (Button) findViewById(R.id.add);
         hasSpinner = (Spinner) findViewById(R.id.spinnerprogramcode);
         hasSectioncode = (EditText) findViewById(R.id.sectioncode);
@@ -63,7 +64,13 @@ public class addsection extends AppCompatActivity{
         SchoolMainScreen mainClass = new SchoolMainScreen();
         schoolcode=mainClass.schoolcode;
 
-
+        //back button
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         RequestQueue requestQueue = Volley.newRequestQueue(addsection.this);
         String url = "http://jeepcard.net/gportal/spinnerSection.php?schoolcode="+schoolcode;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {

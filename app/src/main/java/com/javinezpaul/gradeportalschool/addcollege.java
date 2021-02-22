@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ public class addcollege extends AppCompatActivity {
     private String collegecode;
     private String collegename;
 
+    ImageView backBtn;
     EditText collegeCodeTxt, collegeNameTxt;
     Button addBtn;
 
@@ -40,12 +42,22 @@ public class addcollege extends AppCompatActivity {
         SchoolMainScreen mainClass = new SchoolMainScreen();
         schoolcode=mainClass.schoolcode;
 
+        backBtn = findViewById(R.id.backBtn);
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
         collegeCodeTxt=findViewById(R.id.collegeCodeTxt);
         collegeNameTxt=findViewById(R.id.collegeNameTxt);
         addBtn=findViewById(R.id.addBtn);
+
+        //backbutton
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override

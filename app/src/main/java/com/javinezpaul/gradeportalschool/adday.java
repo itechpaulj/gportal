@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ import java.util.Arrays;
 public class adday extends AppCompatActivity {
     Spinner spinnerSem,spinnerYear1,spinnerYear2,spinnerLevel;
     Button addAyBtn;
+    ImageView backBtn;
     int c=0;
     private String schoolcode="";
     private String semToSend="";
@@ -42,13 +44,20 @@ public class adday extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
-
+        backBtn = findViewById(R.id.backBtn);
         spinnerSem =findViewById(R.id.spinnerSem);
         spinnerYear1=findViewById(R.id.spinnerYear1);
         spinnerYear2 =findViewById(R.id.spinnerYear2);
         spinnerLevel =findViewById(R.id.spinnerLevel);
         addAyBtn =findViewById(R.id.addAyBtn);
 
+        //back button
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         String[] sem = {"1st SEM","2nd SEM"};
         ArrayList<String> Sem = new ArrayList<>(Arrays.asList(sem));

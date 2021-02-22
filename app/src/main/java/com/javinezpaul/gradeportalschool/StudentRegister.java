@@ -147,7 +147,7 @@ public class StudentRegister extends AppCompatActivity {
                 String post_input_programcode = (String) ""+programcode.getSelectedItem();
                 String post_input_sectioncode = (String) ""+sectioncode.getSelectedItem();
                 String post_input_saddress = (String) ""+address.getText().toString().trim();
-                String randonString = RandomStringUtils.randomAlphanumeric(10);
+                String randonString = RandomStringUtils.randomAlphanumeric(20);
                 String verifyImage = "upload/profilestudent/"+randonString+".jpeg";
 
                 if(post_input_fname.isEmpty()){
@@ -187,7 +187,7 @@ public class StudentRegister extends AppCompatActivity {
                         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
-                                Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+
                                 if(response.equals(verifyImage)){
                                     Intent login2 = new Intent(StudentRegister.this , Login2.class);
                                     login2.putExtra("name",post_input_lname+", "+post_input_fname+" "+post_input_mname);
@@ -203,7 +203,7 @@ public class StudentRegister extends AppCompatActivity {
                         }, new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-                                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(),"Please Fill in the Form",Toast.LENGTH_LONG).show();
                             }
                         }){
                             @Override

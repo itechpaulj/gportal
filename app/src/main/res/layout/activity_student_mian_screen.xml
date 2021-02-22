@@ -223,6 +223,7 @@
             android:visibility="invisible" />
 
         <Button
+            android:visibility="gone"
             android:id="@+id/logout"
             android:layout_width="300dp"
             android:layout_height="wrap_content"

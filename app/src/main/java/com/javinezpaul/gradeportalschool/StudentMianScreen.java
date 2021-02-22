@@ -64,7 +64,65 @@ public class StudentMianScreen extends AppCompatActivity {
             SharedPreferences.Editor editor = sp.edit();
             studentuser.setText(sp.getString("user",""));
             userid=sp.getString("user","").toString();
+            // inside session
+            RequestQueue requestQueue = Volley.newRequestQueue(StudentMianScreen.this);
+            String url = "http://jeepcard.net/gportal/session_student.php?cardid="+sp.getString("user","");
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    //Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+
+                    try {
+                        JSONArray jsonArray = new JSONArray(response);
+                        // cardid,name,access,image
+                       // Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+
+                        for(int i=0;i<jsonArray.length();i++) {
+                            String cardid = (String) jsonArray.getJSONObject(i).get("cardid").toString();
+                            String name = (String) jsonArray.getJSONObject(i).get("lname").toString()+", "+jsonArray.getJSONObject(i).get("fname").toString() +" "+ jsonArray.getJSONObject(i).get("mname").toString()+"";
+                            String access = (String) jsonArray.getJSONObject(i).get("access").toString();
+                            String image = (String) jsonArray.getJSONObject(i).get("photo").toString();
+                            //Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+//                            editor.putString("cardid", cardid);
+//                            editor.putString("name", name);
+//                            editor.putString("access", access);
+//                            editor.putString("image", image);
+//
+                            if(sp.contains("user")) {
+                                SharedPreferences.Editor editor = sp.edit();
+                                //Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+//                                Toast.makeText(getApplicationContext(), sp.getString("user", "") + "\n"
+//                                                + cardid + "\n"
+//                                                + name + "\n"
+//                                                + access + "\n"
+//                                                + image + "\n"
+//                                        , Toast.LENGTH_LONG).show();
+                                editor.putString("name",name);
+                                editor.putString("cardid",cardid);
+                                editor.putString("image",image);
+                                editor.putString("access",access);
+                                editor.commit();
+                            }
+
+
+                            //editor.commit();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
+                }
+            });
+            requestQueue.add(stringRequest);
+            //inside session
+
         }
+
+
 
 
         spinnerAcademicYear=findViewById(R.id.spinnerYearLevel);
@@ -118,22 +176,26 @@ public class StudentMianScreen extends AppCompatActivity {
 
         //button functionalities
         logout = (Button) findViewById(R.id.logout);
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
-                if(sp.contains("user")){
-                    SharedPreferences.Editor editor = sp.edit();
-                    editor.remove("user");
-                    editor.putString("msg","Logged Out Successfully");
-                    editor.commit();
-                    Intent hasloggedout = new Intent(StudentMianScreen.this , Login.class);
-                    startActivity(hasloggedout);
-                    finish();
-                }
-
-            }
-        });
+//        logout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+//                if(sp.contains("user")){
+//                    SharedPreferences.Editor editor = sp.edit();
+//                    editor.remove("user");
+//                    editor.remove("cardid");
+//                    editor.remove("name");
+//                    editor.remove("image");
+//                    editor.remove("access");
+//                    editor.putString("msg","Logged Out Successfully");
+//                    editor.commit();
+//                    Intent hasloggedout = new Intent(StudentMianScreen.this , Login.class);
+//                    startActivity(hasloggedout);
+//                    finish();
+//                }
+//
+//            }
+//        });
 
 
         joinbtn=findViewById(R.id.joinbtn);
@@ -197,7 +259,21 @@ public class StudentMianScreen extends AppCompatActivity {
                 startActivity(about);
                 return true;
             case R.id.Logout:
-                Toast.makeText(this,"VIEW CODE SELECTED",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this,"VIEW CODE SELECTED",Toast.LENGTH_SHORT).show();
+                SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+                if(sp.contains("user")){
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.remove("user");
+                    editor.remove("cardid");
+                    editor.remove("name");
+                    editor.remove("image");
+                    editor.remove("access");
+                    editor.putString("msg","Logged Out Successfully");
+                    editor.commit();
+                    Intent hasloggedout = new Intent(StudentMianScreen.this , Login.class);
+                    startActivity(hasloggedout);
+                    finish();
+                }
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -205,7 +281,7 @@ public class StudentMianScreen extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
-        Toast.makeText(getApplicationContext(),"Press logout button",Toast.LENGTH_LONG).show();
+       // Toast.makeText(getApplicationContext(),"Press logout button",Toast.LENGTH_LONG).show();
         return;
     }
 

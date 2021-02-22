@@ -55,7 +55,7 @@ public class StudentRegister extends AppCompatActivity {
     LinearLayout min_gender,linear_collegcode,linear_programcode,linear_sectioncode;
     EditText schoolcode,
             fname,lname,mname,schoolid,
-            password,address;
+            password;
     Button btnschoolcode,btnUploadStudent,studentregister;
     ImageView imageStudent,backBtn;
     Spinner collegecode,programcode,sectioncode;
@@ -83,7 +83,6 @@ public class StudentRegister extends AppCompatActivity {
         mname = (EditText) findViewById(R.id.mname);
         schoolid = (EditText) findViewById(R.id.schoolid);
         password = (EditText) findViewById(R.id.password);
-        address = (EditText) findViewById(R.id.address);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
@@ -127,16 +126,14 @@ public class StudentRegister extends AppCompatActivity {
             }
         });
 
-
-
         studentregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"Processing...",Toast.LENGTH_LONG).show();
                 hasRegisteredStudent();
             }
 
             private void hasRegisteredStudent() {
-
 
                 String post_input_fname = (String) fname.getText().toString().trim();
                 String post_input_lname = (String) lname.getText().toString().trim();
@@ -146,11 +143,13 @@ public class StudentRegister extends AppCompatActivity {
                 String post_input_collegecode = (String) ""+collegecode.getSelectedItem();
                 String post_input_programcode = (String) ""+programcode.getSelectedItem();
                 String post_input_sectioncode = (String) ""+sectioncode.getSelectedItem();
-                String post_input_saddress = (String) ""+address.getText().toString().trim();
                 String randonString = RandomStringUtils.randomAlphanumeric(20);
                 String verifyImage = "upload/profilestudent/"+randonString+".jpeg";
 
-                if(post_input_fname.isEmpty()){
+                if(imageStudent.getDrawable()==null){
+                    Toast.makeText(getApplicationContext(),"Please upload profile picture",Toast.LENGTH_LONG).show();
+                }
+                else if(post_input_fname.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Please Input First Name",Toast.LENGTH_LONG).show();
                 }
                 else if(post_input_lname.isEmpty()){
@@ -158,9 +157,6 @@ public class StudentRegister extends AppCompatActivity {
                 }
                 else if(post_input_mname.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Please Input Middle Name",Toast.LENGTH_LONG).show();
-                }
-                else if(post_input_saddress.isEmpty()){
-                    Toast.makeText(getApplicationContext(),"Please Input Address",Toast.LENGTH_LONG).show();
                 }
                 else if(post_input_schoolid.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Please Input School Id",Toast.LENGTH_LONG).show();
@@ -203,7 +199,7 @@ public class StudentRegister extends AppCompatActivity {
                         }, new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-                                Toast.makeText(getApplicationContext(),"Please Fill in the Form",Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(),"Network unstable, please retry\n"+error.toString(),Toast.LENGTH_LONG).show();
                             }
                         }){
                             @Override
@@ -217,7 +213,6 @@ public class StudentRegister extends AppCompatActivity {
                                 params.put("password",post_input_password);
                                 params.put("gender",gender);
                                 params.put("schoolcoded",schoolcode.getText().toString());
-                                params.put("address",post_input_saddress);
                                 params.put("collegecode",post_input_collegecode);
                                 params.put("programcode",post_input_programcode);
                                 params.put("sectioncode",post_input_sectioncode);
@@ -238,7 +233,6 @@ public class StudentRegister extends AppCompatActivity {
 
             }
         });
-
 
         btnUploadStudent.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -264,7 +258,6 @@ public class StudentRegister extends AppCompatActivity {
                 lname.setVisibility(View.VISIBLE);
                 mname.setVisibility(View.VISIBLE);
                 schoolid.setVisibility(View.VISIBLE);
-                address.setVisibility(View.VISIBLE);
                 password.setVisibility(View.VISIBLE);
                 collegecode.setVisibility(View.VISIBLE);
                 programcode.setVisibility(View.VISIBLE);
@@ -281,302 +274,7 @@ public class StudentRegister extends AppCompatActivity {
             }
 
             private void hasSchoolcode() {
-
-                // college tbl
-                RequestQueue requestQueue = Volley.newRequestQueue(StudentRegister.this);
-                String url = "http://jeepcard.net/gportal/spinnercollegecodestudent.php";
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                       // Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
-                        try {
-                                if(response.equals("FAILED")){
-                                    Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
-                                    schoolcode.setVisibility(View.VISIBLE);
-                                    btnschoolcode.setVisibility(View.VISIBLE);
-
-                                    imageStudent.setVisibility(View.GONE);
-                                    btnUploadStudent.setVisibility(View.GONE);
-                                    fname.setVisibility(View.GONE);
-                                    lname.setVisibility(View.GONE);
-                                    mname.setVisibility(View.GONE);
-                                    schoolid.setVisibility(View.GONE);
-                                    address.setVisibility(View.GONE);
-                                    password.setVisibility(View.GONE);
-                                    collegecode.setVisibility(View.GONE);
-                                    programcode.setVisibility(View.GONE);
-                                    sectioncode.setVisibility(View.GONE);
-                                    studentregister.setVisibility(View.GONE);
-                                    min_gender.setVisibility(View.GONE);
-                                    linear_collegcode.setVisibility(View.GONE);
-                                    linear_sectioncode.setVisibility(View.GONE);
-                                    linear_programcode.setVisibility(View.GONE);
-                                }
-                                JSONObject jsonResult = null;
-                                jsonResult = new JSONObject(response);
-                                int success = jsonResult.getInt("success");
-                                    spinnerList1.add("[College Code]");
-                                    if(success==1){
-                                        JSONArray datas = jsonResult.getJSONArray("data");
-                                        for(int i=0;i<datas.length();i++){
-                                            JSONObject data = datas.getJSONObject(i);
-                                            //int id = data.getInt("id");
-                                            String collegetbl = data.getString("collegecode");
-                                            String cline = collegetbl;
-                                            spinnerList1.add(cline);
-                                            adapter1 = new ArrayAdapter<>(StudentRegister.this, android.R.layout.simple_spinner_item,spinnerList1);
-                                            adapter1.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-                                            collegecode.setAdapter(adapter1);
-                                        }
-                                    }
-
-
-
-                        }catch (JSONException e) {
-
-                            e.printStackTrace();
-                        }
-
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        schoolcode.setVisibility(View.VISIBLE);
-                        btnschoolcode.setVisibility(View.VISIBLE);
-
-
-                        imageStudent.setVisibility(View.GONE);
-                        btnUploadStudent.setVisibility(View.GONE);
-                        fname.setVisibility(View.GONE);
-                        lname.setVisibility(View.GONE);
-                        mname.setVisibility(View.GONE);
-                        schoolid.setVisibility(View.GONE);
-                        address.setVisibility(View.GONE);
-                        password.setVisibility(View.GONE);
-                        collegecode.setVisibility(View.GONE);
-                        programcode.setVisibility(View.GONE);
-                        sectioncode.setVisibility(View.GONE);
-                        studentregister.setVisibility(View.GONE);
-                        min_gender.setVisibility(View.GONE);
-                        linear_collegcode.setVisibility(View.GONE);
-                        linear_sectioncode.setVisibility(View.GONE);
-                        linear_programcode.setVisibility(View.GONE);
-                        Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
-                    }
-                }){
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map <String,String> params = new HashMap<>();
-                        params.put("schoolcoded",schoolcode.getText().toString());
-                        return params;
-                    }
-                };
-                requestQueue.add(stringRequest);
-                // college tbl
-
-                //-----------------
-
-                //programtbl
-                RequestQueue requestQueue1 = Volley.newRequestQueue(StudentRegister.this);
-                String url1 = "http://jeepcard.net/gportal/spinnerprogramcodestudent.php";
-                StringRequest stringRequest1 = new StringRequest(Request.Method.POST, url1, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
-                        try {
-                            if(response.equals("FAILED")){
-                                Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
-                                schoolcode.setVisibility(View.VISIBLE);
-                                btnschoolcode.setVisibility(View.VISIBLE);
-
-
-                                imageStudent.setVisibility(View.GONE);
-                                btnUploadStudent.setVisibility(View.GONE);
-                                fname.setVisibility(View.GONE);
-                                lname.setVisibility(View.GONE);
-                                mname.setVisibility(View.GONE);
-                                schoolid.setVisibility(View.GONE);
-                                address.setVisibility(View.GONE);
-                                password.setVisibility(View.GONE);
-                                collegecode.setVisibility(View.GONE);
-                                programcode.setVisibility(View.GONE);
-                                sectioncode.setVisibility(View.GONE);
-                                studentregister.setVisibility(View.GONE);
-                                min_gender.setVisibility(View.GONE);
-                                linear_collegcode.setVisibility(View.GONE);
-                                linear_sectioncode.setVisibility(View.GONE);
-                                linear_programcode.setVisibility(View.GONE);
-                            }
-                                // Toast.makeText(getApplicationContext(),"Verified!",Toast.LENGTH_LONG).show();
-                                JSONObject jsonResult = null;
-                                jsonResult = new JSONObject(response);
-                                int success = jsonResult.getInt("success");
-                                spinnerList2.add("[Program Code]");
-                                if(success==1){
-                                    JSONArray datas = jsonResult.getJSONArray("data");
-                                    for(int i=0;i<datas.length();i++){
-                                        JSONObject data = datas.getJSONObject(i);
-                                        //int id = data.getInt("id");
-                                        String programtbl = data.getString("programcode");
-                                        String pline = programtbl;
-                                        spinnerList2.add(pline);
-                                        adapter2 = new ArrayAdapter<>(StudentRegister.this, android.R.layout.simple_spinner_item,spinnerList2);
-                                        adapter2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-                                        programcode.setAdapter(adapter2);
-                                    }
-
-                                }
-                                else{
-                                    Toast.makeText(getApplicationContext(),"error",Toast.LENGTH_LONG).show();
-                                }
-
-
-
-
-
-                        }catch (JSONException e) {
-
-                            e.printStackTrace();
-                        }
-
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
-                        schoolcode.setVisibility(View.VISIBLE);
-                        btnschoolcode.setVisibility(View.VISIBLE);
-
-
-                        imageStudent.setVisibility(View.GONE);
-                        btnUploadStudent.setVisibility(View.GONE);
-                        fname.setVisibility(View.GONE);
-                        lname.setVisibility(View.GONE);
-                        mname.setVisibility(View.GONE);
-                        schoolid.setVisibility(View.GONE);
-                        address.setVisibility(View.GONE);
-                        password.setVisibility(View.GONE);
-                        collegecode.setVisibility(View.GONE);
-                        programcode.setVisibility(View.GONE);
-                        sectioncode.setVisibility(View.GONE);
-                        studentregister.setVisibility(View.GONE);
-                        min_gender.setVisibility(View.GONE);
-                        linear_collegcode.setVisibility(View.GONE);
-                        linear_sectioncode.setVisibility(View.GONE);
-                        linear_programcode.setVisibility(View.GONE);
-                    }
-                }){
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map <String,String> params = new HashMap<>();
-                        params.put("schoolcoded",schoolcode.getText().toString());
-                        return params;
-                    }
-                };
-                requestQueue1.add(stringRequest1);
-
-                //programtbl
-
-                //--------------
-                // sectiontbl
-                RequestQueue requestQueue2 = Volley.newRequestQueue(StudentRegister.this);
-                String url2 = "http://jeepcard.net/gportal/spinnersectioncodestudent.php";
-                StringRequest stringRequest2 = new StringRequest(Request.Method.POST, url2, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
-                        try {
-
-                            if(response.equals("FAILED")){
-                                Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
-                                schoolcode.setVisibility(View.VISIBLE);
-                                btnschoolcode.setVisibility(View.VISIBLE);
-
-
-                                imageStudent.setVisibility(View.GONE);
-                                btnUploadStudent.setVisibility(View.GONE);
-                                fname.setVisibility(View.GONE);
-                                lname.setVisibility(View.GONE);
-                                mname.setVisibility(View.GONE);
-                                schoolid.setVisibility(View.GONE);
-                                address.setVisibility(View.GONE);
-                                password.setVisibility(View.GONE);
-                                collegecode.setVisibility(View.GONE);
-                                programcode.setVisibility(View.GONE);
-                                sectioncode.setVisibility(View.GONE);
-                                studentregister.setVisibility(View.GONE);
-                                min_gender.setVisibility(View.GONE);
-                                linear_collegcode.setVisibility(View.GONE);
-                                linear_sectioncode.setVisibility(View.GONE);
-                                linear_programcode.setVisibility(View.GONE);
-                            }
-                                // Toast.makeText(getApplicationContext(),"Verified!",Toast.LENGTH_LONG).show();
-                                JSONObject jsonResult = null;
-                                jsonResult = new JSONObject(response);
-                                int success = jsonResult.getInt("success");
-                                spinnerList3.add("[Section Code]");
-                                if(success==1){
-                                    JSONArray datas = jsonResult.getJSONArray("data");
-                                    for(int i=0;i<datas.length();i++){
-                                        JSONObject data = datas.getJSONObject(i);
-                                        //int id = data.getInt("id");
-                                        String programtbl = data.getString("sectioncode");
-                                        String pline = programtbl;
-                                        spinnerList3.add(pline);
-                                        adapter3 = new ArrayAdapter<>(StudentRegister.this, android.R.layout.simple_spinner_item,spinnerList3);
-                                        adapter3.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-                                        sectioncode.setAdapter(adapter3);
-                                    }
-
-                                }
-                                else{
-                                    Toast.makeText(getApplicationContext(),"error",Toast.LENGTH_LONG).show();
-                                }
-
-                        }catch (JSONException e) {
-
-                            e.printStackTrace();
-                        }
-
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        schoolcode.setVisibility(View.VISIBLE);
-                        btnschoolcode.setVisibility(View.VISIBLE);
-
-
-                        imageStudent.setVisibility(View.GONE);
-                        btnUploadStudent.setVisibility(View.GONE);
-                        fname.setVisibility(View.GONE);
-                        lname.setVisibility(View.GONE);
-                        mname.setVisibility(View.GONE);
-                        schoolid.setVisibility(View.GONE);
-                        address.setVisibility(View.GONE);
-                        password.setVisibility(View.GONE);
-                        collegecode.setVisibility(View.GONE);
-                        programcode.setVisibility(View.GONE);
-                        sectioncode.setVisibility(View.GONE);
-                        studentregister.setVisibility(View.GONE);
-                        min_gender.setVisibility(View.GONE);
-                        linear_collegcode.setVisibility(View.GONE);
-                        linear_sectioncode.setVisibility(View.GONE);
-                        linear_programcode.setVisibility(View.GONE);
-                        Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
-                    }
-                }){
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map <String,String> params = new HashMap<>();
-                        params.put("schoolcoded",schoolcode.getText().toString());
-                        return params;
-                    }
-                };
-                requestQueue2.add(stringRequest2);
-                //sectiontbl
-
-
-
+                collegetbl();
             }
         });
 
@@ -623,6 +321,212 @@ public class StudentRegister extends AppCompatActivity {
         byte[] imagebytes = outputStream.toByteArray();
         String encodeImage = Base64.encodeToString(imagebytes,Base64.DEFAULT);
         return encodeImage;
+    }
+
+    private void collegetbl(){
+        // college tbl
+
+        spinnerList1.add("[College Code]");
+        adapter1 = new ArrayAdapter<>(StudentRegister.this, android.R.layout.simple_spinner_item,spinnerList1);
+        adapter1.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        RequestQueue requestQueue = Volley.newRequestQueue(StudentRegister.this);
+        String url = "http://jeepcard.net/gportal/spinnercollegecodestudent.php";
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                // Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+                try {
+                    if(response.equals("FAILED")){
+                        Toast.makeText(getApplicationContext(),"School has no college yet",Toast.LENGTH_LONG).show();
+                        setVisibilityGone();
+                    }else{
+                        JSONObject jsonResult = null;
+                        jsonResult = new JSONObject(response);
+                        int success = jsonResult.getInt("success");
+                        if(success==1){
+                            spinnerList1.clear(); spinnerList1.add("[College Code]");
+                            JSONArray datas = jsonResult.getJSONArray("data");
+                            for(int i=0;i<datas.length();i++){
+                                JSONObject data = datas.getJSONObject(i);
+                                //int id = data.getInt("id");
+                                String collegetbl = data.getString("collegecode");
+                                String cline = collegetbl;
+                                spinnerList1.add(cline);
+                            }
+                        }
+                        programtbl();
+                    }
+
+                }catch (JSONException e) {
+
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),"Network unstable, please retry",Toast.LENGTH_LONG).show();
+                setVisibilityGone();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map <String,String> params = new HashMap<>();
+                params.put("schoolcoded",schoolcode.getText().toString());
+                return params;
+            }
+        };
+        requestQueue.add(stringRequest);
+        collegecode.setAdapter(adapter1);
+        // college tbl
+    }
+
+    private void programtbl(){
+        //-----------------
+
+        //programtbl
+        spinnerList2.add("[Program Code]");
+        adapter2 = new ArrayAdapter<>(StudentRegister.this, android.R.layout.simple_spinner_item,spinnerList2);
+        adapter2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        RequestQueue requestQueue1 = Volley.newRequestQueue(StudentRegister.this);
+        String url1 = "http://jeepcard.net/gportal/spinnerprogramcodestudent.php";
+        StringRequest stringRequest1 = new StringRequest(Request.Method.POST, url1, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                // Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+                try {
+                    if(response.equals("FAILED")){
+                        Toast.makeText(getApplicationContext(),"School has no program yet",Toast.LENGTH_LONG).show();
+                        setVisibilityGone();
+                    }else{
+                        // Toast.makeText(getApplicationContext(),"Verified!",Toast.LENGTH_LONG).show();
+                        JSONObject jsonResult = null;
+                        jsonResult = new JSONObject(response);
+                        int success = jsonResult.getInt("success");
+                        if(success==1){
+                            spinnerList2.clear(); spinnerList2.add("[Program Code]");
+                            JSONArray datas = jsonResult.getJSONArray("data");
+                            for(int i=0;i<datas.length();i++){
+                                JSONObject data = datas.getJSONObject(i);
+                                //int id = data.getInt("id");
+                                String programtbl = data.getString("programcode");
+                                String pline = programtbl;
+                                spinnerList2.add(pline);
+                            }
+                        }else{
+                            Toast.makeText(getApplicationContext(),"An error occured while loading school info",Toast.LENGTH_LONG).show();
+                        }
+                        sectiontbl();
+                    }
+
+
+                }catch (JSONException e) {
+
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),"Network unstable, please retry",Toast.LENGTH_LONG).show();
+                setVisibilityGone();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map <String,String> params = new HashMap<>();
+                params.put("schoolcoded",schoolcode.getText().toString());
+                return params;
+            }
+        };
+        requestQueue1.add(stringRequest1);
+        programcode.setAdapter(adapter2);
+        //programtbl
+    }
+
+    private void sectiontbl(){
+        //--------------
+        // sectiontbl
+
+        spinnerList3.add("[Section Code]");
+        adapter3 = new ArrayAdapter<>(StudentRegister.this, android.R.layout.simple_spinner_item,spinnerList3);
+        adapter3.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        RequestQueue requestQueue2 = Volley.newRequestQueue(StudentRegister.this);
+        String url2 = "http://jeepcard.net/gportal/spinnersectioncodestudent.php";
+        StringRequest stringRequest2 = new StringRequest(Request.Method.POST, url2, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                // Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+                try {
+
+                    if(response.equals("FAILED")){
+                        Toast.makeText(getApplicationContext(),"School has no section yet",Toast.LENGTH_LONG).show();
+                        setVisibilityGone();
+                    }else{
+                        // Toast.makeText(getApplicationContext(),"Verified!",Toast.LENGTH_LONG).show();
+                        JSONObject jsonResult = null;
+                        jsonResult = new JSONObject(response);
+                        int success = jsonResult.getInt("success");
+                        if(success==1){
+                            spinnerList3.clear(); spinnerList3.add("[Section Code]");
+                            JSONArray datas = jsonResult.getJSONArray("data");
+                            for(int i=0;i<datas.length();i++){
+                                JSONObject data = datas.getJSONObject(i);
+                                //int id = data.getInt("id");
+                                String programtbl = data.getString("sectioncode");
+                                String pline = programtbl;
+                                spinnerList3.add(pline);
+                            }
+                        }else{
+                            Toast.makeText(getApplicationContext(),"An error occured while loading school info",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),"Network unstable, please retry",Toast.LENGTH_LONG).show();
+                setVisibilityGone();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map <String,String> params = new HashMap<>();
+                params.put("schoolcoded",schoolcode.getText().toString());
+                return params;
+            }
+        };
+        requestQueue2.add(stringRequest2);
+        sectioncode.setAdapter(adapter3);
+        //sectiontbl
+    }
+
+    private void setVisibilityGone(){
+        schoolcode.setVisibility(View.VISIBLE);
+        btnschoolcode.setVisibility(View.VISIBLE);
+
+
+        imageStudent.setVisibility(View.GONE);
+        btnUploadStudent.setVisibility(View.GONE);
+        fname.setVisibility(View.GONE);
+        lname.setVisibility(View.GONE);
+        mname.setVisibility(View.GONE);
+        schoolid.setVisibility(View.GONE);
+        password.setVisibility(View.GONE);
+        collegecode.setVisibility(View.GONE);
+        programcode.setVisibility(View.GONE);
+        sectioncode.setVisibility(View.GONE);
+        studentregister.setVisibility(View.GONE);
+        min_gender.setVisibility(View.GONE);
+        linear_collegcode.setVisibility(View.GONE);
+        linear_sectioncode.setVisibility(View.GONE);
+        linear_programcode.setVisibility(View.GONE);
     }
 
 }

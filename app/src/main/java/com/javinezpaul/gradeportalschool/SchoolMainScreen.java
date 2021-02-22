@@ -290,7 +290,7 @@ public class SchoolMainScreen extends AppCompatActivity{
 
     @Override
     public void onBackPressed(){
-        Toast.makeText(getApplicationContext(),"Press logout button",Toast.LENGTH_LONG).show();
+       // Toast.makeText(getApplicationContext(),"Press logout button",Toast.LENGTH_LONG).show();
         return;
     }
 

@@ -181,7 +181,6 @@ public class RegisterTeacher extends AppCompatActivity {
                             @Override
                             public void onResponse(String response) {
                                 //Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
-
                                     if(response.equals(verifyImage)){
                                         Intent login2 = new Intent(RegisterTeacher.this , Login2.class);
                                         login2.putExtra("name",post_input_lname+", "+post_input_fname+" "+post_input_mname);
@@ -199,7 +198,7 @@ public class RegisterTeacher extends AppCompatActivity {
                         }, new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-                                Toast.makeText(getApplicationContext(),"Please Fill in the Form",Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(),"Something went wrong!\n"+error.toString(),Toast.LENGTH_LONG).show();
                             }
                         }){
                             @Override
@@ -207,6 +206,7 @@ public class RegisterTeacher extends AppCompatActivity {
                                 Map<String,String> params = new HashMap<>();
 
                             String imageData = imageToString(bitmap);
+
                             params.put("fname",post_input_fname);
                             params.put("lname",post_input_lname);
                             params.put("mname",post_input_mname);
@@ -222,7 +222,6 @@ public class RegisterTeacher extends AppCompatActivity {
                             }
                         };
                         requestQueue.add(stringRequest);
-
 
                     }else{
                         Toast.makeText(getApplicationContext(), "Choose Your Gender", Toast.LENGTH_SHORT).show();
@@ -354,7 +353,7 @@ public class RegisterTeacher extends AppCompatActivity {
                         //address.setVisibility(View.GONE);
                         password.setVisibility(View.GONE);
                         linear_spinnercollegename.setVisibility(View.GONE);
-                        Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Something went wrong!\n"+error.toString(),Toast.LENGTH_LONG).show();
                     }
                 }){
                     @Override
@@ -411,11 +410,13 @@ public class RegisterTeacher extends AppCompatActivity {
     }
     // request imageString
     public String imageToString(Bitmap bitmap){
+
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
         byte[] imagebytes = outputStream.toByteArray();
-        String encodeImage = Base64.encodeToString(imagebytes,Base64.DEFAULT);
+        String encodeImage = (String) Base64.encodeToString(imagebytes,Base64.DEFAULT);
         return encodeImage;
+
     }
 
 

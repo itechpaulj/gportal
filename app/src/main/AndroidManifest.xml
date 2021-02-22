@@ -14,6 +14,7 @@
         android:theme="@style/Theme.GradePortalSchool"
         android:usesCleartextTraffic="true">
         <activity android:name=".Rank"></activity>
+        <activity android:name=".About"></activity>
         <activity android:name=".TeacherMainScreen" />
         <activity android:name=".ViewAy" />
         <activity android:name=".ViewSubjects" />
@@ -51,6 +52,7 @@
         <activity android:name=".StudentMainScreen2" />
         <activity android:name=".StudentMianScreen" />
         <activity android:name=".newcode"/>
+
     </application>
 
 </manifest>

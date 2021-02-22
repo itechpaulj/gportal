@@ -56,6 +56,9 @@ public class TeacherMainScreen extends AppCompatActivity {
         teachersCodeRecView.setLayoutManager(new LinearLayoutManager(TeacherMainScreen.this));
 
         teachersCodes.clear();
+
+        showTeacherscode();
+
         //adding data in recyclerview
 //        teachersCodes.clear();
 //        teachersCodes.add(new TeachersCode("1", "TE1234", "1", "1", "1", "1",
@@ -70,80 +73,11 @@ public class TeacherMainScreen extends AppCompatActivity {
 //        adapter.setTeachersCodes(teachersCodes);
 
 
-        // session teacher user
-        SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
 
 
 
-        // volley data
-        String getcardidTeacher = (String) sp.getString("user","");
-        RequestQueue requestQueue = Volley.newRequestQueue(TeacherMainScreen.this);
-        String url = "http://jeepcard.net/gportal/teachermainscreen.php?cardid="+getcardidTeacher;
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-               //Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
-                try {
-                    JSONArray jsonArray = new JSONArray(response);
-                        for(int i=0;i<jsonArray.length();i++){
-                            String teacherscodeid=jsonArray.getJSONObject(i).get("teacherscodeid").toString();
-                            String teacherscode=jsonArray.getJSONObject(i).get("teacherscode").toString();
-                            String collegeid=jsonArray.getJSONObject(i).get("collegeid").toString();
-                            String programid=jsonArray.getJSONObject(i).get("programid").toString();
-                            String sectionid=jsonArray.getJSONObject(i).get("sectionid").toString();
-                            String subjectid=jsonArray.getJSONObject(i).get("subjectid").toString();
-                            String ayid=jsonArray.getJSONObject(i).get("ayid").toString();
-                            String userid=jsonArray.getJSONObject(i).get("userid").toString();
-                            String date=jsonArray.getJSONObject(i).get("date").toString();
-                            String status=jsonArray.getJSONObject(i).get("status").toString();
-                            String collegecode=jsonArray.getJSONObject(i).get("collegecode").toString();
-                            String programcode=jsonArray.getJSONObject(i).get("programcode").toString();
-                            String sectioncode=jsonArray.getJSONObject(i).get("sectioncode").toString();
-                            String subjectcode=jsonArray.getJSONObject(i).get("subjectcode").toString();
-                            String collegename=jsonArray.getJSONObject(i).get("collegename").toString();
-                            String programname=jsonArray.getJSONObject(i).get("programname").toString();
-                            String subjecttitle=jsonArray.getJSONObject(i).get("subjecttitle").toString();
-                            String ayearlevel=jsonArray.getJSONObject(i).get("ayearlevel").toString();
-                            String aysem=jsonArray.getJSONObject(i).get("aysem").toString();
-                            String ayear1=jsonArray.getJSONObject(i).get("ayear1").toString();
-                            String ayear2=jsonArray.getJSONObject(i).get("ayear2").toString();
-                            String fullname=jsonArray.getJSONObject(i).get("fullname").toString();
-                            String access=jsonArray.getJSONObject(i).get("access").toString();
-                            String photo=jsonArray.getJSONObject(i).get("photo").toString();
-                            String cardid=jsonArray.getJSONObject(i).get("cardid").toString();
 
 
-        teachersCodes.add(new TeachersCode(teacherscodeid, teacherscode, collegeid, programid, sectionid, subjectid,
-                ayid, date, collegecode, collegename, programcode,
-                programname, sectioncode, subjectcode, subjecttitle,
-                ayear1, ayear2, ayearlevel, aysem));
-                            adapter.setTeachersCodes(teachersCodes);
-
-                            if(sp.contains("user")){
-                                SharedPreferences.Editor editor = sp.edit();
-                                editor.putString("name",fullname);
-                                editor.putString("cardid",cardid);
-                                editor.putString("image",photo);
-                                editor.putString("access",access);
-                                editor.commit();
-                            }
-                        }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),"Something went wrong!\n"+error.toString(),Toast.LENGTH_LONG).show();
-            }
-        });
-        requestQueue.add(stringRequest);
-
-
-
-        //volley data
 
 
 //        logout.setOnClickListener(new View.OnClickListener() {
@@ -214,6 +148,7 @@ public class TeacherMainScreen extends AppCompatActivity {
                     editor.remove("name");
                     editor.remove("image");
                     editor.remove("access");
+                    editor.remove("userid");
                     editor.putString("msg","Logged Out Successfully");
                     editor.commit();
                     Intent hasloggedout = new Intent(TeacherMainScreen.this , Login.class);
@@ -231,5 +166,79 @@ public class TeacherMainScreen extends AppCompatActivity {
         //Toast.makeText(getApplicationContext(),"Press logout button", Toast.LENGTH_LONG).show();
         return;
 
+    }
+
+    public void showTeacherscode(){
+        // session teacher user
+        SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+        // volley data
+        String getcardidTeacher = (String) sp.getString("user","");
+        RequestQueue requestQueue = Volley.newRequestQueue(TeacherMainScreen.this);
+        String url = "http://jeepcard.net/gportal/teachermainscreen.php?cardid="+getcardidTeacher;
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                //Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+                try {
+                    JSONArray jsonArray = new JSONArray(response);
+                    for(int i=0;i<jsonArray.length();i++){
+                        String teacherscodeid=jsonArray.getJSONObject(i).get("teacherscodeid").toString();
+                        String teacherscode=jsonArray.getJSONObject(i).get("teacherscode").toString();
+                        String collegeid=jsonArray.getJSONObject(i).get("collegeid").toString();
+                        String programid=jsonArray.getJSONObject(i).get("programid").toString();
+                        String sectionid=jsonArray.getJSONObject(i).get("sectionid").toString();
+                        String subjectid=jsonArray.getJSONObject(i).get("subjectid").toString();
+                        String ayid=jsonArray.getJSONObject(i).get("ayid").toString();
+                        String userid=jsonArray.getJSONObject(i).get("userid").toString();
+                        String date=jsonArray.getJSONObject(i).get("date").toString();
+                        String status=jsonArray.getJSONObject(i).get("status").toString();
+                        String collegecode=jsonArray.getJSONObject(i).get("collegecode").toString();
+                        String programcode=jsonArray.getJSONObject(i).get("programcode").toString();
+                        String sectioncode=jsonArray.getJSONObject(i).get("sectioncode").toString();
+                        String subjectcode=jsonArray.getJSONObject(i).get("subjectcode").toString();
+                        String collegename=jsonArray.getJSONObject(i).get("collegename").toString();
+                        String programname=jsonArray.getJSONObject(i).get("programname").toString();
+                        String subjecttitle=jsonArray.getJSONObject(i).get("subjecttitle").toString();
+                        String ayearlevel=jsonArray.getJSONObject(i).get("ayearlevel").toString();
+                        String aysem=jsonArray.getJSONObject(i).get("aysem").toString();
+                        String ayear1=jsonArray.getJSONObject(i).get("ayear1").toString();
+                        String ayear2=jsonArray.getJSONObject(i).get("ayear2").toString();
+                        String fullname=jsonArray.getJSONObject(i).get("fullname").toString();
+                        String access=jsonArray.getJSONObject(i).get("access").toString();
+                        String photo=jsonArray.getJSONObject(i).get("photo").toString();
+                        String cardid=jsonArray.getJSONObject(i).get("cardid").toString();
+
+                        teachersCodes.add(new TeachersCode(teacherscodeid, teacherscode, collegeid, programid, sectionid, subjectid,
+                                ayid, date, collegecode, collegename, programcode,
+                                programname, sectioncode, subjectcode, subjecttitle,
+                                ayear1, ayear2, ayearlevel, aysem));
+                        adapter.setTeachersCodes(teachersCodes);
+
+                        if(sp.contains("user")){
+                            SharedPreferences.Editor editor = sp.edit();
+                            editor.putString("name",fullname);
+                            editor.putString("cardid",cardid);
+                            editor.putString("image",photo);
+                            editor.putString("access",access);
+                            editor.putString("userid",userid);
+                            editor.commit();
+                        }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),"Something went wrong!\n"+error.toString(),Toast.LENGTH_LONG).show();
+            }
+        });
+        requestQueue.add(stringRequest);
+
+
+
+        //volley data
     }
 }

@@ -6,6 +6,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,7 +21,16 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 import java.util.ArrayList;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class TeachersCodeRecViewAdapter extends RecyclerView.Adapter<TeachersCodeRecViewAdapter.ViewHolder>{
 
@@ -82,11 +92,36 @@ public class TeachersCodeRecViewAdapter extends RecyclerView.Adapter<TeachersCod
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //TODO: please write delete function here
-                        Toast.makeText(mContext, teachersCodes.get(position).getTeacherscode() + " Deleted", Toast.LENGTH_SHORT).show();
-                        ClipboardManager clipboardManager = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
-                        ClipData clipData = ClipData.newPlainText("TextView","");
-                        clipboardManager.setPrimaryClip(clipData);
-                        Toast.makeText(mContext, teachersCodes.get(position).getTeacherscode() + " Copied", Toast.LENGTH_LONG).show();
+//                        Toast.makeText(mContext, teachersCodes.get(position).getTeacherscode() + " Deleted", Toast.LENGTH_SHORT).show();
+//                        ClipboardManager clipboardManager = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+//                        ClipData clipData = ClipData.newPlainText("TextView","");
+//                        clipboardManager.setPrimaryClip(clipData);
+//                        Toast.makeText(mContext, teachersCodes.get(position).getTeacherscode() + " Copied", Toast.LENGTH_LONG).show();
+                        RequestQueue requestQueue = Volley.newRequestQueue(mContext);
+                        SharedPreferences sp = mContext.getSharedPreferences("credentials",MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sp.edit();
+                        String userid = sp.getString("cardid","");
+
+                        String url = "http://jeepcard.net/gportal/deactivateTeachercode.php?teacherscodeid="+teachersCodes.get(position).getTeacherscodeid();
+                        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                Toast.makeText(mContext,response,Toast.LENGTH_LONG).show();
+                                TeacherMainScreen mainClass = new TeacherMainScreen();
+                                mainClass.showTeacherscode();
+//                                Intent reload = new Intent(mContext, TeacherMainScreen.class);
+//                                mContext.startActivity(reload);
+
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Toast.makeText(mContext,"Error",Toast.LENGTH_LONG).show();
+                            }
+                        });
+                        requestQueue.add(stringRequest);
+
+
                     }
                 });
 

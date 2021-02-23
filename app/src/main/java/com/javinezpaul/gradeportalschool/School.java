@@ -191,7 +191,7 @@ make Toast for debugging result if success
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             hasRegisterSchool.setVisibility(View.VISIBLE);
-                            Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),"Network unstable, please retry",Toast.LENGTH_LONG).show();
                         }
                     }){
                         @Override

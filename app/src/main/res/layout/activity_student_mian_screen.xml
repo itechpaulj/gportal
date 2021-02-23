@@ -24,7 +24,18 @@
             android:gravity="center"
             android:orientation="vertical">
 
-
+            <Button
+                android:visibility="gone"
+                android:id="@+id/viewcode"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="25dp"
+                android:background="@drawable/cornerbg"
+                android:text="You are viewing grades from a view code"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="15dp"></Button>
             <Button
                 android:id="@+id/joinbtn"
                 android:layout_width="250dp"

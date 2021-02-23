@@ -37,7 +37,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class StudentMianScreen extends AppCompatActivity {
-   Button logout, joinbtn;
+   Button logout, joinbtn,viewcode;
    TextView studentuser, gwa, subjectsEnrolled;
    Spinner spinnerAcademicYear, spinnerSem;
 
@@ -60,7 +60,27 @@ public class StudentMianScreen extends AppCompatActivity {
         setContentView(R.layout.activity_student_mian_screen);
         studentuser = (TextView) findViewById(R.id.studentuser);
         SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
+
+
+
+        spinnerAcademicYear=findViewById(R.id.spinnerYearLevel);
+        spinnerSem=findViewById(R.id.spinnerSem);
+        gwa=findViewById(R.id.gwa);
+        subjectsEnrolled=findViewById(R.id.subjectsEnrolled);
+        joinbtn=findViewById(R.id.joinbtn);
+        viewcode=findViewById(R.id.viewcode);
+
+
+
         if(sp.contains("user")){
+
+            if("exist".equals(sp.getString("viewcode","")) ){
+                joinbtn.setVisibility(View.GONE);
+                viewcode.setVisibility(View.VISIBLE);
+
+            }
+
+
             SharedPreferences.Editor editor = sp.edit();
             studentuser.setText(sp.getString("user",""));
             userid=sp.getString("user","").toString();
@@ -114,7 +134,7 @@ public class StudentMianScreen extends AppCompatActivity {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Network unstable, please retry",Toast.LENGTH_LONG).show();
                 }
             });
             requestQueue.add(stringRequest);
@@ -124,12 +144,6 @@ public class StudentMianScreen extends AppCompatActivity {
 
 
 
-
-        spinnerAcademicYear=findViewById(R.id.spinnerYearLevel);
-        spinnerSem=findViewById(R.id.spinnerSem);
-        gwa=findViewById(R.id.gwa);
-        subjectsEnrolled=findViewById(R.id.subjectsEnrolled);
-        joinbtn=findViewById(R.id.joinbtn);
 
 
         //spinner initialization
@@ -268,6 +282,9 @@ public class StudentMianScreen extends AppCompatActivity {
                     editor.remove("name");
                     editor.remove("image");
                     editor.remove("access");
+                    editor.remove("viewcode");
+                    editor.clear();
+                    editor.remove("");
                     editor.putString("msg","Logged Out Successfully");
                     editor.commit();
                     Intent hasloggedout = new Intent(StudentMianScreen.this , Login.class);

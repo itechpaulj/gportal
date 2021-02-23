@@ -251,7 +251,7 @@ public class StudentMianScreen extends AppCompatActivity {
                 getProfile();
                 return true;
             case R.id.EnrolledCode:
-                Toast.makeText(this,"VIEW CODE SELECTED",Toast.LENGTH_SHORT).show();
+                getEnrolledCode();
                 return true;
             case R.id.about:
                 Toast.makeText(this,"About Page",Toast.LENGTH_SHORT).show();
@@ -326,6 +326,53 @@ public class StudentMianScreen extends AppCompatActivity {
             }
         });//Stringrequest
         queueu.add(stringRequest);
+    }
+
+    private void getEnrolledCode() {
+
+        RequestQueue queueu = Volley.newRequestQueue(this);
+        String url = "http://jeepcard.net/gportal/enrolledcode.php?cardid="+userid;
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                int i=0;
+                String message="\nCODE"+" \t | \t "+"SUBJECT\n========================\n";
+//                collegeCounterTextView.setText("Response Get: "+response);
+//                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                try {
+                    JSONArray JA= new JSONArray(response);
+
+                    for(i=0;i<JA.length();i++) {
+                        message+=String.valueOf(i+1) +". \t";
+                        message+=JA.getJSONObject(i).get("teacherscode").toString() + "\t | \t";
+                        message+=JA.getJSONObject(i).get("subjectcode").toString() + "\n------------------------------------------------\n";
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                AlertDialog.Builder builder = new AlertDialog.Builder(StudentMianScreen.this);
+                builder.setTitle("Enrolled Codes");
+                builder.setMessage(message);
+                builder.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                builder.show();
+                if(i==0){
+                    Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                }
+            } //onResponse
+        }, new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), "Network unstable, please retry", Toast.LENGTH_LONG).show();
+            }
+        });//Stringrequest
+        queueu.add(stringRequest);
+
     }
 
 

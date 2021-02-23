@@ -168,7 +168,7 @@ make Toast for debugging result if success
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, localUrl, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-                          Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                          //Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
                             if(response.equals("An Error occured")){
                                 Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
                                 hasRegisterSchool.setVisibility(View.VISIBLE);
@@ -176,10 +176,13 @@ make Toast for debugging result if success
                                 Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
                                 hasRegisterSchool.setVisibility(View.VISIBLE);
                             }else {
+                                String[] splitschool = response.split("-");
+                                Toast.makeText(getApplicationContext(),"schoolcode: "+splitschool[0]+"\nSchool email:"+splitschool[1],Toast.LENGTH_LONG).show();
                                 Intent login2 = new Intent(School.this, SchoolMainScreen.class);
                                 SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sp.edit();
-                                editor.putString("schoolcode",response);
+                                editor.putString("schoolcode",splitschool[0]);
+                                editor.putString("user",splitschool[1]);
                                 editor.commit();
                                 startActivity(login2);
                             }
@@ -188,7 +191,7 @@ make Toast for debugging result if success
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             hasRegisterSchool.setVisibility(View.VISIBLE);
-                            Toast.makeText(getApplicationContext(),"Network unstable, please retry",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
                         }
                     }){
                         @Override

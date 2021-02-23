@@ -58,6 +58,7 @@ public class Login2 extends AppCompatActivity {
         String cardidLogin = intent.getStringExtra("cardid");
         String urlimgweb = intent.getStringExtra("image");
         String accessSchool = intent.getStringExtra("access");
+        String schoolcode = intent.getStringExtra("schoolcode");
         cardid.setText(cardidLogin);
         name.setText(nameLogin);
         access.setText(accessSchool);
@@ -130,6 +131,7 @@ public class Login2 extends AppCompatActivity {
                             SharedPreferences sp = getSharedPreferences("credentials",MODE_PRIVATE);
                             SharedPreferences.Editor editor = sp.edit();
                             editor.putString("user",cardid.getText().toString());
+                            editor.putString("schoolcode",schoolcode);
                             editor.commit();
                             Intent school = new Intent(Login2.this,TeacherMainScreen.class);
                             startActivity(school);

@@ -191,11 +191,13 @@ public class RegisterTeacher extends AppCompatActivity {
                             @Override
                             public void onResponse(String response) {
                                 //Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
-                                    if(response.equals(verifyImage)){
+                                String[] splitTeacher = response.split("-");
+                                    if(splitTeacher[0].equals("Teacher")){
                                         Intent login2 = new Intent(RegisterTeacher.this , Login2.class);
                                         login2.putExtra("name",post_input_lname+", "+post_input_fname+" "+post_input_mname);
                                         login2.putExtra("cardid", post_input_empid);
-                                        login2.putExtra("image", response);
+                                        login2.putExtra("image", verifyImage);
+                                        login2.putExtra("schoolcode", splitTeacher[1]);
                                         login2.putExtra("access", "Teacher");
                                         startActivity(login2);
                                     }

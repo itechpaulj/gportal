@@ -273,6 +273,7 @@ public class SchoolMainScreen extends AppCompatActivity{
                     editor.remove("name");
                     editor.remove("image");
                     editor.remove("access");
+                    editor.clear();
                     editor.putString("msg","Logged Out Successfully");
                     editor.commit();
                     Intent hasloggedout = new Intent(SchoolMainScreen.this , Login.class);

@@ -3,6 +3,7 @@ package com.javinezpaul.gradeportalschool;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.view.View;
@@ -41,6 +42,10 @@ public class StudentJoinCode extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //TODO: write intent here to check the viewcode, if found, go to viewgrades
+//                Intent intent = new Intent(mContext , TeachersCodeStudents.class);
+//                intent.putExtra("teacherscode", studentsGrades.get(position).getTeachescode() );
+//                intent.putExtra("toolbarName", studentsGrades.get(position).getSubjecttitle() );
+//                mContext.startActivity(intent);
             }
         });
     }
